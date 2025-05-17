@@ -84,10 +84,18 @@ function Navbar({ showHeroTextInNav }) {
                 setIsDropdownOpen(!isDropdownOpen);
               }}
             >
-              More
+              More <span className="dropdown-arrow">▼</span>
             </a>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
+                <li className="dropdown-submenu">
+                  <a href="#languages">Languages</a>
+                  <ul className="dropdown-submenu-content">
+                    <li><a href="/french">French</a></li>
+                    <li><a href="/german">German</a></li>
+                    <li><a href="/japanese">Japanese</a></li>
+                  </ul>
+                </li>
                 <li><Link to="/franchise" onClick={handleNavClick}>Franchise</Link></li>
                 <li><Link to="/contact" onClick={handleNavClick}>Contact Us</Link></li>
                 <li><Link to="/privacy" onClick={handleNavClick}>Privacy Policy</Link></li>

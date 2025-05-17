@@ -1,0 +1,279 @@
+.centres-page-root {
+  position: relative;
+  min-height: 100vh;
+  background: #f8f8f8;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.centres-bg-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.centres-bg-text span {
+  font-size: 15vw;
+  font-weight: 900;
+  color: #000000;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scrollText 20s linear infinite;
+  margin-right: 2vw;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.centres-carousel-frame {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 200px;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.centres-carousel {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  min-width: 0;
+  max-width: none;
+  overflow-x: scroll;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-left: 25vw;
+  padding-right: 25vw;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 25vw;
+}
+
+.centres-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.centres-carousel.active {
+  cursor: grabbing;
+}
+
+.centre-tile {
+  scroll-snap-align: start;
+  position: relative;
+  cursor: pointer;
+  min-width: 300px;
+  max-width: 300px;
+  height: 400px;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.centre-tile:hover {
+  transform: scale(1.02);
+}
+
+.centre-tile.selected {
+  border: 2px solid #000;
+}
+
+.centre-tile-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.centre-tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #f5f5f5;
+  display: block;
+}
+
+.centre-tile-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.centre-tile:hover .centre-tile-overlay {
+  transform: translateY(0);
+}
+
+.centre-code {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.centre-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Details section */
+.centre-details-frame {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+  z-index: 3;
+  position: relative;
+  animation: slideDownDetails 0.5s cubic-bezier(.77,0,.18,1) both;
+}
+
+@keyframes slideDownDetails {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.centre-details-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.centre-details-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.centre-details-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.centre-details-location {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.centre-details-content {
+  display: flex;
+  gap: 3rem;
+}
+
+.centre-details-left {
+  flex: 1;
+}
+
+.centre-details-right {
+  flex: 1;
+}
+
+.centre-details-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.centre-details-address {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.centre-details-courses,
+.centre-details-contact {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.centre-details-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.centre-details-close {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.centre-details-close:hover {
+  background: #333;
+}
+
+@media (max-width: 900px) {
+  .centres-carousel {
+    padding-left: 10vw;
+    scroll-padding-left: 10vw;
+  }
+  
+  .centre-tile {
+    min-width: 250px;
+    height: 350px;
+  }
+  
+  .centre-details-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .centres-carousel-frame {
+    padding: 60px 0;
+  }
+  
+  .centres-carousel {
+    padding-left: 5vw;
+    scroll-padding-left: 5vw;
+  }
+  
+  .centre-tile {
+    min-width: 200px;
+    height: 300px;
+  }
+  
+  .centre-details-card {
+    padding: 1.5rem;
+  }
+  
+  .centre-details-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .centre-details-location {
+    font-size: 1rem;
+  }
+}

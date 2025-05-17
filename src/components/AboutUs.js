@@ -72,24 +72,6 @@ function AboutUs() {
               200+ students have achieved excellence, showcasing our commitment to comprehensive language education.
             </p>
           </div>
-
-          <div className="vision-mission-container">
-            <section className="about-section vision-section">
-              <h2 className="section-title">Our Vision</h2>
-              <p className="about-text">
-                We envision a society where language barriers are overcome, facilitating seamless communication and 
-                interconnectedness among diverse communities.
-              </p>
-            </section>
-
-            <section className="about-section mission-section">
-              <h2 className="section-title">Our Mission</h2>
-              <p className="about-text">
-                Our mission is to empower individuals of all ages with the linguistic proficiency necessary to thrive 
-                in a globalized world while fostering cross-cultural appreciation and understanding.
-              </p>
-            </section>
-          </div>
         </div>
 
         <div className="carousel-section">
@@ -139,6 +121,37 @@ function AboutUs() {
           </div>
         </div>
       </section>
+
+      <div className="bottom-sections">
+        <div className="vision-mission-container">
+          <div className="vision-mission-row">
+            <section className="about-section vision-section">
+              <h2 className="section-title">Our Vision</h2>
+              <p className="about-text">
+                We envision a society where language barriers are overcome, facilitating seamless communication and 
+                interconnectedness among diverse communities.
+              </p>
+            </section>
+            
+            <section className="about-section mission-section">
+              <h2 className="section-title">Our Mission</h2>
+              <p className="about-text">
+                Our mission is to empower individuals of all ages with the linguistic proficiency necessary to thrive 
+                in a globalized world while fostering cross-cultural appreciation and understanding.
+              </p>
+            </section>
+          </div>
+
+          <div className="join-team-container">
+            <div className="join-team-content">
+              <h2 className="join-team-title">Want to join our team?</h2>
+              <button className="join-team-button">
+                Click here to join
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,16 +5,30 @@ import './QuoteFrame.css';
 import LanguagesOffered from './LanguagesOffered';
 import FAQ from './FAQ';
 import LanguagePhysicsCanvas from './LanguagePhysicsCanvas';
+import ScrambleText from './ScrambleText';
 
 function Home({ heroRef, heroOutOfView }) {
   const navigate = useNavigate();
+  
+  const languages = [
+    "C'est toujours le bon moment pour commencer à apprendre",
+    "Es ist immer der richtige Zeitpunkt, um mit dem Lernen zu beginnen",
+    "Es siempre es el momento adecuado para empezar a aprender",
+    "いつでも学び始めるのに最適な時期です"
+  ];
+
   return (
     <div>
       <Hero ref={heroRef} heroOutOfView={heroOutOfView} />
       <LanguagesOffered />
       <div className="quote-frame">
         <div className="quote-text">
-          <div>"C'est toujours le bon moment pour commencer à apprendre"</div>
+          <div>
+            <ScrambleText 
+              text="C'est toujours le bon moment pour commencer à apprendre"
+              languages={languages}
+            />
+          </div>
           <div style={{ fontSize: '1.1rem', marginTop: '0.5rem', color: '#555' }}>
             - It's always the right time to start learning.
           </div>
