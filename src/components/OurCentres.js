@@ -62,6 +62,7 @@ const centres = [
 function OurCentres() {
   const [selected, setSelected] = useState(null);
   const carouselRef = useRef(null);
+  const extraFrameRefs = useRef(Array(5).fill(null).map(() => React.createRef()));
 
   // Handle drag scroll
   let isDown = false;
@@ -106,10 +107,20 @@ function OurCentres() {
     isDown = false;
   };
 
+  // Scroll to extra frame on tile click
+  const handleTileClick = (idx) => {
+    setSelected(idx);
+    if (extraFrameRefs.current[idx]) {
+      extraFrameRefs.current[idx].current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="centres-page-root">
-      {/* Draggable carousel */}
       <div className="centres-carousel-frame">
+        <div className="centres-bg-text">
+          <span>CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS</span>
+        </div>
         <div
           className="centres-carousel"
           ref={carouselRef}
@@ -122,18 +133,39 @@ function OurCentres() {
             <div
               key={centre.id}
               className={`centre-tile${selected === idx ? ' selected' : ''}`}
-              onClick={() => setSelected(idx)}
+              onClick={() => handleTileClick(idx)}
             >
-              <div className="centre-tile-img-container">
-                <img src={centre.image} alt={centre.name} className="centre-tile-img" />
-                <div className="centre-tile-overlay">
-                  <div className="centre-code">{centre.code}</div>
-                  <div className="centre-name">{centre.name}</div>
+              <div className="centre-tile-outer">
+                <div className="centre-tile-inner">
+                  <div className="centre-tile-img-container">
+                    <img src={centre.image} alt={centre.name} className="centre-tile-img" />
+                  </div>
+                </div>
+                <div className="centre-tile-info">
+                  <div className="centre-tile-info-default">
+                    <div className="centre-tile-title">{centre.name}</div>
+                    <div className="centre-tile-price">{centre.contact}</div>
+                  </div>
+                  <div className="centre-tile-info-hover">
+                    <div><strong>Centre Code:</strong> {centre.code}</div>
+                    <div><strong>Centre Name:</strong> {centre.name}</div>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div className="centres-extra-frames">
+        {[0,1,2,3,4].map((i) => (
+          <div
+            className="centre-extra-frame"
+            key={i}
+            ref={extraFrameRefs.current[i]}
+          >
+            Extra Frame {i+1}
+          </div>
+        ))}
       </div>
       {/* Redirect to details below carousel */}
       {selected !== null && (
@@ -151,12 +183,8 @@ function OurCentres() {
           <button className="redirect-close" onClick={() => setSelected(null)}>Close</button>
         </div>
       )}
-      <div className="centres-bg-text">
-        <span>CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS </span>
-        <span>CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS </span>
-      </div>
     </div>
   );
 }
 
-export default OurCentres;
+export default OurCentres; 
