@@ -1,68 +1,74 @@
 import React, { useRef, useState } from 'react';
 import './OurCentres.css';
+import germanImage from '../assets/german.jpeg'; // Corrected import path
 
 const centres = [
   {
     id: 1,
-    code: "ISML-001",
-    name: "ISML Main Centre",
-    location: "Hyderabad",
-    address: "123 Education Street, Hyderabad, Telangana",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    courses: ["French", "German", "Japanese"],
-    contact: "+91 9876543210",
-    description: "The main ISML centre in Hyderabad offers a full range of language courses and cultural events."
+    code: "ISMLTR",
+    name: "ISML- Trichirappalli",
+    location: "Tiruchirappalli-Tamil Nadu",
+    address: "", // Address is part of the description
+    image: germanImage, // Use the imported image
+    courses: [], // Not provided in the text
+    contact: "", // Not provided in the text
+    description: "Established in March 2024, our inaugural branch is situated at 7TH CROSS STREET, THILLAI NAGAR. We pride ourselves on cultivating a student-friendly environment dedicated to delivering excellence in education. With a focus on personalized attention and top-tier instruction, our passionate team is committed to nurturing the academic and holistic growth of every individual. Our goal is to create a supportive and inspiring atmosphere where students are empowered to unleash their full potential through curiosity, critical thinking, and a love for learning. As we embark on this journey, we aspire to expand our impact and continue making a positive difference in the lives of students.",
+    buttonText: "Call for admission"
   },
   {
     id: 2,
-    code: "ISML-002",
-    name: "ISML North Centre",
-    location: "Delhi",
-    address: "456 Learning Avenue, Delhi",
-    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    courses: ["French", "German"],
-    contact: "+91 9876543211",
-    description: "Our Delhi centre specializes in French and German, with experienced faculty and modern classrooms."
+    code: "ISMLVD",
+    name: "ISML- Aruppukkottai",
+    location: "Aruppukkottai-Tamil Nadu",
+    address: "", // Address is part of the description
+    image: germanImage, // Use the imported image
+    courses: [], // Not provided in the text
+    contact: "", // Not provided in the text
+    description: "Established in November 2024, our inaugural branch of Virudhunagar district is situated at 58/2, SBK College Rd, Vasantham Nagar. The centre offers a vibrant environment focused on academic excellence and personal growth. We provide personalized attention and exceptional instruction, fostering curiosity, critical thinking, and confidence in every student. Our dedicated team is committed to nurturing well-rounded individuals ready to excel and contribute meaningfully to society. Join us in shaping bright futures through quality education!",
+    buttonText: "Call for admission"
   },
   {
     id: 3,
-    code: "ISML-003",
-    name: "ISML South Centre",
-    location: "Chennai",
-    address: "789 Knowledge Road, Chennai, Tamil Nadu",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    courses: ["French", "Japanese"],
-    contact: "+91 9876543212",
-    description: "Chennai's ISML centre is known for immersive Japanese and French programs."
+    code: "ISMLCE",
+    name: "ISML- Perumbakkam",
+    location: "Perumbakkam-Tamil Nadu",
+    address: "", // Address is part of the description
+    image: germanImage, // Use the imported image
+    courses: [], // Not provided in the text
+    contact: "", // Not provided in the text
+    description: "Established in November 2024, our Chengalpattu district (East Zone) branch is located at 13, Villa, Bscpl Bollineni Hillside Block-20c, Block, Bollineni Hillside Rd. Offering a dynamic and inclusive environment for learning. We focus on academic excellence and holistic development, providing personalized attention and high-quality instruction. Our approach fosters curiosity, critical thinking, and self-confidence, empowering students to reach their full potential. With a dedicated team committed to nurturing well-rounded individuals, we aim to inspire students to excel academically and contribute positively to their communities. Join us in transforming lives through education and building brighter futures!",
+    buttonText: "Call for admission"
   },
   {
     id: 4,
-    code: "ISML-004",
-    name: "ISML West Centre",
-    location: "Mumbai",
-    address: "321 Wisdom Lane, Mumbai, Maharashtra",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    courses: ["French", "German", "Japanese"],
-    contact: "+91 9876543213",
-    description: "Mumbai centre offers all three languages and hosts regular cultural workshops."
+    code: "ISMLEL",
+    name: "ISML- Eloor",
+    location: "Eloor-Kerala",
+    address: "", // Address is part of the description
+    image: germanImage, // Use the imported image
+    courses: [], // Not provided in the text
+    contact: "", // Not provided in the text
+    description: "Established in July 2024, our center franchise in situated at KJ tower, 2nd floor, pathalam, Eloor - 683501. Opening our new franchise center offers students an incredible opportunity to learn and explore modern languages in a dynamic and engaging environment. Our center is dedicated to providing students with the tools they need to master new languages, enhancing their global awareness and communication skills. With interactive classes and experienced instructors, students will not only learn the language but also immerse themselves in the culture, broadening their horizons and preparing them for future success in an increasingly interconnected world.",
+    buttonText: "Call for admission"
   },
   {
     id: 5,
-    code: "ISML-005",
-    name: "ISML East Centre",
-    location: "Kolkata",
-    address: "654 Scholar Park, Kolkata, West Bengal",
-    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    courses: ["German", "Japanese"],
-    contact: "+91 9876543214",
-    description: "Kolkata's ISML centre is a hub for German and Japanese learners."
+    code: "",
+    name: "Upcoming Centres",
+    location: "",
+    address: "",
+    image: "https://via.placeholder.com/400x300", // Placeholder image
+    courses: [],
+    contact: "",
+    description: "Stay tuned for more ISML centres opening soon in various cities!", // Placeholder description
+    buttonText: "Call to launch in your city"
   }
 ];
 
 function OurCentres() {
   const [selected, setSelected] = useState(null);
   const carouselRef = useRef(null);
-  const extraFrameRefs = useRef(Array(5).fill(null).map(() => React.createRef()));
+  const extraFrameRefs = useRef(Array(centres.length).fill(null).map(() => React.createRef())); // Adjust ref array size
 
   // Handle drag scroll
   let isDown = false;
@@ -119,7 +125,7 @@ function OurCentres() {
     <div className="centres-page-root">
       <div className="centres-carousel-frame">
         <div className="centres-bg-text">
-          <span>CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS CENTERS</span>
+          <span>INDIAN SCHOOL FOR MODERN LANGUAGES INDIAN SCHOOL FOR MODERN LANGUAGES INDIAN SCHOOL FOR MODERN LANGUAGES INDIAN SCHOOL FOR MODERN LANGUAGES INDIAN SCHOOL FOR MODERN LANGUAGES INDIAN SCHOOL FOR MODERN LANGUAGES</span>
         </div>
         <div
           className="centres-carousel"
@@ -144,7 +150,7 @@ function OurCentres() {
                 <div className="centre-tile-info">
                   <div className="centre-tile-info-default">
                     <div className="centre-tile-title">{centre.name}</div>
-                    <div className="centre-tile-price">{centre.contact}</div>
+                    {/* <div className="centre-tile-price">{centre.contact}</div> */}
                   </div>
                   <div className="centre-tile-info-hover">
                     <div><strong>Centre Code:</strong> {centre.code}</div>
@@ -157,18 +163,35 @@ function OurCentres() {
         </div>
       </div>
       <div className="centres-extra-frames">
-        {[0,1,2,3,4].map((i) => (
+        {centres.map((centre, i) => (
           <div
             className="centre-extra-frame"
-            key={i}
+            key={centre.id}
             ref={extraFrameRefs.current[i]}
           >
-            Extra Frame {i+1}
+            <div className="centre-extra-frame-left">
+                <div className="centre-extra-frame-image-container">
+                    <img src={centre.image} alt={centre.name} className="centre-extra-frame-image" />
+                </div>
+                <p><strong>Centre Code:</strong> {centre.code}</p>
+                <p><strong>Centre Name:</strong> {centre.name}</p>
+            </div>
+            <div className="centre-extra-frame-right">
+                <h2>{centre.location}</h2>
+                <p>{centre.description}</p>
+                <div className="centre-extra-frame-buttons">
+                    {/* Add Visit button */}
+                    <button className="isml-program-btn visit-btn">Visit</button>
+                    {centre.buttonText && (
+                        <button className="isml-program-btn">{centre.buttonText}</button>
+                    )}
+                </div>
+            </div>
           </div>
         ))}
       </div>
-      {/* Redirect to details below carousel */}
-      {selected !== null && (
+      {/* Redirect to details below carousel - Hiding this for now */}
+      {/* {selected !== null && (
         <div className="redirect-details">
           <h2>{centres[selected].name}</h2>
           <p className="redirect-location">{centres[selected].location}</p>
@@ -182,7 +205,7 @@ function OurCentres() {
           <div className="redirect-desc">{centres[selected].description}</div>
           <button className="redirect-close" onClick={() => setSelected(null)}>Close</button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

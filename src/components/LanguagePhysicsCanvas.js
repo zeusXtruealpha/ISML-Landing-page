@@ -235,10 +235,10 @@ function LanguagePhysicsCanvas() {
   }, [shouldStart]);
 
   return (
-    <div ref={containerRef} style={{ width: '100%', maxWidth: 1100, margin: '0 auto', padding: '2rem 1rem', background: '#fff', borderRadius: 8, boxShadow: '0 2px 4px rgba(0,0,0,0.08)' }}>
+    <div ref={containerRef} style={{ width: '100%', maxWidth: 1100, margin: '0 auto', padding: '2rem 1rem', background: '#FFFFFF', borderRadius: 8, boxShadow: '0 2px 4px rgba(0,0,0,0.08)' }}>
       <h2 className={`languages-title animate-title${showHeading ? ' show' : ''}`} style={{ textAlign: 'center', color: '#1A237E', marginBottom: '1.5rem', fontSize: '2rem' }}>Play With Languages</h2>
       <div style={{ width: '100%' }}>
-        <canvas ref={canvasRef} style={{ width: '100%', height: 400, background: '#f8f9fa', borderRadius: 8, display: 'block', touchAction: 'pan-y' }} />
+        <canvas ref={canvasRef} style={{ width: '100%', height: 400, background: '#FFFFFF', borderRadius: 8, display: 'block', touchAction: 'pan-y' }} />
       </div>
     </div>
   );

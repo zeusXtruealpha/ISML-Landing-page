@@ -426,29 +426,153 @@
 
 /* Add margin for new frames below carousel */
 .centres-extra-frames {
-  margin-top: 0;
+  width: 100%;
+  max-width: 1200px; /* Match homepage content width */
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  align-items: center;
+  gap: 3rem; /* Space between frames */
+  z-index: 2; /* Ensure it's above background text */
+  position: relative;
 }
 
 .centre-extra-frame {
-  width: 450px;
-  min-height: 120px;
-  background: #fff;
-  border: 1.5px solid #222;
-  margin: 0;
+  background: #fff; /* White background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  padding: 2rem;
   display: flex;
+  flex-direction: column; /* Stack on small screens */
   align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #222;
-  border-top: none;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  gap: 2rem; /* Space between image and content */
+  width: 100%; /* Make the frame full width */
 }
 
-.centre-extra-frame:first-child {
-  border-top: 1.5px solid #222;
+@media (min-width: 768px) {
+  .centre-extra-frame {
+    flex-direction: row; /* Side-by-side on larger screens */
+    align-items: flex-start;
+    gap: 3rem; /* Space between left and right sections */
+  }
+
+  .centre-extra-frame-left {
+    flex: 0 0 auto; /* Prevent shrinking, set base size if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center image, code, and name */
+    gap: 1rem; /* Space between image and text */
+  }
+
+  .centre-extra-frame-right {
+    flex-grow: 1; /* Allow right section to take available space */
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.centre-extra-frame-image-container {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 385px; /* Set container width */
+  height: 385px; /* Set container height */
+  max-width: 385px; /* Ensure max width is also set */
+  max-height: 385px; /* Ensure max height is also set */
+  border-radius: 4px; /* Slightly rounded corners for image container */
+  overflow: hidden; /* Hide overflow if image is larger */
+}
+
+.centre-extra-frame-image {
+  display: block;
+  width: 100%; /* Image fills container width */
+  height: 100%; /* Image fills container height */
+  object-fit: cover; /* Cover the container, cropping if necessary */
+}
+
+.centre-extra-frame-content {
+  flex-grow: 1; /* Allow content to take available space */
+}
+
+.centre-extra-frame-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1A237E; /* Match homepage heading color */
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.centre-extra-frame-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333; /* Dark grey text */
+  margin-bottom: 1rem;
+}
+
+.centre-extra-frame-content p strong {
+    color: #1A237E; /* Match heading color for strong text */
+}
+
+.centre-extra-frame-content .isml-program-btn {
+    margin-top: 1.5rem; /* Space above the button */
+}
+
+.centre-extra-frame-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem; /* Space above buttons */
+  align-items: center; /* Center buttons horizontally */
+}
+
+/* Ensure buttons within the frame match homepage button styles */
+.centre-extra-frame-buttons .isml-program-btn {
+    background: linear-gradient(90deg, #49e4e3 0%, #1a237e 100%);
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.10);
+    width: 232.79px; /* Set specific width */
+    height: 56px; /* Set specific height */
+    display: flex; /* Use flexbox to center text */
+    justify-content: center;
+    align-items: center;
+}
+
+.centre-extra-frame-buttons .isml-program-btn:hover {
+    background: linear-gradient(90deg, #1a237e 0%, #49e4e3 100%);
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.18);
+}
+
+@media (max-width: 700px) {
+    .centre-extra-frame-buttons .isml-program-btn {
+        width: 100%;
+        padding: 0.8rem 0;
+        font-size: 1rem;
+    }
+}
+
+.centre-extra-frame-right h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1A237E; /* Match homepage heading color */
+  margin-top: 0;
+  margin-bottom: 0.5rem; /* Adjusted margin */
+}
+
+.centre-extra-frame-right p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333; /* Dark grey text */
+  margin-top: 1rem; /* Add space after heading */
+  margin-bottom: 1rem;
+}
+
+.centre-extra-frame-right p strong {
+    color: #1A237E; /* Match heading color for strong text */
 }

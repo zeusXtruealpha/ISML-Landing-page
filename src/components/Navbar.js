@@ -40,6 +40,7 @@ function Navbar({ showHeroTextInNav }) {
                 <div className="navbar-hero-line">
                   <span className="navbar-isml">I</span>
                   <span className="navbar-rest">NDIAN</span>
+                  <span className="navbar-trademark">®</span>
                 </div>
                 <div className="navbar-hero-line">
                   <span className="navbar-isml">S</span>
@@ -58,6 +59,7 @@ function Navbar({ showHeroTextInNav }) {
               <div className="navbar-compact-text">
                 <span className="navbar-isml">I</span>
                 <span className="navbar-rest">SML</span>
+                <span className="navbar-trademark">®</span>
               </div>
             )}
           </Link>

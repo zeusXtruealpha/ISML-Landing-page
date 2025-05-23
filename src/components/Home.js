@@ -20,7 +20,6 @@ function Home({ heroRef, heroOutOfView }) {
   return (
     <div>
       <Hero ref={heroRef} heroOutOfView={heroOutOfView} />
-      <LanguagesOffered />
       <div className="quote-frame">
         <div className="quote-text">
           <div>
@@ -40,6 +39,7 @@ function Home({ heroRef, heroOutOfView }) {
           Start Now
         </button>
       </div>
+      <LanguagesOffered />
       <LanguagePhysicsCanvas />
       <FAQ />
     </div>

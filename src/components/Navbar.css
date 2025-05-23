@@ -277,6 +277,16 @@ body {
   letter-spacing: -0.5px;
 }
 
+.navbar-trademark {
+  color: #49e4e3;
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-left: 4px;
+  font-weight: 900;
+  position: relative;
+  top: -0.2em;
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 1rem;
