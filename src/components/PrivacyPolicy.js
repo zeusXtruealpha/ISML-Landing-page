@@ -160,8 +160,8 @@ function PrivacyPolicy() {
           <p>
             <strong>Indian School for Modern Languages (ISML)</strong><br/>
             IYPAN Educational Centre Pvt. Ltd.<br/>
-            Email: learnwithisml@iypan.in<br/>
-            Phone: +91-7338881781
+            Email: <a href="mailto:learnwithisml@iypan.in">learnwithisml@iypan.in</a><br/>
+            Phone: <a href="tel:+91-7338881781">+91-7338881781</a>
           </p>
         </div>
       </div>
