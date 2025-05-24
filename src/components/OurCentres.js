@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
 import './OurCentres.css';
-import germanImage from '../assets/german.jpeg';
 import ce1 from '../assets/ce1.jpeg';
+import ce2 from '../assets/ce2.png';
+import ce3 from '../assets/ce3.png';
+import ce4 from '../assets/ce4.png';
+import ce5 from '../assets/ce5.png';
 
 const centres = [
   {
@@ -10,11 +13,12 @@ const centres = [
     name: "ISML- Trichirappalli",
     location: "Tiruchirappalli-Tamil Nadu",
     address: "", // Address is part of the description
-    image: germanImage, // Use the imported image
+    image: ce2, // Use the imported image
     courses: [], // Not provided in the text
     contact: "", // Not provided in the text
     description: "Established in March 2024, our inaugural branch is situated at 7TH CROSS STREET, THILLAI NAGAR. We pride ourselves on cultivating a student-friendly environment dedicated to delivering excellence in education. With a focus on personalized attention and top-tier instruction, our passionate team is committed to nurturing the academic and holistic growth of every individual. Our goal is to create a supportive and inspiring atmosphere where students are empowered to unleash their full potential through curiosity, critical thinking, and a love for learning. As we embark on this journey, we aspire to expand our impact and continue making a positive difference in the lives of students.",
-    buttonText: "Call for admission"
+    buttonText: "Call for admission",
+    mapLink: "https://g.co/kgs/zbnvndz"
   },
   {
     id: 2,
@@ -22,11 +26,12 @@ const centres = [
     name: "ISML- Aruppukkottai",
     location: "Aruppukkottai-Tamil Nadu",
     address: "", // Address is part of the description
-    image: ce1, // Use the imported image
+    image: ce5, // Use the imported image
     courses: [], // Not provided in the text
     contact: "", // Not provided in the text
     description: "Established in November 2024, our inaugural branch of Virudhunagar district is situated at 58/2, SBK College Rd, Vasantham Nagar. The centre offers a vibrant environment focused on academic excellence and personal growth. We provide personalized attention and exceptional instruction, fostering curiosity, critical thinking, and confidence in every student. Our dedicated team is committed to nurturing well-rounded individuals ready to excel and contribute meaningfully to society. Join us in shaping bright futures through quality education!",
-    buttonText: "Call for admission"
+    buttonText: "Call for admission",
+    mapLink: "https://g.co/kgs/xWJVp77"
   },
   {
     id: 3,
@@ -34,11 +39,12 @@ const centres = [
     name: "ISML- Perumbakkam",
     location: "Perumbakkam-Tamil Nadu",
     address: "", // Address is part of the description
-    image: germanImage, // Use the imported image
+    image: ce3, // Use the imported image
     courses: [], // Not provided in the text
     contact: "", // Not provided in the text
     description: "Established in November 2024, our Chengalpattu district (East Zone) branch is located at 13, Villa, Bscpl Bollineni Hillside Block-20c, Block, Bollineni Hillside Rd. Offering a dynamic and inclusive environment for learning. We focus on academic excellence and holistic development, providing personalized attention and high-quality instruction. Our approach fosters curiosity, critical thinking, and self-confidence, empowering students to reach their full potential. With a dedicated team committed to nurturing well-rounded individuals, we aim to inspire students to excel academically and contribute positively to their communities. Join us in transforming lives through education and building brighter futures!",
-    buttonText: "Call for admission"
+    buttonText: "Call for admission",
+    mapLink: ""
   },
   {
     id: 4,
@@ -46,11 +52,12 @@ const centres = [
     name: "ISML- Eloor",
     location: "Eloor-Kerala",
     address: "", // Address is part of the description
-    image: germanImage, // Use the imported image
+    image: ce4, // Use the imported image
     courses: [], // Not provided in the text
     contact: "", // Not provided in the text
     description: "Established in July 2024, our center franchise in situated at KJ tower, 2nd floor, pathalam, Eloor - 683501. Opening our new franchise center offers students an incredible opportunity to learn and explore modern languages in a dynamic and engaging environment. Our center is dedicated to providing students with the tools they need to master new languages, enhancing their global awareness and communication skills. With interactive classes and experienced instructors, students will not only learn the language but also immerse themselves in the culture, broadening their horizons and preparing them for future success in an increasingly interconnected world.",
-    buttonText: "Call for admission"
+    buttonText: "Call for admission",
+    mapLink: "https://g.co/kgs/1wpqEb2"
   },
   {
     id: 5,
@@ -58,11 +65,12 @@ const centres = [
     name: "Upcoming Centres",
     location: "",
     address: "",
-    image: "https://via.placeholder.com/400x300", // Placeholder image
+    image: ce1, // Placeholder image
     courses: [],
     contact: "",
     description: "Stay tuned for more ISML centres opening soon in various cities!", // Placeholder description
-    buttonText: "Call to launch in your city"
+    buttonText: "Call to launch in your city",
+    mapLink: ""
   }
 ];
 
@@ -182,7 +190,15 @@ function OurCentres() {
                 <p>{centre.description}</p>
                 <div className="centre-extra-frame-buttons">
                     {/* Add Visit button */}
-                    <button className="isml-program-btn visit-btn">Visit</button>
+                    <a 
+                      href={centre.mapLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="isml-program-btn visit-btn"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Visit
+                    </a>
                     {centre.buttonText && (
                         <button className="isml-program-btn">{centre.buttonText}</button>
                     )}

@@ -1,0 +1,563 @@
+.course-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.course-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.course-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.course-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.course-card-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.course-level {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.course-duration {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.course-description {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.course-features {
+  margin-bottom: 1.5rem;
+}
+
+.course-features h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.course-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.course-features li {
+  color: #666;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.course-features li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+.enroll-button {
+  width: 100%;
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+  background: #0056b3;
+}
+
+.course-benefits {
+  margin-top: 4rem;
+}
+
+.course-benefits h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-item h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.benefit-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .course-details-container {
+    padding: 2rem 1rem;
+  }
+
+  .course-header h1 {
+    font-size: 2rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.course-details-page-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.course-carousel-container {
+  position: relative;
+  width: 100%;
+  min-height: 600px; /* Adjusted height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.course-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8) rotateY(-30deg); /* Initial state: scaled, rotated, and centered */
+  opacity: 0;
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+  backface-visibility: hidden;
+}
+
+.course-card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotateY(0deg); /* Active state: centered, full size, no rotation */
+  z-index: 10;
+}
+
+.course-card.next {
+  opacity: 0.6;
+  transform: translate(calc(-50% + 200px), -50%) scale(0.9) rotateY(10deg); /* Position next card to the right/back */
+  z-index: 5;
+}
+
+.course-card.prev { /* Added style for previous card */
+  opacity: 0.6;
+  transform: translate(calc(-50% - 200px), -50%) scale(0.9) rotateY(-10deg); /* Position previous card to the left/back */
+  z-index: 5;
+}
+
+.course-card-content {
+  text-align: center;
+}
+
+.course-level {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.course-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.course-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.course-key-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.enroll-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+  background: #0056b3;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button.prev {
+  left: 20px;
+}
+
+.nav-button.next {
+  right: 20px;
+}
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .course-title {
+    font-size: 1.5rem;
+  }
+
+  .course-key-stats {
+    gap: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .enroll-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .nav-button.prev {
+    left: 10px;
+  }
+
+  .nav-button.next {
+    right: 10px;
+  }
+}
+
+.course-hero-section {
+  position: relative;
+  background: #1a1a1a; /* Dark background like the image */
+  color: #fff; /* White text */
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  overflow: hidden;
+  /* Add background image or gradient if needed */
+  /* background-image: url('../assets/hero-bg.jpg'); */
+  /* background-size: cover;
+  background-position: center; */
+}
+
+.course-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 0;
+}
+
+.course-hero-content {
+  z-index: 1;
+  max-width: 1100px; /* Increased width to match image frames */
+  text-align: center;
+  width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.course-level {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+  font-weight: bold;
+}
+
+.course-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  /* Consider a different font-family for impact */
+}
+
+.course-description {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: #eee;
+  max-width: 900px; /* Adjusted description max-width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.course-key-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #ccc;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.enroll-button {
+  background: #007bff; /* Example button color, adjust to match image */
+  color: white;
+  border: none;
+  padding: 1rem 3.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-button:hover {
+  background: #0056b3;
+}
+
+.about-course-section {
+  background: #f8f8f8; /* Light background for this section */
+  color: #333; /* Dark text */
+  padding: 4rem 2rem;
+  margin-top: 0;
+}
+
+.about-course-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  /* Add styling for the arrow/dropdown icon here if needed */
+}
+
+.about-course-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  max-width: 1100px; /* Increased width to match image frames */
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .course-hero-content,
+  .about-course-content p {
+    max-width: 90%; /* Adjust max-width on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .course-hero-section {
+    padding: 4rem 1rem;
+  }
+
+  .course-title {
+    font-size: 3rem;
+  }
+
+  .course-key-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+
+  .enroll-button {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .about-course-section {
+    padding: 3rem 1rem;
+  }
+
+  .about-course-header {
+    font-size: 1.5rem;
+  }
+
+  .about-course-content p {
+    font-size: 1rem;
+  }
+}
+
+/* You can add styles for video section and modules section here if you uncomment them in JS */
+
+/* Remove the problematic commented out block */
+
+/* Remove or comment out previous styles */
+/* .course-details-container,
+.course-header,
+.courses-grid,
+.course-card,
+.course-card:hover,
+.course-card-header,
+.course-card-header h2,
+.course-level,
+.course-duration,
+.course-description,
+.course-features,
+.course-features h3,
+.course-features ul,
+.course-features li,
+.course-features li:before,
+.enroll-button,
+.course-benefits,
+.course-benefits h2,
+.benefits-grid,
+.benefit-item,
+.benefit-item:hover,
+.benefit-item h3,
+.benefit-item p,
+@media (max-width: 768px) {
+  .course-details-container,
+  .course-header h1,
+  .courses-grid,
+  .benefits-grid
+} {
+    /* display: none; */ /* Or set properties to override */

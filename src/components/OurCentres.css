@@ -576,3 +576,13 @@
 .centre-extra-frame-right p strong {
     color: #1A237E; /* Match heading color for strong text */
 }
+
+.visit-btn {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.visit-btn:hover {
+  text-decoration: none;
+}
