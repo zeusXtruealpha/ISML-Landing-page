@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './OurCentres.css';
-import germanImage from '../assets/german.jpeg'; // Corrected import path
+import germanImage from '../assets/german.jpeg';
+import ce1 from '../assets/ce1.jpeg';
 
 const centres = [
   {
@@ -21,7 +22,7 @@ const centres = [
     name: "ISML- Aruppukkottai",
     location: "Aruppukkottai-Tamil Nadu",
     address: "", // Address is part of the description
-    image: germanImage, // Use the imported image
+    image: ce1, // Use the imported image
     courses: [], // Not provided in the text
     contact: "", // Not provided in the text
     description: "Established in November 2024, our inaugural branch of Virudhunagar district is situated at 58/2, SBK College Rd, Vasantham Nagar. The centre offers a vibrant environment focused on academic excellence and personal growth. We provide personalized attention and exceptional instruction, fostering curiosity, critical thinking, and confidence in every student. Our dedicated team is committed to nurturing well-rounded individuals ready to excel and contribute meaningfully to society. Join us in shaping bright futures through quality education!",

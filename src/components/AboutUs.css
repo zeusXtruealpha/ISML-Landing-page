@@ -16,9 +16,7 @@
 
 /* Main Content Layout */
 .about-main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  width: 100%;
   margin-bottom: 2rem;
   position: relative;
 }
@@ -32,12 +30,19 @@
 .who-we-are-content {
   background: #fff;
   padding: 2rem;
-  border-radius: 12px;
   box-shadow: 0 4px 20px rgba(74, 144, 226, 0.08);
   height: 100%;
+  margin-top: 2rem;
+}
+
+.content-with-carousel {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.text-content {
+  flex: 1;
 }
 
 /* Vision Mission Container */
@@ -129,40 +134,50 @@
 }
 
 .carousel-section {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto 3rem auto;
 }
 
 .carousel-container {
   width: 100%;
   height: 100%;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(74, 144, 226, 0.08);
   overflow: hidden;
   position: relative;
+  touch-action: pan-y pinch-zoom;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  transition: transform 0.5s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-wrapper:active {
+  cursor: grabbing;
 }
 
 .carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  min-width: 100%;
   height: 100%;
-  transition: transform 0.5s ease;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .carousel-indicators {
