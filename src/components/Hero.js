@@ -21,7 +21,7 @@ const Hero = forwardRef(({ heroOutOfView }, ref) => {
         <div className="hero-word-row">
           <span className="hero-plain-isml">I</span>
           <span className="hero-gradient-text">NDIAN</span>
-          <span className="hero-trademark">®</span>
+          
         </div>
         <div className="hero-word-row">
           <span className="hero-plain-isml">S</span>

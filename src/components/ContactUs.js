@@ -23,7 +23,7 @@ function ContactUs() {
           <h2>Talk to Sales</h2>
           <p>Interested in ISML's offerings? Just pick up the phone to chat with a member of our sales team.</p>
           <p className="contact-number">+91 7338881781</p>
-          <a href="#" className="global-numbers-link">View all global numbers</a> {/* Placeholder link */}
+          <a href="https://wa.me/917338881781" target="_blank" rel="noopener noreferrer" className="whatsapp-button">WhatsApp</a>
         </div>
 
         <div className="contact-card-item">

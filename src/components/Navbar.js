@@ -59,7 +59,7 @@ function Navbar({ showHeroTextInNav }) {
               <div className="navbar-compact-text">
                 <span className="navbar-isml">I</span>
                 <span className="navbar-rest">SML</span>
-                <span className="navbar-trademark">®</span>
+        
               </div>
             )}
           </Link>
