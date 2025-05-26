@@ -1,0 +1,20 @@
+.scramble-text {
+  font-size: 1.5rem;
+  color: #1a237e;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  min-height: 1.5em;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 700px) {
+  .scramble-text {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+} 
