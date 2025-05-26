@@ -1101,25 +1101,15 @@
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
   transition: all 0.3s ease; /* Keep transition for hover effects */
-=======
-  transition: all 0.3s ease;
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
   position: relative;
   overflow: hidden;
   min-height: 200px; /* Add a minimum height */
   display: flex; /* Enable flexbox for content alignment */
   flex-direction: column; /* Stack content vertically */
-<<<<<<< HEAD
   opacity: 1; /* Set opacity to 1 for visibility */
   transform: translateY(0); /* Set transform to 0 for no initial translation */
   /* Removed animation transition */
-=======
-  opacity: 0; /* Initial state for animation */
-  transform: translateY(20px); /* Initial state for animation */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation transition */
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 }
 
 .language-box::before {
@@ -1149,14 +1139,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-<<<<<<< HEAD
-=======
-.language-box.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 .language-box-content {
   display: flex;
   flex-direction: column;
@@ -1187,10 +1169,7 @@
   width: auto;
   margin: 0;
   margin-top: auto; /* Push button to the bottom */
-<<<<<<< HEAD
   text-decoration: none; /* Add this line to remove underline */
-=======
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 }
 
 .language-box .know-more-button:hover {
@@ -1232,26 +1211,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-<<<<<<< HEAD
   opacity: 1; /* Set opacity to 1 for visibility */
   transform: translateY(0); /* Set transform to 0 for no initial translation */
   transition: all 0.3s ease; /* Keep transition for hover effects */
   min-height: 220px; /* Increased minimum height for better consistency */
 }
 
-=======
-  opacity: 0; /* Initial state for animation */
-  transform: translateY(20px); /* Initial state for animation */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animation transition */
-  min-height: 220px; /* Increased minimum height for better consistency */
-}
-
-.proficiency-level-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 .proficiency-level-title {
   font-size: 1.4rem;
   font-weight: 600;

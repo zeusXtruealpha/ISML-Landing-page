@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Lottie from 'lottie-react';
 import './CourseDetails.css';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 
 // Import animation data from JSON files
 import languageAnimationData from './animations/language-learning.json';
@@ -107,10 +104,6 @@ function CourseDetails() {
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(allCourses[0]);
   const courseDetailsRefs = useRef([]);
-<<<<<<< HEAD
-=======
-  const animatedItemsRefs = useRef([]);
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 
   const goToPreviousCourse = () => {
     setCurrentCourseIndex((prevIndex) => (prevIndex - 1 + allCourses.length) % allCourses.length);
@@ -147,52 +140,6 @@ function CourseDetails() {
     };
   }, [currentCourseIndex, allCourses]); // Re-run effect to reset timer when currentCourseIndex changes or allCourses changes
 
-<<<<<<< HEAD
-=======
-  // Effect for scroll animation (observing all animated items)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Get the index from the data-index attribute or another way to order
-            const index = parseInt(entry.target.dataset.animationIndex, 10); // Use a data attribute for explicit ordering
-            if (!isNaN(index)) {
-                 setTimeout(() => {
-                   entry.target.classList.add('is-visible');
-                 }, index * 100); // Adjust delay (100ms) as needed
-            } else {
-                 // Fallback for items without explicit index (like language boxes)
-                 entry.target.classList.add('is-visible');
-            }
-            observer.unobserve(entry.target); // Stop observing once visible
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      }
-    );
-
-    // Observe all language boxes and proficiency level items
-    animatedItemsRefs.current.forEach(item => {
-        if (item) {
-            observer.observe(item);
-        }
-    });
-
-    // Clean up the observer when the component unmounts or the courses data changes
-    return () => {
-        observer.disconnect();
-    };
-  }, [allCourses]); // Re-run effect if courses data changes
-
-  // Reset animatedItemsRefs whenever allCourses changes to ensure we collect new refs
-  useEffect(() => {
-      animatedItemsRefs.current = [];
-  }, [allCourses]);
-
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
   // Reset animation states when the selected course for the details frame changes
   useEffect(() => {
       // Since we are now animating individual items on scroll into view,
@@ -258,48 +205,27 @@ function CourseDetails() {
                           <div className="language-boxes-container">
                             {Array.isArray(course.details.languages) ? (
                               course.details.languages.map((lang, langIndex) => (
-<<<<<<< HEAD
                                 <Link key={langIndex} to={`/${lang.toLowerCase()}`} className="language-box">
-=======
-                                <div key={langIndex} className="language-box" ref={el => animatedItemsRefs.current.push(el)}>
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                                   <div className="language-box-content">
                                     <span>{lang}</span>
                                     <button className="know-more-button">Know More</button>
                                   </div>
-<<<<<<< HEAD
                                 </Link>
                               ))
                             ) : (
                              <>
                                 <Link to="/french" className="language-box">
-=======
-                                </div>
-                              ))
-                            ) : (
-                             <>
-                                <div className="language-box" ref={el => animatedItemsRefs.current.push(el)}>
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                                   <div className="language-box-content">
                                     <span>French: {course.details.languages.french}</span>
                                     <button className="know-more-button">Know More</button>
                                   </div>
-<<<<<<< HEAD
                                 </Link>
                                 <Link to="/german" className="language-box">
-=======
-                                </div>
-                                <div className="language-box" ref={el => animatedItemsRefs.current.push(el)}>
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                                   <div className="language-box-content">
                                     <span>German: {course.details.languages.german}</span>
                                     <button className="know-more-button">Know More</button>
                                   </div>
-<<<<<<< HEAD
                                 </Link>
-=======
-                                </div>
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                              </>
                           )}
                           </div>
@@ -312,11 +238,7 @@ function CourseDetails() {
                            <h3>Proficiency Levels</h3>
                             <div className="proficiency-levels-container">
                               {course.details.proficiencyLevels.map((level, levelIndex) => (
-<<<<<<< HEAD
                                 <div key={levelIndex} className="proficiency-level-item">
-=======
-                                <div key={levelIndex} className="proficiency-level-item" data-animation-index={levelIndex} ref={el => animatedItemsRefs.current.push(el)}>
->>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                                   <h4 className="proficiency-level-title">{level.level.split('-')[0]}</h4>
                                   <div className="proficiency-level-box">
                                     <div className="level-codes">
