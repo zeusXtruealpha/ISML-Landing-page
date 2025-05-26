@@ -1,0 +1,277 @@
+.franchise-container {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.franchise-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.franchise-left {
+  flex: 1.2;
+  padding-right: 2rem;
+}
+
+.franchise-logo {
+  margin-bottom: 2rem;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a237e;
+  display: block;
+}
+
+.franchise-title {
+  font-size: 2.5rem;
+  color: #1a237e;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.franchise-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.franchise-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  padding: 1rem;
+  border-right: 1px solid #eee;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: #ff7a59;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.stat-item p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.franchise-benefits {
+  margin-bottom: 2rem;
+}
+
+.franchise-benefits h2 {
+  color: #1a237e;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.benefit-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-section h3 {
+  color: #1a237e;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.benefit-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefit-section li {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.benefit-section li:before {
+  content: "✓";
+  color: #ff7a59;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.franchise-cta-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.franchise-cta-section h2 {
+  color: #1a237e;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.franchise-cta-section ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.franchise-cta-section li {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.franchise-cta {
+  background-color: #ff7a59;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.franchise-right {
+  flex: 0.8;
+  position: sticky;
+  top: 2rem;
+}
+
+.franchise-hero {
+  background-color: #1a237e;
+  color: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.franchise-hero h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.franchise-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.demand-section {
+  text-align: left;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.demand-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.demand-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.demand-section li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  opacity: 0.9;
+}
+
+.demand-section li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #ff7a59;
+}
+
+@media (max-width: 768px) {
+  .franchise-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .franchise-left {
+    padding-right: 0;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .franchise-title {
+    font-size: 2rem;
+  }
+
+  .franchise-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+
+  .franchise-right {
+    position: static;
+  }
+
+  .franchise-hero {
+    padding: 2rem;
+  }
+
+  .franchise-hero h2 {
+    font-size: 2rem;
+  }
+
+  .benefit-section {
+    padding: 1.5rem;
+  }
+} 
