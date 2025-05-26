@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Komigo 3D';
+  src: url('../fonts/Komigo3DRegular-rg1lK.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .about-us-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -12,6 +19,7 @@
   text-align: center;
   margin-bottom: 3rem;
   letter-spacing: -0.5px;
+  font-family: 'Komigo 3D', sans-serif;
 }
 
 /* Main Content Layout */
@@ -77,6 +85,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -0.5px;
+  font-family: 'Komigo 3D', sans-serif;
 }
 
 .vision-section .about-text,
@@ -211,6 +220,7 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
+  font-family: 'Komigo 3D', sans-serif;
 }
 
 .about-text {
@@ -445,7 +455,7 @@
 .join-team-title {
   font-size: 1.3rem;
   color: #1a237e;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Komigo 3D', sans-serif;
   font-weight: 600;
   margin-bottom: 1rem;
 }
