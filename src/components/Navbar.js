@@ -93,9 +93,15 @@ function Navbar({ showHeroTextInNav }) {
                 <li className="dropdown-submenu">
                   <a href="#languages">Languages</a>
                   <ul className="dropdown-submenu-content">
+<<<<<<< HEAD
                     <li><Link to="/french" onClick={handleNavClick}>French</Link></li>
                     <li><Link to="/german" onClick={handleNavClick}>German</Link></li>
                     <li><Link to="/japanese" onClick={handleNavClick}>Japanese</Link></li>
+=======
+                    <li><a href="/french">French</a></li>
+                    <li><a href="/german">German</a></li>
+                    <li><a href="/japanese">Japanese</a></li>
+>>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
                   </ul>
                 </li>
                 <li><Link to="/franchise" onClick={handleNavClick}>Franchise</Link></li>

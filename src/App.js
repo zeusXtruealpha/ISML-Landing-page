@@ -9,9 +9,12 @@ import CourseDetails from './components/CourseDetails';
 import Franchise from './components/Franchise';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
+<<<<<<< HEAD
 import French from './components/French';
 import German from './components/German';
 import Japanese from './components/Japanese';
+=======
+>>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
 import instagramIcon from './assets/instagram.svg';
 import linkedinIcon from './assets/linkedin.svg';
 import twitterIcon from './assets/twitter.svg';
@@ -76,9 +79,12 @@ function AppContent() {
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+<<<<<<< HEAD
           <Route path="/french" element={<French />} />
           <Route path="/german" element={<German />} />
           <Route path="/japanese" element={<Japanese />} />
+=======
+>>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
         </Routes>
       </main>
       <footer className="main-footer lemkus-footer isml-footer">

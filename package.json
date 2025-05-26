@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
@@ -15,6 +16,20 @@
     "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^3.5.2"
+=======
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "framer-motion": "^12.12.2",
+    "lottie-react": "^2.4.1",
+    "matter-js": "^0.20.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^2.1.4"
+>>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +56,7 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@babel/core": "^7.27.1",
     "@babel/plugin-transform-async-generator-functions": "^7.27.1",
     "@babel/plugin-transform-class-properties": "^7.27.1",
@@ -60,5 +76,10 @@
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
+=======
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6"
+>>>>>>> cf4d946c8618d0f2e45d4cae65788f50d4ea67fe
   }
 }
