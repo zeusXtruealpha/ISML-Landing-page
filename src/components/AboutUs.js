@@ -35,7 +35,11 @@ function AboutUs() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState(null);
   const carouselRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const logosRef = useRef(null);
   
   // Create 3 rows of 8 logos each
   const logos = [
@@ -64,49 +68,99 @@ function AboutUs() {
     i6
   ];
 
+  // Auto-scroll for client logos
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPosition((prev) => (prev + 1) % 8);
-    }, 3000);
+    let interval;
+    if (!isHovered) {
+      interval = setInterval(() => {
+        setCurrentPosition((prev) => (prev + 1) % 8);
+      }, 2000);
+    }
+    return () => {
+      clearInterval(interval);
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+    };
+  }, [isHovered, hoverTimeout]);
 
+  useEffect(() => {
+    let interval;
+    if (!isHovered && !isDragging) {
+      interval = setInterval(() => {
+        if (wrapperRef.current) {
+          const firstSlide = wrapperRef.current.firstElementChild;
+          const slideWidth = firstSlide.offsetWidth;
+          wrapperRef.current.style.transition = 'transform 0.5s ease';
+          wrapperRef.current.style.transform = `translateX(-${slideWidth}px)`;
+          
+          setTimeout(() => {
+            wrapperRef.current.style.transition = 'none';
+            wrapperRef.current.appendChild(firstSlide);
+            wrapperRef.current.style.transform = 'translateX(0)';
+          }, 500);
+        }
+      }, 3000);
+    }
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered, isDragging]);
 
   const handleMouseDown = (e) => {
+    e.preventDefault();
     setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(currentImageIndex * -100);
+    setStartX(e.pageX);
+    if (wrapperRef.current) {
+      setScrollLeft(wrapperRef.current.scrollLeft);
+    }
+    if (carouselRef.current) {
+      carouselRef.current.style.cursor = 'grabbing';
+    }
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    if (carouselRef.current) {
+      carouselRef.current.style.cursor = 'grab';
+    }
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust sensitivity
-    const newIndex = Math.round((scrollLeft + walk) / -100);
-    
-    if (newIndex >= 0 && newIndex < carouselImages.length) {
-      setCurrentImageIndex(newIndex);
+    const x = e.pageX;
+    const walk = (x - startX) * 2;
+    if (wrapperRef.current) {
+      wrapperRef.current.style.transition = 'none';
+      wrapperRef.current.style.transform = `translateX(${walk}px)`;
     }
   };
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+    if (carouselRef.current) {
+      carouselRef.current.style.cursor = 'grab';
+    }
   };
 
-  useEffect(() => {
-    const carouselInterval = setInterval(() => {
-      if (!isDragging) {
-        setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
-      }
+  const handleLogoHover = () => {
+    setIsHovered(true);
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+    }
+    // Set timeout to resume animation after 4 seconds
+    const timeout = setTimeout(() => {
+      setIsHovered(false);
     }, 4000);
+    setHoverTimeout(timeout);
+  };
 
-    return () => clearInterval(carouselInterval);
-  }, [isDragging]);
+  const handleLogoUnhover = () => {
+    setIsHovered(false);
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+  };
 
   return (
     <div className="about-us-container">
@@ -114,18 +168,21 @@ function AboutUs() {
       
       <div className="about-main-content">
         <div className="carousel-section">
-          <div className="carousel-container">
+          <div 
+            className="carousel-container"
+            ref={carouselRef}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => {
+              handleMouseLeave();
+              setIsHovered(false);
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+          >
             <div 
-              ref={carouselRef}
               className="carousel-wrapper"
-              style={{
-                transform: `translateX(-${currentImageIndex * 100}%)`,
-                cursor: isDragging ? 'grabbing' : 'grab'
-              }}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
+              ref={wrapperRef}
             >
               {carouselImages.map((image, index) => (
                 <div
@@ -177,10 +234,16 @@ function AboutUs() {
         <div className="client-logos-container">
           <div 
             className="client-logos-grid"
+            ref={logosRef}
             style={{ transform: `translateX(-${currentPosition * (100 / 8)}%)` }}
           >
             {logos.map((logo, index) => (
-              <div key={index} className="client-logo-wrapper">
+              <div 
+                key={index} 
+                className="client-logo-wrapper"
+                onMouseEnter={handleLogoHover}
+                onMouseLeave={handleLogoUnhover}
+              >
                 <img 
                   src={logo} 
                   alt={`Client Logo ${index + 1}`} 
