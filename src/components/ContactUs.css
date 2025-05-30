@@ -161,8 +161,15 @@
   background-color: #e06a4f; /* Darker orange on hover */
 }
 
+.contact-email {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 1rem;
+}
+
 .support-button {
-  background-color: #ff7a59; /* Orange button */
+  background-color: #ff7a59;
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -171,10 +178,14 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
 }
 
 .support-button:hover {
-  background-color: #e06a4f; /* Darker orange on hover */
+  background-color: #e06a4f;
+  text-decoration: none;
 }
 
 /* Adjustments for the map section to fit below cards */

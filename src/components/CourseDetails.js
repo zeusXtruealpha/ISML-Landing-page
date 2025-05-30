@@ -1,120 +1,142 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import Lottie from 'lottie-react';
+import { motion, useInView, useAnimation } from 'framer-motion';
 import './CourseDetails.css';
-import { Link } from 'react-router-dom';
 
-// Import animation data from JSON files
-import languageAnimationData from './animations/language-learning.json';
-import scheduleAnimationData from './animations/a2.json';
+// Custom hook for counting animation
+const useCountAnimation = (end, duration = 2) => {
+  const [count, setCount] = useState(0);
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref);
+
+  useEffect(() => {
+    if (inView) {
+      let startTime = null;
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(easeOutQuart * end);
+        
+        setCount(currentCount);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    }
+  }, [inView, end, duration]);
+
+  return { ref, count };
+};
 
 function CourseDetails() {
+  // All courses data
   const allCourses = useMemo(() => [
     {
       id: 1,
       title: "Master a Language - ML",
       level: "Beginner to Pro",
+      price: "₹499/month",
+      duration: "1-5 years",
       description: "Master a Language of Your Choice for Just Rs. 499 per Month",
+      fullDescription: "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
       image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      details: {
-        overview: "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
-        languages: ["French", "German", "Japanese"],
-        proficiencyLevels: [
-          { level: "Beginner-A1/A2/N5", timeframe: "in 1 year" },
-          { level: "Amateur-A2/B1/N4", timeframe: "in 2 years" },
-          { level: "Intermediate-B1/B2/N3", timeframe: "in 3 years" },
-          { level: "Advanced-C1/C2/N2", timeframe: "in 4 years" },
-          { level: "Pro-C2/N1", timeframe: "in 5 years" }
-        ],
-        schedule: {
-          heading: "Class Schedule",
-          tagline: "✨ Learn at Your Own Pace – Just 2 Days a Week!",
-          intro: "We offer flexible weekend classes designed to fit your routine:",
-          details: [
-            { icon: '📅', text: "Days: Every Saturday and Sunday" }, // Using emojis as placeholders for now
-            { icon: '⏰', text: "Timings: Pick any 1-hour slot between" },
-            { icon: '📍', text: "7:00 AM to 10:00 PM IST" }
-          ],
-           conclusion: "Whether you're an early bird or a night owl, we've got a time slot for you!"
-        }
-      }
+      languages: ["French", "German", "Japanese"],
+      proficiencyLevels: [
+        { level: "Beginner", codes: ["A1", "A2", "N5"], timeframe: "in 1 year" },
+        { level: "Amateur", codes: ["A2", "B1", "N4"], timeframe: "in 2 years" },
+        { level: "Intermediate", codes: ["B1", "B2", "N3"], timeframe: "in 3 years" },
+        { level: "Advanced", codes: ["C1", "C2", "N2"], timeframe: "in 4 years" },
+        { level: "Pro", codes: ["C2", "N1"], timeframe: "in 5 years" }
+      ],
+      schedule: {
+        days: "Saturday and Sunday",
+        duration: "1 hour",
+        timeRange: "7:00 AM to 10:00 PM IST",
+        flexibility: "Pick any slot that suits you"
+      },
+      features: ["Weekend Classes", "Flexible Timing", "Multiple Languages", "Progressive Learning"],
+      category: "regular"
     },
     {
       id: 2,
       title: "International Diploma - ID",
       level: "Exam Preparation",
+      price: "Contact for pricing",
+      duration: "3-6 months",
       description: "Crack your Language Proficiency Exam of Your Choice",
+      fullDescription: "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today to crack the International diploma exams and start your journey toward language fluency.",
       image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      details: {
-        overview: "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today for to crack the International diploma exams and start your journey toward language fluency. Throughout your journey, you will make progress in all skills and components.",
-        languages: ["French", "German", "Japanese"],
-        proficiencyLevels: [
-          { level: "French Exams-DELF A1/A2", timeframe: "Exam Preparation" },
-          { level: "French Exams-DELF B1/B2", timeframe: "Exam Preparation" },
-          { level: "French Exams-DALF C1/C2", timeframe: "Exam Preparation" },
-          { level: "German Exams-A1/A2", timeframe: "Exam Preparation" },
-          { level: "German Exams-B1/B2", timeframe: "Exam Preparation" },
-          { level: "German Exams-C1/C2", timeframe: "Exam Preparation" },
-          { level: "Japanese Exams-N5/N4", timeframe: "Exam Preparation" },
-          { level: "Japanese Exams-N3/N2", timeframe: "Exam Preparation" },
-          { level: "Japanese Exams-N1", timeframe: "Exam Preparation" }
-        ],
-        schedule: {
-          heading: "Class Schedule",
-          tagline: "Flexible Schedule Options",
-          intro: "Choose any one of the Day Slot:",
-          options: [
-            "Monday- Wednesday",
-            "Tuesday-Thursday",
-            "Saturday-Sunday"
-          ],
-          duration: "Any one and half hours (1hr 30min) of the day",
-          timeRange: "7:00 AM to 10:00 PM IST"
-        }
-      }
+      languages: ["French", "German", "Japanese"],
+      examTypes: [
+        { exam: "DELF A1/A2", type: "French" },
+        { exam: "DELF B1/B2", type: "French" },
+        { exam: "DALF C1/C2", type: "French" },
+        { exam: "Goethe A1/A2", type: "German" },
+        { exam: "Goethe B1/B2", type: "German" },
+        { exam: "JLPT N5/N4", type: "Japanese" },
+        { exam: "JLPT N3/N2", type: "Japanese" }
+      ],
+      schedule: {
+        options: ["Monday-Wednesday", "Tuesday-Thursday", "Saturday-Sunday"],
+        duration: "1.5 hours",
+        timeRange: "7:00 AM to 10:00 PM IST"
+      },
+      features: ["Exam-Focused", "Multiple Schedule Options", "International Certification", "Expert Guidance"],
+      category: "exam"
     },
     {
       id: 3,
       title: "Immersion - IMM",
       level: "Fast Track",
+      price: "Premium Pricing",
+      duration: "3-6 months",
       description: "Fasttrack Course for Quick Learners",
+      fullDescription: "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
       image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      details: {
-        overview: "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
-        languages: {
-          french: "A1 to B2",
-          german: "A1 to B2"
-        },
-        schedule: {
-          heading: "Class Schedule",
-          tagline: "Intensive Learning Options",
-          intro: "Choose any one of the Day Slot:",
-          weekday: "Monday to Friday: 2hrs per day",
-          weekend: "Saturday & Sunday: 3hrs per day"
-        },
-        features: [
-          "Dynamic and interactive learning environment",
-          "Progress in grammar, vocabulary, pronunciation",
-          "Understanding of targeted language culture",
-          "Variety of pedagogical methods"
-        ]
-      }
+      languages: { french: "A1 to B2", german: "A1 to B2" },
+      schedule: {
+        weekday: "Monday to Friday: 2hrs per day",
+        weekend: "Saturday & Sunday: 3hrs per day"
+      },
+      features: ["Intensive Learning", "Dynamic Environment", "Cultural Understanding", "Varied Teaching Methods"],
+      category: "intensive"
     }
   ], []);
 
+  // --- Filter state and filtered courses ---
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filteredCourses = useMemo(() => {
+    return activeFilter === 'all'
+      ? allCourses
+      : allCourses.filter(course => course.category === activeFilter);
+  }, [activeFilter, allCourses]);
+
+  // --- Carousel state and refs ---
   const [currentCourseIndex, setCurrentCourseIndex] = useState(0);
-  const [selectedCourse, setSelectedCourse] = useState(allCourses[0]);
   const courseDetailsRefs = useRef([]);
 
+  // Reset the carousel index when the filter changes
+  useEffect(() => {
+    setCurrentCourseIndex(0);
+  }, [activeFilter]);
+
   const goToPreviousCourse = () => {
-    setCurrentCourseIndex((prevIndex) => (prevIndex - 1 + allCourses.length) % allCourses.length);
+    setCurrentCourseIndex((prevIndex) => (prevIndex - 1 + filteredCourses.length) % filteredCourses.length);
   };
 
   const goToNextCourse = () => {
-    setCurrentCourseIndex((prevIndex) => (prevIndex + 1) % allCourses.length);
+    setCurrentCourseIndex((prevIndex) => (prevIndex + 1) % filteredCourses.length);
   };
 
   const getCardClass = (index) => {
-    const total = allCourses.length;
+    const total = filteredCourses.length;
     const prevIndex = (currentCourseIndex - 1 + total) % total;
     const nextIndex = (currentCourseIndex + 1) % total;
 
@@ -124,41 +146,126 @@ function CourseDetails() {
     return '';
   };
 
-  useEffect(() => {
-    setSelectedCourse(allCourses[currentCourseIndex]);
-  }, [currentCourseIndex, allCourses]);
-
-  // Effect for automatic carousel advance
+  // Auto-advance the carousel every 4 seconds
   useEffect(() => {
     const autoAdvanceTimer = setInterval(() => {
       goToNextCourse();
-    }, 4000); // Advance every 4 seconds (adjust as needed)
+    }, 4000);
+    return () => clearInterval(autoAdvanceTimer);
+  }, [filteredCourses]);
 
-    // Clean up the timer when the component unmounts or currentCourseIndex changes
-    return () => {
-      clearInterval(autoAdvanceTimer);
-    };
-  }, [currentCourseIndex, allCourses]); // Re-run effect to reset timer when currentCourseIndex changes or allCourses changes
-
-  // Reset animation states when the selected course for the details frame changes
-  useEffect(() => {
-      // Since we are now animating individual items on scroll into view,
-      // we don't need to reset states based on selectedCourse or detailsFrameCourse anymore.
-      // The observer handles visibility and triggers the animation.
-  }, []); // Empty dependency array means this effect runs once on mount
+  // Stats animation hooks with adjusted durations
+  const studentsCount = useCountAnimation(20000, 3);
+  const scholarshipCount = useCountAnimation(15, 2.5);
+  const centersCount = useCountAnimation(7, 2);
+  const successCount = useCountAnimation(95, 2.5);
 
   return (
-    <div className="course-details-page-container">
+    <div className="courses-page">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="hero-badge">Premium Language Education</div>
+          <h1 className="hero-title">
+            Transform Your Career with 
+            <span className="highlight"> Professional Language Skills</span>
+          </h1>
+          <p className="hero-description">
+            Choose from our expertly designed courses that have helped over 20,000+ students 
+            achieve fluency and land their dream opportunities worldwide.
+          </p>
+          <div className="hero-stats">
+            <div className="stat">
+              <motion.span 
+                className="stat-number"
+                ref={studentsCount.ref}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {studentsCount.count.toLocaleString()}+
+              </motion.span>
+              <span className="stat-label">Students Trained</span>
+            </div>
+            <div className="stat">
+              <motion.span 
+                className="stat-number"
+                ref={scholarshipCount.ref}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {scholarshipCount.count}L+
+              </motion.span>
+              <span className="stat-label">Scholarship Awarded</span>
+            </div>
+            <div className="stat">
+              <motion.span 
+                className="stat-number"
+                ref={centersCount.ref}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {centersCount.count}+
+              </motion.span>
+              <span className="stat-label">Centers</span>
+            </div>
+            <div className="stat">
+              <motion.span 
+                className="stat-number"
+                ref={successCount.ref}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                {successCount.count}%
+              </motion.span>
+              <span className="stat-label">Success Rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Filter Section */}
+      <section className="filter-section">
+        <div className="container">
+          <h2 className="filter-title">Find Your Perfect Course</h2>
+          <div className="filter-buttons">
+            <button
+              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('all')}
+            >
+              All Courses
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === 'regular' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('regular')}
+            >
+              Regular Learning
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === 'exam' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('exam')}
+            >
+              Exam Preparation
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === 'intensive' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('intensive')}
+            >
+              Intensive Programs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Carousel Section (using filteredCourses) */}
       <div className="course-carousel-container">
-        {allCourses.map((course, index) => (
+        {filteredCourses.map((course, index) => (
           <div
             key={course.id}
             className={`course-card ${getCardClass(index)}`}
-            style={{
-              zIndex: index === currentCourseIndex ? 10 : 
-                      index === (currentCourseIndex + 1) % allCourses.length ? 5 :
-                      index === (currentCourseIndex - 1 + allCourses.length) % allCourses.length ? 5 : 1
-            }}
           >
             <div className="course-image-container">
               <img 
@@ -168,15 +275,21 @@ function CourseDetails() {
               />
             </div>
             <div className="course-card-content">
-              <div className="course-level">{course.level}</div>
-              <h2 className="course-title">{course.title}</h2>
-              <p className="course-description">{course.description}</p>
-              <button className="know-more-carousel-button" onClick={() => {
-                setCurrentCourseIndex(index);
-                if (courseDetailsRefs.current[index]) {
-                  courseDetailsRefs.current[index].scrollIntoView({ behavior: 'smooth' });
-                }
-              }}>Know More</button>
+              <div className="carousel-course-level">{course.level}</div>
+              <h2 className="carousel-course-title">{course.title}</h2>
+              <p className="carousel-course-description">{course.description}</p>
+              <button 
+                className="course-cta" 
+                onClick={() => {
+                  setCurrentCourseIndex(index);
+                  if (courseDetailsRefs.current[index]) {
+                    courseDetailsRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Learn More
+                <span className="cta-arrow">→</span>
+              </button>
             </div>
           </div>
         ))}
@@ -184,182 +297,126 @@ function CourseDetails() {
         <button className="nav-button next" onClick={goToNextCourse}>&gt;</button>
       </div>
 
-      {allCourses.map((course, courseIndex) => (
-        <div key={course.id} className="course-details-frame" ref={el => courseDetailsRefs.current[courseIndex] = el}>
-          <div className="course-details-content mixed-content">
-            <div className="course-details-text">
-              <h2>{course.title}</h2>
-              <p className="course-overview">{course.details.overview}</p>
-              
-              {/* Available Languages & Proficiency Levels Section */}
-              {(course.details.languages || course.details.proficiencyLevels) && (
-                <div className="details-section available-languages-section">
-                  {/* Combined container for content and animation */}
-                  <div className="languages-proficiency-combined-content">
-                    {/* Container for Languages and Proficiency Levels (vertical stack on small, horizontal on large) */}
-                    <div className="languages-and-proficiency-container">
-                      {/* Available Languages Subsection */}
-                      {course.details.languages && (
-                        <div className="available-languages-subsection">
-                          <h3>Available Languages</h3>
-                          <div className="language-boxes-container">
-                            {Array.isArray(course.details.languages) ? (
-                              course.details.languages.map((lang, langIndex) => (
-                                <Link key={langIndex} to={`/${lang.toLowerCase()}`} className="language-box">
-                                  <div className="language-box-content">
-                                    <span>{lang}</span>
-                                    <button className="know-more-button">Know More</button>
-                                  </div>
-                                </Link>
-                              ))
-                            ) : (
-                             <>
-                                <Link to="/french" className="language-box">
-                                  <div className="language-box-content">
-                                    <span>French: {course.details.languages.french}</span>
-                                    <button className="know-more-button">Know More</button>
-                                  </div>
-                                </Link>
-                                <Link to="/german" className="language-box">
-                                  <div className="language-box-content">
-                                    <span>German: {course.details.languages.german}</span>
-                                    <button className="know-more-button">Know More</button>
-                                  </div>
-                                </Link>
-                             </>
-                          )}
+      {/* Detailed Information Sections (using filteredCourses) */}
+      {filteredCourses.map((course, index) => (
+        <section 
+          key={`detail-${course.id}`} 
+          className="course-detail-section"
+          ref={el => (courseDetailsRefs.current[index] = el)}
+        >
+          <div className="container">
+            <div className="detail-grid">
+              <div className="detail-content">
+                <h2 className="detail-title">{course.title} - Complete Overview</h2>
+                <p className="detail-description">{course.fullDescription}</p>
+                
+                {course.proficiencyLevels && (
+                  <div className="proficiency-section">
+                    <h3>Proficiency Levels</h3>
+                    <div className="proficiency-grid">
+                      {course.proficiencyLevels.map((level, idx) => (
+                        <div key={idx} className="proficiency-card">
+                          <h4>{level.level}</h4>
+                          <div className="level-codes">
+                            {level.codes.map((code, codeIdx) => (
+                              <span key={codeIdx} className="level-code">{code}</span>
+                            ))}
                           </div>
+                          <span className="timeframe">{level.timeframe}</span>
                         </div>
-                      )}
-
-                      {/* Proficiency Levels Section */}
-                      {course.details.proficiencyLevels && (
-                        <div className="proficiency-levels-subsection">
-                           <h3>Proficiency Levels</h3>
-                            <div className="proficiency-levels-container">
-                              {course.details.proficiencyLevels.map((level, levelIndex) => (
-                                <div key={levelIndex} className="proficiency-level-item">
-                                  <h4 className="proficiency-level-title">{level.level.split('-')[0]}</h4>
-                                  <div className="proficiency-level-box">
-                                    <div className="level-codes">
-                                      {level.level.split('-')[1].split('/').map((code, codeIndex) => (
-                                        <span key={codeIndex} className="level-code">{code.trim()}</span>
-                                      ))}
-                                    </div>
-                                    <span className="timeframe-box">{level.timeframe}</span>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                        </div>
-                      )}
+                      ))}
                     </div>
-
-                    {/* Language Animation */}
-                    <div className="language-animation-available-languages">
-                      <Lottie
-                        animationData={languageAnimationData}
-                        loop={true}
-                        style={{ width: '100%', height: '100%' }}
-                        className="language-animation-lottie"
-                      />
+                  </div>
+                )}
+                
+                {course.examTypes && (
+                  <div className="exam-section">
+                    <h3>Available Exams</h3>
+                    <div className="exam-grid">
+                      {course.examTypes.map((exam, idx) => (
+                        <div key={idx} className="exam-card">
+                          <span className="exam-type">{exam.type}</span>
+                          <span className="exam-name">{exam.exam}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="schedule-section">
+                  <h3>Class Schedule</h3>
+                  <div className="schedule-info">
+                    {course.schedule.days && (
+                      <div className="schedule-item">
+                        <strong>Days:</strong> {course.schedule.days}
+                      </div>
+                    )}
+                    {course.schedule.options && (
+                      <div className="schedule-item">
+                        <strong>Options:</strong> {course.schedule.options.join(', ')}
+                      </div>
+                    )}
+                    {course.schedule.weekday && (
+                      <div className="schedule-item">
+                        <strong>Weekdays:</strong> {course.schedule.weekday}
+                      </div>
+                    )}
+                    {course.schedule.weekend && (
+                      <div className="schedule-item">
+                        <strong>Weekends:</strong> {course.schedule.weekend}
+                      </div>
+                    )}
+                    <div className="schedule-item">
+                      <strong>Duration:</strong> {course.schedule.duration}
+                    </div>
+                    <div className="schedule-item">
+                      <strong>Time Range:</strong> {course.schedule.timeRange}
                     </div>
                   </div>
                 </div>
-              )}
-
-              {course.details.exams && (
-                <div className="details-section">
-                  <h3>Available Exams</h3>
-                  <ul>
-                    <li><strong>French:</strong> {course.details.exams.french}</li>
-                    <li><strong>German:</strong> {course.details.exams.german}</li>
-                    <li><strong>Japanese:</strong> {course.details.exams.japanese}</li>
-                  </ul>
+              </div>
+              
+              <div className="detail-sidebar">
+                <div className="enrollment-card">
+                  <h3>Ready to Start?</h3>
+                  <div className="price-display">{course.price}</div>
+                  <button className="enroll-btn">Enroll Now</button>
+                  <p className="enrollment-note">Get started with a free consultation</p>
                 </div>
-              )}
-
-              {course.details.schedule && (
-                <div className="details-section schedule-section">
-                  <h3>{course.details.schedule.heading}</h3>
-                  <div className="schedule-content">
-                    <div className="schedule-text">
-                      <p className="schedule-tagline">{course.details.schedule.tagline}</p>
-                      <p>{course.details.schedule.intro}</p>
-
-                      {course.details.schedule.options ? (
-                        <ul>
-                          {course.details.schedule.options.map((option, optionIndex) => (
-                            <li key={optionIndex}>{option}</li>
-                          ))}
-                        </ul>
-                      ) : (course.details.schedule.details || course.details.schedule.weekday || course.details.schedule.weekend || course.details.schedule.duration || course.details.schedule.timeRange) && (
-                        <div className="schedule-details-list">
-                          {course.details.schedule.details && course.details.schedule.details.map((item, itemIndex) => (
-                              <p key={itemIndex} className="schedule-detail-item">
-                                  <span className="schedule-icon">{item.icon}</span>
-                                  {item.text}
-                              </p>
-                          ))}
-                           {course.details.schedule.weekday && (
-                            <p className="schedule-detail-item">
-                               <span className="schedule-icon">📅</span> {/* Placeholder icon */}
-                              {course.details.schedule.weekday}
-                              </p>
-                          )}
-                          {course.details.schedule.weekend && (
-                            <p className="schedule-detail-item">
-                               <span className="schedule-icon">📅</span> {/* Placeholder icon */}
-                              {course.details.schedule.weekend}
-                              </p>
-                          )}
-                          {course.details.schedule.duration && (
-                               <p className="schedule-detail-item">
-                               <span className="schedule-icon">⏰</span> {/* Placeholder icon */}
-                              {course.details.schedule.duration}
-                              </p>
-                          )}
-                           {course.details.schedule.timeRange && (
-                               <p className="schedule-detail-item">
-                               <span className="schedule-icon">📍</span> {/* Placeholder icon */}
-                              {course.details.schedule.timeRange}
-                              </p>
-                          )}
-                        </div>
-                      )}
-                       {course.details.schedule.conclusion && (
-                        <p className="schedule-conclusion">{course.details.schedule.conclusion}</p>
-                      )}
+                
+                <div className="contact-card">
+                  <h4>Need Help?</h4>
+                  <p>Our language consultants are here to help you choose the right course.</p>
+                  <div className="contact-methods">
+                    <div className="contact-item">
+                      <span>📞</span> +91 7338881781
                     </div>
-                    {/* Schedule Lottie animation */}
-                    <div className="schedule-animation">
-                      <Lottie
-                        animationData={scheduleAnimationData}
-                        loop={true}
-                        style={{ width: '100%', height: '100%' }}
-                        className="schedule-lottie-animation"
-                      />
+                    <div className="contact-item">
+                      <span>✉️</span> learnwithisml@iypan.in
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
 
-              {course.details.features && (
-                <div className="details-section">
-                  <h3>Course Features</h3>
-                  <ul>
-                    {course.details.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Ready to Start Your Language Journey?</h2>
+            <p>Join thousands of successful learners who have transformed their careers with ISML</p>
+            <div className="cta-buttons">
+              <button className="cta-primary">Start Free Consultation</button>
+              <button className="cta-secondary">Download Brochure</button>
             </div>
           </div>
         </div>
-      ))}
+      </section>
     </div>
   );
 }
 
-export default CourseDetails; 
+export default CourseDetails;

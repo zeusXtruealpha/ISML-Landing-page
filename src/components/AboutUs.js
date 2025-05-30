@@ -73,7 +73,7 @@ function AboutUs() {
     let interval;
     if (!isHovered) {
       interval = setInterval(() => {
-        setCurrentPosition((prev) => (prev + 1) % 8);
+      setCurrentPosition((prev) => (prev + 1) % 8);
       }, 2000);
     }
     return () => {
@@ -100,7 +100,7 @@ function AboutUs() {
             wrapperRef.current.style.transform = 'translateX(0)';
           }, 500);
         }
-      }, 3000);
+    }, 3000);
     }
     return () => clearInterval(interval);
   }, [isHovered, isDragging]);
@@ -170,7 +170,7 @@ function AboutUs() {
         <div className="carousel-section">
           <div 
             className="carousel-container"
-            ref={carouselRef}
+              ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}

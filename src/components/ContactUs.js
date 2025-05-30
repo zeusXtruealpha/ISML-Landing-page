@@ -29,7 +29,8 @@ function ContactUs() {
         <div className="contact-card-item">
           <div className="card-icon">{/* Icon placeholder */}</div>
           <h2>Contact Customer Support</h2>
-          <p>Sometimes you need a little help. ISML support is here for you.</p>
+          <p>Need a hand? Our ISML Support Team is here to help. We’re available anytime — reach out to us whenever you need. </p>
+          <p className="contact-email">learnwithisml@iypan.in</p>
           <a href="mailto:learnwithisml@iypan.in" target="_blank" rel="noopener noreferrer" className="support-button">Contact Support</a>
         </div>
       </div>

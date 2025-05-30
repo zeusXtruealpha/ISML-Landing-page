@@ -9,7 +9,7 @@
 .german-hero {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #2c3e50, #3498db, #2980b9);
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   border-radius: 20px;
   margin-bottom: 4rem;
   color: white;
@@ -49,7 +49,7 @@
 
 .contact-btn {
   background: white;
-  color: #2c3e50;
+  color: #1a2a6c;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.2rem;
@@ -78,7 +78,7 @@
 .modules-section h2,
 .format-section h2 {
   text-align: center;
-  color: #2c3e50;
+  color: #1a2a6c;
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -95,7 +95,7 @@
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background: linear-gradient(90deg, #2c3e50, #3498db);
+  background: linear-gradient(90deg, #1a2a6c, #b21f1f);
   border-radius: 3px;
 }
 
@@ -123,7 +123,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, #2c3e50, #3498db);
+  background: linear-gradient(180deg, #1a2a6c, #b21f1f);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease;
@@ -141,7 +141,7 @@
 }
 
 .level-badge {
-  background: linear-gradient(135deg, #2c3e50, #3498db);
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -151,7 +151,7 @@
 }
 
 .level-card h3 {
-  color: #2c3e50;
+  color: #1a2a6c;
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
@@ -189,7 +189,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #2c3e50, #3498db);
+  background: linear-gradient(90deg, #1a2a6c, #b21f1f);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -202,7 +202,7 @@
 
 .module-card h3,
 .format-card h3 {
-  color: #2c3e50;
+  color: #1a2a6c;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
