@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './CourseDetails.css';
 
 // Custom hook for counting animation
@@ -15,18 +16,14 @@ const useCountAnimation = (end, duration = 2) => {
       const animate = (currentTime) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-        
         // Easing function for smooth animation
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         const currentCount = Math.floor(easeOutQuart * end);
-        
         setCount(currentCount);
-        
         if (progress < 1) {
           requestAnimationFrame(animate);
         }
       };
-      
       requestAnimationFrame(animate);
     }
   }, [inView, end, duration]);
@@ -35,6 +32,8 @@ const useCountAnimation = (end, duration = 2) => {
 };
 
 function CourseDetails() {
+  const navigate = useNavigate();
+
   // All courses data
   const allCourses = useMemo(() => [
     {
@@ -44,9 +43,12 @@ function CourseDetails() {
       price: "₹499/month",
       duration: "1-5 years",
       description: "Master a Language of Your Choice for Just Rs. 499 per Month",
-      fullDescription: "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
-      image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      fullDescription:
+        "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
+      image:
+        "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       languages: ["French", "German", "Japanese"],
+      // You can later add more items (evaluate conditionally) if needed.
       proficiencyLevels: [
         { level: "Beginner", codes: ["A1", "A2", "N5"], timeframe: "in 1 year" },
         { level: "Amateur", codes: ["A2", "B1", "N4"], timeframe: "in 2 years" },
@@ -60,7 +62,12 @@ function CourseDetails() {
         timeRange: "7:00 AM to 10:00 PM IST",
         flexibility: "Pick any slot that suits you"
       },
-      features: ["Weekend Classes", "Flexible Timing", "Multiple Languages", "Progressive Learning"],
+      features: [
+        "Weekend Classes",
+        "Flexible Timing",
+        "Multiple Languages",
+        "Progressive Learning"
+      ],
       category: "regular"
     },
     {
@@ -70,8 +77,10 @@ function CourseDetails() {
       price: "Contact for pricing",
       duration: "3-6 months",
       description: "Crack your Language Proficiency Exam of Your Choice",
-      fullDescription: "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today to crack the International diploma exams and start your journey toward language fluency.",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      fullDescription:
+        "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today to crack the International diploma exams and start your journey toward language fluency.",
+      image:
+        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       languages: ["French", "German", "Japanese"],
       examTypes: [
         { exam: "DELF A1/A2", type: "French" },
@@ -87,7 +96,12 @@ function CourseDetails() {
         duration: "1.5 hours",
         timeRange: "7:00 AM to 10:00 PM IST"
       },
-      features: ["Exam-Focused", "Multiple Schedule Options", "International Certification", "Expert Guidance"],
+      features: [
+        "Exam-Focused",
+        "Multiple Schedule Options",
+        "International Certification",
+        "Expert Guidance"
+      ],
       category: "exam"
     },
     {
@@ -97,25 +111,33 @@ function CourseDetails() {
       price: "Premium Pricing",
       duration: "3-6 months",
       description: "Fasttrack Course for Quick Learners",
-      fullDescription: "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
-      image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      languages: { french: "A1 to B2", german: "A1 to B2" },
+      fullDescription:
+        "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
+      image:
+        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      // In this course languages is provided as an object
+      languages: { French: "A1 to B2", German: "A1 to B2" },
       schedule: {
         weekday: "Monday to Friday: 2hrs per day",
         weekend: "Saturday & Sunday: 3hrs per day"
       },
-      features: ["Intensive Learning", "Dynamic Environment", "Cultural Understanding", "Varied Teaching Methods"],
+      features: [
+        "Intensive Learning",
+        "Dynamic Environment",
+        "Cultural Understanding",
+        "Varied Teaching Methods"
+      ],
       category: "intensive"
     }
   ], []);
 
   // --- Filter state and filtered courses ---
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredCourses = useMemo(() => {
-    return activeFilter === 'all'
+    return activeFilter === "all"
       ? allCourses
-      : allCourses.filter(course => course.category === activeFilter);
+      : allCourses.filter((course) => course.category === activeFilter);
   }, [activeFilter, allCourses]);
 
   // --- Carousel state and refs ---
@@ -128,11 +150,15 @@ function CourseDetails() {
   }, [activeFilter]);
 
   const goToPreviousCourse = () => {
-    setCurrentCourseIndex((prevIndex) => (prevIndex - 1 + filteredCourses.length) % filteredCourses.length);
+    setCurrentCourseIndex(
+      (prevIndex) => (prevIndex - 1 + filteredCourses.length) % filteredCourses.length
+    );
   };
 
   const goToNextCourse = () => {
-    setCurrentCourseIndex((prevIndex) => (prevIndex + 1) % filteredCourses.length);
+    setCurrentCourseIndex(
+      (prevIndex) => (prevIndex + 1) % filteredCourses.length
+    );
   };
 
   const getCardClass = (index) => {
@@ -140,10 +166,10 @@ function CourseDetails() {
     const prevIndex = (currentCourseIndex - 1 + total) % total;
     const nextIndex = (currentCourseIndex + 1) % total;
 
-    if (index === currentCourseIndex) return 'active';
-    if (index === nextIndex) return 'next';
-    if (index === prevIndex) return 'prev';
-    return '';
+    if (index === currentCourseIndex) return "active";
+    if (index === nextIndex) return "next";
+    if (index === prevIndex) return "prev";
+    return "";
   };
 
   // Auto-advance the carousel every 4 seconds
@@ -167,16 +193,17 @@ function CourseDetails() {
         <div className="hero-content">
           <div className="hero-badge">Premium Language Education</div>
           <h1 className="hero-title">
-            Transform Your Career with 
+            Transform Your Career with{" "}
             <span className="highlight"> Professional Language Skills</span>
           </h1>
           <p className="hero-description">
-            Choose from our expertly designed courses that have helped over 20,000+ students 
-            achieve fluency and land their dream opportunities worldwide.
+            Choose from our expertly designed courses that have helped over
+            20,000+ students achieve fluency and land their dream opportunities
+            worldwide.
           </p>
           <div className="hero-stats">
             <div className="stat">
-              <motion.span 
+              <motion.span
                 className="stat-number"
                 ref={studentsCount.ref}
                 initial={{ opacity: 0, y: 20 }}
@@ -188,7 +215,7 @@ function CourseDetails() {
               <span className="stat-label">Students Trained</span>
             </div>
             <div className="stat">
-              <motion.span 
+              <motion.span
                 className="stat-number"
                 ref={scholarshipCount.ref}
                 initial={{ opacity: 0, y: 20 }}
@@ -200,7 +227,7 @@ function CourseDetails() {
               <span className="stat-label">Scholarship Awarded</span>
             </div>
             <div className="stat">
-              <motion.span 
+              <motion.span
                 className="stat-number"
                 ref={centersCount.ref}
                 initial={{ opacity: 0, y: 20 }}
@@ -212,7 +239,7 @@ function CourseDetails() {
               <span className="stat-label">Centers</span>
             </div>
             <div className="stat">
-              <motion.span 
+              <motion.span
                 className="stat-number"
                 ref={successCount.ref}
                 initial={{ opacity: 0, y: 20 }}
@@ -233,26 +260,26 @@ function CourseDetails() {
           <h2 className="filter-title">Find Your Perfect Course</h2>
           <div className="filter-buttons">
             <button
-              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('all')}
+              className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
+              onClick={() => setActiveFilter("all")}
             >
               All Courses
             </button>
             <button
-              className={`filter-btn ${activeFilter === 'regular' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('regular')}
+              className={`filter-btn ${activeFilter === "regular" ? "active" : ""}`}
+              onClick={() => setActiveFilter("regular")}
             >
               Regular Learning
             </button>
             <button
-              className={`filter-btn ${activeFilter === 'exam' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('exam')}
+              className={`filter-btn ${activeFilter === "exam" ? "active" : ""}`}
+              onClick={() => setActiveFilter("exam")}
             >
               Exam Preparation
             </button>
             <button
-              className={`filter-btn ${activeFilter === 'intensive' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('intensive')}
+              className={`filter-btn ${activeFilter === "intensive" ? "active" : ""}`}
+              onClick={() => setActiveFilter("intensive")}
             >
               Intensive Programs
             </button>
@@ -263,14 +290,11 @@ function CourseDetails() {
       {/* Carousel Section (using filteredCourses) */}
       <div className="course-carousel-container">
         {filteredCourses.map((course, index) => (
-          <div
-            key={course.id}
-            className={`course-card ${getCardClass(index)}`}
-          >
+          <div key={course.id} className={`course-card ${getCardClass(index)}`}>
             <div className="course-image-container">
-              <img 
-                src={course.image} 
-                alt={course.title} 
+              <img
+                src={course.image}
+                alt={course.title}
                 className="course-image"
               />
             </div>
@@ -278,12 +302,14 @@ function CourseDetails() {
               <div className="carousel-course-level">{course.level}</div>
               <h2 className="carousel-course-title">{course.title}</h2>
               <p className="carousel-course-description">{course.description}</p>
-              <button 
-                className="course-cta" 
+              <button
+                className="course-cta"
                 onClick={() => {
                   setCurrentCourseIndex(index);
                   if (courseDetailsRefs.current[index]) {
-                    courseDetailsRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+                    courseDetailsRefs.current[index].scrollIntoView({
+                      behavior: "smooth",
+                    });
                   }
                 }}
               >
@@ -293,23 +319,56 @@ function CourseDetails() {
             </div>
           </div>
         ))}
-        <button className="nav-button prev" onClick={goToPreviousCourse}>&lt;</button>
-        <button className="nav-button next" onClick={goToNextCourse}>&gt;</button>
+        <button className="nav-button prev" onClick={goToPreviousCourse}>
+          &lt;
+        </button>
+        <button className="nav-button next" onClick={goToNextCourse}>
+          &gt;
+        </button>
       </div>
 
       {/* Detailed Information Sections (using filteredCourses) */}
       {filteredCourses.map((course, index) => (
-        <section 
-          key={`detail-${course.id}`} 
+        <section
+          key={`detail-${course.id}`}
           className="course-detail-section"
-          ref={el => (courseDetailsRefs.current[index] = el)}
+          ref={(el) => (courseDetailsRefs.current[index] = el)}
         >
           <div className="container">
             <div className="detail-grid">
               <div className="detail-content">
-                <h2 className="detail-title">{course.title} - Complete Overview</h2>
+                <h2 className="detail-title">
+                  {course.title} - Complete Overview
+                </h2>
                 <p className="detail-description">{course.fullDescription}</p>
-                
+
+                {/* Language Boxes Section */}
+                {course.languages && (
+                  <div className="languages-boxes">
+                    {Array.isArray(course.languages) ? (
+                      course.languages.map((lang, idx) => (
+                        <div
+                          key={idx}
+                          className="language-box"
+                          onClick={() => navigate(`/${lang.toLowerCase()}`)}
+                        >
+                          {lang}
+                        </div>
+                      ))
+                    ) : (
+                      Object.keys(course.languages).map((langKey, idx) => (
+                        <div
+                          key={idx}
+                          className="language-box"
+                          onClick={() => navigate(`/${langKey.toLowerCase()}`)}
+                        >
+                          {langKey}: {course.languages[langKey]}
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
+
                 {course.proficiencyLevels && (
                   <div className="proficiency-section">
                     <h3>Proficiency Levels</h3>
@@ -319,7 +378,9 @@ function CourseDetails() {
                           <h4>{level.level}</h4>
                           <div className="level-codes">
                             {level.codes.map((code, codeIdx) => (
-                              <span key={codeIdx} className="level-code">{code}</span>
+                              <span key={codeIdx} className="level-code">
+                                {code}
+                              </span>
                             ))}
                           </div>
                           <span className="timeframe">{level.timeframe}</span>
@@ -328,7 +389,7 @@ function CourseDetails() {
                     </div>
                   </div>
                 )}
-                
+
                 {course.examTypes && (
                   <div className="exam-section">
                     <h3>Available Exams</h3>
@@ -342,7 +403,7 @@ function CourseDetails() {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="schedule-section">
                   <h3>Class Schedule</h3>
                   <div className="schedule-info">
@@ -353,7 +414,8 @@ function CourseDetails() {
                     )}
                     {course.schedule.options && (
                       <div className="schedule-item">
-                        <strong>Options:</strong> {course.schedule.options.join(', ')}
+                        <strong>Options:</strong>{" "}
+                        {course.schedule.options.join(", ")}
                       </div>
                     )}
                     {course.schedule.weekday && (
@@ -375,18 +437,23 @@ function CourseDetails() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="detail-sidebar">
                 <div className="enrollment-card">
                   <h3>Ready to Start?</h3>
                   <div className="price-display">{course.price}</div>
                   <button className="enroll-btn">Enroll Now</button>
-                  <p className="enrollment-note">Get started with a free consultation</p>
+                  <p className="enrollment-note">
+                    Get started with a free consultation
+                  </p>
                 </div>
-                
+
                 <div className="contact-card">
                   <h4>Need Help?</h4>
-                  <p>Our language consultants are here to help you choose the right course.</p>
+                  <p>
+                    Our language consultants are here to help you choose the right
+                    course.
+                  </p>
                   <div className="contact-methods">
                     <div className="contact-item">
                       <span>📞</span> +91 7338881781
@@ -407,7 +474,10 @@ function CourseDetails() {
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Start Your Language Journey?</h2>
-            <p>Join thousands of successful learners who have transformed their careers with ISML</p>
+            <p>
+              Join thousands of successful learners who have transformed their
+              careers with ISML
+            </p>
             <div className="cta-buttons">
               <button className="cta-primary">Start Free Consultation</button>
               <button className="cta-secondary">Download Brochure</button>

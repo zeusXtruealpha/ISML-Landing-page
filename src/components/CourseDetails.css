@@ -321,6 +321,28 @@
   transform: translateY(-50%) scale(1.1);
 }
 
+/* --- Language Boxes Section --- */
+.languages-boxes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.language-box {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-box:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
 /* --- Detailed Information Sections --- */
 .course-detail-section {
   padding: 4rem 0;
