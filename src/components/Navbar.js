@@ -9,7 +9,6 @@ import youtubeIcon from '../assets/youtube.svg';
 function Navbar({ showHeroTextInNav }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLanguagesSubmenuOpen, setIsLanguagesSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   // Close desktop dropdown on outside click
@@ -45,9 +44,8 @@ function Navbar({ showHeroTextInNav }) {
 
   // Close all menus when any nav link is clicked
   const handleNavClick = () => {
-    setIsDropdownOpen(false);
+    setIsDropdownOpen(false); // This is still needed for desktop
     setIsMobileMenuOpen(false);
-    setIsLanguagesSubmenuOpen(false);
   };
 
   // Toggle mobile menu visibility
@@ -56,9 +54,10 @@ function Navbar({ showHeroTextInNav }) {
   };
 
   // Toggle Languages submenu in mobile
-  const handleLanguagesSubmenuToggle = () => {
-    setIsLanguagesSubmenuOpen(!isLanguagesSubmenuOpen);
-  };
+  // const handleLanguagesSubmenuToggle = (e) => { // Function removed
+  // e.stopPropagation();
+  // setIsLanguagesSubmenuOpen(!isLanguagesSubmenuOpen);
+  // };
 
   return (
     <nav className={`navbar${showHeroTextInNav ? ' compact' : ''}`}>
@@ -158,6 +157,13 @@ function Navbar({ showHeroTextInNav }) {
               ×
             </button>
           </li>
+          <li className="nav-item mobile-menu-logo-item">
+            <Link to="/" onClick={handleNavClick} style={{ textDecoration: 'none', display: 'inline-block' }}>
+              <div className="navbar-compact-text"> {/* Reusing existing class for styling */}
+                <span className="navbar-isml">I</span><span className="navbar-rest">SML</span>
+              </div>
+            </Link>
+          </li>
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={handleNavClick}>Home</Link>
           </li>
@@ -170,38 +176,23 @@ function Navbar({ showHeroTextInNav }) {
           <li className="nav-item">
             <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
           </li>
-          <li className="nav-item dropdown mobile-dropdown">
-            <button 
-              className="nav-link dropdown-toggle" 
-              onClick={(e) => {
-                e.preventDefault();
-                setIsDropdownOpen(!isDropdownOpen);
-              }}
-            >
-              More <span className="dropdown-arrow">▼</span>
-            </button>
-            {isDropdownOpen && (
-              <ul className="dropdown-menu mobile-dropdown-menu">
-                <li className="dropdown-submenu mobile-dropdown-submenu">
-                  <button 
-                    className="submenu-toggle" 
-                    onClick={handleLanguagesSubmenuToggle}
-                  >
-                    Languages <span className="dropdown-arrow">▸</span>
-                  </button>
-                  {isLanguagesSubmenuOpen && (
-                    <ul className="dropdown-submenu-content mobile-dropdown-submenu-content">
-                      <li><Link to="/french" onClick={handleNavClick}>French</Link></li>
-                      <li><Link to="/german" onClick={handleNavClick}>German</Link></li>
-                      <li><Link to="/japanese" onClick={handleNavClick}>Japanese</Link></li>
-                    </ul>
-                  )}
-                </li>
-                <li><Link to="/franchise" onClick={handleNavClick}>Franchise</Link></li>
-                <li><Link to="/contact" onClick={handleNavClick}>Contact Us</Link></li>
-                <li><Link to="/privacy" onClick={handleNavClick}>Privacy Policy</Link></li>
-              </ul>
-            )}
+          <li className="nav-item">
+            <Link to="/french" className="nav-link" onClick={handleNavClick}>French</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/german" className="nav-link" onClick={handleNavClick}>German</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/japanese" className="nav-link" onClick={handleNavClick}>Japanese</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/franchise" className="nav-link" onClick={handleNavClick}>Franchise</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link" onClick={handleNavClick}>Contact Us</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/privacy" className="nav-link" onClick={handleNavClick}>Privacy Policy</Link>
           </li>
         </ul>
 

@@ -260,6 +260,10 @@
 
 /* Mobile - Only Styles (≤ 768px) */
 @media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+  }
+
   /* Hide desktop - only elements */
   .nav-menu.desktop,
   .navbar-socials {
@@ -279,7 +283,7 @@
 
   /* Mobile Menu Container */
   .nav-menu.mobile {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: -100%; 
     width: 80%;
@@ -293,6 +297,7 @@
     z-index: 1000;
     list-style: none;
     margin: 0;
+    overflow-y: auto;
   }
 
   .nav-menu.mobile.active {
@@ -329,63 +334,6 @@
 
   .nav-link:hover {
     color: #666;
-  }
-
-  /* Mobile Dropdowns */
-  .mobile-dropdown {
-    position: relative;
-  }
-
-  .dropdown-toggle {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: #333;
-    cursor: pointer;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
-
-  .dropdown-toggle:hover {
-    color: #666;
-  }
-
-  .mobile-dropdown-menu {
-    position: static;
-    box-shadow: none;
-    padding: 0.5rem 0;
-    margin: 0.5rem 0 0 1rem;
-    list-style: none;
-  }
-
-  .mobile-dropdown-submenu {
-    position: relative;
-  }
-
-  .submenu-toggle {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    font-size: 1.1rem;
-    color: #333;
-    cursor: pointer;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-  }
-
-  .submenu-toggle:hover {
-    color: #666;
-  }
-
-  .mobile-dropdown-submenu-content {
-    position: static;
-    box-shadow: none;
-    padding: 0.5rem 0 0.5rem 1rem;
-    margin: 0.5rem 0;
-    list-style: none;
   }
 
   /* Simplify logo on mobile */
