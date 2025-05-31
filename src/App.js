@@ -104,23 +104,23 @@ function AppContent() {
             <div className="isml-footer-links">
               <div className="footer-links-column">
                 <h3>Quick Links</h3>
-                <a href="#">About Us</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
+                <a href="about">About Us</a>
+                <a href="centres">Our Centres</a>
+                <a href="contact">Contact Us</a>
               </div>
               <div className="vertical-line vertical-line-1"></div>
               <div className="footer-links-column">
                 <h3>Resources</h3>
-                <a href="#">Blog</a>
-                <a href="#">News</a>
-                <a href="#">Careers</a>
+                <a href="courses">Course Details</a>
+                <a href="privacy">Privacy Policy</a>
+                <a href="franchise">Franchise</a>
               </div>
               <div className="vertical-line vertical-line-2"></div>
               <div className="footer-links-column">
                 <h3>Languages</h3>
-                <a href="#">French</a>
-                <a href="#">German</a>
-                <a href="#">Japanese</a>
+                <a href="french">French</a>
+                <a href="german">German</a>
+                <a href="japanese">Japanese</a>
         </div>
           </div>
           </div>
