@@ -101,19 +101,48 @@ body {
   .hero-plain-isml {
     font-size: 45px;
   }
+
+  .hero-gradient-text {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-frame {
     height: 250px;
+    margin-top: 0.5rem;
   }
 
   .hero-word-row {
     font-size: 32px;
     height: 36px;
+    letter-spacing: -0.5px;
   }
 
   .hero-plain-isml {
     font-size: 36px;
+  }
+
+  .hero-gradient-text {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-frame {
+    height: 200px;
+  }
+
+  .hero-word-row {
+    font-size: 28px;
+    height: 32px;
+  }
+
+  .hero-plain-isml {
+    font-size: 32px;
+  }
+
+  .hero-gradient-text {
+    font-size: 28px;
   }
 } 

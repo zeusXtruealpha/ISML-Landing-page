@@ -363,18 +363,12 @@
   }
 
   .who-we-are-content {
+    padding: 1.5rem;
     border-radius: 12px;
   }
 
-  .carousel-container {
-    border-radius: 12px;
-  }
-
-  .carousel-wrapper {
-    height: 300px;
-  }
-
-  .vision-mission-container {
+  .vision-mission-row {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -393,25 +387,13 @@
     font-size: 1rem;
   }
 
-  .vision-mission-tabs {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .tab-button {
-    width: 100%;
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  .vision-mission-content {
-    padding: 1.5rem;
+  .carousel-section {
+    height: 300px;
   }
 
   .client-logos-container {
     width: 95%;
     padding: 1rem 0;
-    min-height: 350px;
   }
 
   .client-logos-grid {
@@ -427,6 +409,48 @@
   .client-logo {
     min-width: 120px;
     min-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-container {
+    padding: 0.8rem;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .who-we-are-content {
+    padding: 1.2rem;
+  }
+
+  .vision-section,
+  .mission-section {
+    padding: 1.2rem;
+  }
+
+  .vision-section .section-title,
+  .mission-section .section-title {
+    font-size: 1.3rem;
+  }
+
+  .carousel-section {
+    height: 250px;
+  }
+
+  .client-logos-grid {
+    grid-auto-rows: minmax(120px, 1fr);
+  }
+
+  .client-logo-wrapper {
+    min-height: 120px;
+  }
+
+  .client-logo {
+    min-width: 100px;
+    min-height: 100px;
   }
 }
 

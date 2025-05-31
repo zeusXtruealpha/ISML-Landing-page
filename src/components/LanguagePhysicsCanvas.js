@@ -28,6 +28,8 @@ function LanguagePhysicsCanvas() {
   const [shouldStart, setShouldStart] = useState(false);
   const [showHeading, setShowHeading] = useState(false);
   const mouseConstraintRef = useRef(null);
+  const touchStartPos = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
 
   // Responsive canvas size
   function getCanvasSize() {
@@ -43,7 +45,7 @@ function LanguagePhysicsCanvas() {
         if (entry.isIntersecting) {
           setTimeout(() => setShowHeading(true), 100);
           setShouldStart(true);
-          observer.disconnect(); // Only trigger once
+          observer.disconnect();
         }
       },
       { threshold: 0.15 }
@@ -95,7 +97,7 @@ function LanguagePhysicsCanvas() {
     }
     boxesRef.current = boxes;
 
-    // Mouse drag (desktop and smart touch)
+    // Mouse drag (desktop)
     const mouse = Matter.Mouse.create(canvas);
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
@@ -105,77 +107,67 @@ function LanguagePhysicsCanvas() {
       },
     });
     mouseConstraintRef.current = mouseConstraint;
-    Matter.World.add(engine.world, [...walls, ...boxes, mouseConstraint]);
 
-    // Smart touch handling
-    let touchStartY = null;
-    let touchStartX = null;
-    let touchStartedOnTile = false;
-    function isTouchOnTile(touch) {
-      const rect = canvas.getBoundingClientRect();
-      const x = ((touch.clientX - rect.left) / rect.width) * canvas.width;
-      const y = ((touch.clientY - rect.top) / rect.height) * canvas.height;
-      // Check if touch is inside any tile
-      for (const box of boxes) {
-        const dx = x - box.position.x;
-        const dy = y - box.position.y;
-        // Rotate point by -box.angle
-        const cos = Math.cos(-box.angle);
-        const sin = Math.sin(-box.angle);
-        const localX = dx * cos - dy * sin;
-        const localY = dx * sin + dy * cos;
-        if (
-          localX > -TILE_WIDTH / 2 &&
-          localX < TILE_WIDTH / 2 &&
-          localY > -TILE_HEIGHT / 2 &&
-          localY < TILE_HEIGHT / 2
-        ) {
-          return true;
-        }
-      }
-      return false;
-    }
+    // Touch handling for mobile
     function handleTouchStart(e) {
       if (e.touches.length !== 1) return;
-      touchStartY = e.touches[0].clientY;
-      touchStartX = e.touches[0].clientX;
-      touchStartedOnTile = isTouchOnTile(e.touches[0]);
-      // Only preventDefault if started on a tile
-      if (touchStartedOnTile) {
-        e.preventDefault();
-      }
-    }
-    function handleTouchMove(e) {
-      if (e.touches.length !== 1) return;
-      if (!touchStartedOnTile) return; // allow scroll
-      const dy = Math.abs(e.touches[0].clientY - touchStartY);
-      const dx = Math.abs(e.touches[0].clientX - touchStartX);
-      // If mostly vertical, allow scroll
-      if (dy > dx) {
-        touchStartedOnTile = false;
-        return;
-      }
-      // If mostly horizontal, prevent scroll and allow drag
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      touchStartPos.current = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+      };
+      isDragging.current = true;
       e.preventDefault();
     }
-    function handleTouchEnd() {
-      touchStartedOnTile = false;
+
+    function handleTouchMove(e) {
+      if (!isDragging.current || e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const currentX = touch.clientX - rect.left;
+      const currentY = touch.clientY - rect.top;
+
+      // Update mouse position for Matter.js
+      mouse.position.x = currentX;
+      mouse.position.y = currentY;
+
+      // If we're not already dragging a body, try to find one under the touch
+      if (!mouseConstraint.body) {
+        const bodies = Matter.Query.point(boxes, { x: currentX, y: currentY });
+        if (bodies.length > 0) {
+          mouseConstraint.body = bodies[0];
+        }
+      }
+
+      e.preventDefault();
     }
+
+    function handleTouchEnd() {
+      isDragging.current = false;
+      mouseConstraint.body = null;
+    }
+
+    // Add event listeners for touch
     canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
     canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
     canvas.addEventListener('touchend', handleTouchEnd);
+
+    Matter.World.add(engine.world, [...walls, ...boxes, mouseConstraint]);
 
     // Animation loop
     let frameId;
     function renderLoop() {
       Matter.Engine.update(engine, 1000 / 60);
       ctx.clearRect(0, 0, width, height);
+      
       // Draw all tiles
       for (const box of boxes) {
         const { x, y } = box.position;
         ctx.save();
         ctx.translate(x, y);
         ctx.rotate(box.angle);
+        
         // Draw rounded rectangle
         ctx.fillStyle = box.greeting.color;
         ctx.strokeStyle = '#fff';
@@ -194,6 +186,7 @@ function LanguagePhysicsCanvas() {
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
+        
         // Draw text
         ctx.fillStyle = '#fff';
         ctx.font = 'bold 15px Arial';
@@ -212,7 +205,6 @@ function LanguagePhysicsCanvas() {
     function handleResize() {
       clearTimeout(resizeTimeout.current);
       resizeTimeout.current = setTimeout(() => {
-        // Cleanup and re-init
         cancelAnimationFrame(frameId);
         Matter.Engine.clear(engine);
         if (canvas) {
@@ -238,7 +230,17 @@ function LanguagePhysicsCanvas() {
     <div ref={containerRef} style={{ width: '100%', maxWidth: 1100, margin: '0 auto', padding: '2rem 1rem', background: '#FFFFFF', borderRadius: 8, boxShadow: '0 2px 4px rgba(0,0,0,0.08)' }}>
       <h2 className={`languages-title animate-title${showHeading ? ' show' : ''}`} style={{ textAlign: 'center', color: '#1A237E', marginBottom: '1.5rem', fontSize: '2rem' }}>Play With Languages</h2>
       <div style={{ width: '100%' }}>
-        <canvas ref={canvasRef} style={{ width: '100%', height: 400, background: '#FFFFFF', borderRadius: 8, display: 'block', touchAction: 'pan-y' }} />
+        <canvas 
+          ref={canvasRef} 
+          style={{ 
+            width: '100%', 
+            height: 400, 
+            background: '#FFFFFF', 
+            borderRadius: 8, 
+            display: 'block',
+            touchAction: 'none' // Prevent default touch actions
+          }} 
+        />
       </div>
     </div>
   );

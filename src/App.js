@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import OurCentres from './components/OurCentres';
 import CourseDetails from './components/CourseDetails';
+import CourseEnrollment from './components/CourseEnrollment';
 import Franchise from './components/Franchise';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -73,6 +74,7 @@ function AppContent() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/centres" element={<OurCentres />} />
           <Route path="/courses" element={<CourseDetails />} />
+          <Route path="/enrollment" element={<CourseEnrollment />} />
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

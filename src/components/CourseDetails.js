@@ -442,7 +442,12 @@ function CourseDetails() {
                 <div className="enrollment-card">
                   <h3>Ready to Start?</h3>
                   <div className="price-display">{course.price}</div>
-                  <button className="enroll-btn">Enroll Now</button>
+                  <button 
+                    className="enroll-btn"
+                    onClick={() => navigate('/enrollment', { state: { courseData: course } })}
+                  >
+                    Enroll Now
+                  </button>
                   <p className="enrollment-note">
                     Get started with a free consultation
                   </p>
