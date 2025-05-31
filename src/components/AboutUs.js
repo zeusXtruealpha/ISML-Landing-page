@@ -73,7 +73,7 @@ function AboutUs() {
     let interval;
     if (!isHovered) {
       interval = setInterval(() => {
-      setCurrentPosition((prev) => (prev + 1) % 8);
+        setCurrentPosition((prev) => (prev + 1) % 8);
       }, 2000);
     }
     return () => {
@@ -84,43 +84,77 @@ function AboutUs() {
     };
   }, [isHovered, hoverTimeout]);
 
+  // Continuous carousel animation
   useEffect(() => {
-    let interval;
+    let timeout;
+    const duration = 5000; // 5 seconds per slide
+
+    const advanceSlide = () => {
+      if (!isHovered && !isDragging) {
+        setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
+      }
+    };
+
     if (!isHovered && !isDragging) {
-      interval = setInterval(() => {
-        if (wrapperRef.current) {
-          const firstSlide = wrapperRef.current.firstElementChild;
-          const slideWidth = firstSlide.offsetWidth;
-          wrapperRef.current.style.transition = 'transform 0.5s ease';
-          wrapperRef.current.style.transform = `translateX(-${slideWidth}px)`;
-          
-          setTimeout(() => {
-            wrapperRef.current.style.transition = 'none';
-            wrapperRef.current.appendChild(firstSlide);
-            wrapperRef.current.style.transform = 'translateX(0)';
-          }, 500);
-        }
-    }, 3000);
+      timeout = setTimeout(advanceSlide, duration);
     }
-    return () => clearInterval(interval);
-  }, [isHovered, isDragging]);
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [isHovered, isDragging, currentImageIndex]);
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+    if (wrapperRef.current) {
+      const transform = window.getComputedStyle(wrapperRef.current).getPropertyValue('transform');
+      const matrix = new DOMMatrix(transform);
+      setScrollLeft(matrix.m41);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].clientX;
+    const walk = (x - startX);
+    if (wrapperRef.current) {
+      wrapperRef.current.style.transition = 'none';
+      wrapperRef.current.style.transform = `translateX(${scrollLeft + walk}px)`;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (wrapperRef.current) {
+      const slideWidth = wrapperRef.current.firstElementChild.offsetWidth;
+      const transform = window.getComputedStyle(wrapperRef.current).getPropertyValue('transform');
+      const matrix = new DOMMatrix(transform);
+      const currentX = matrix.m41;
+      
+      if (Math.abs(currentX - scrollLeft) > slideWidth / 2) {
+        const direction = currentX > scrollLeft ? -1 : 1;
+        const newIndex = (currentImageIndex + direction + carouselImages.length) % carouselImages.length;
+        setCurrentImageIndex(newIndex);
+        wrapperRef.current.style.transition = 'transform 0.3s ease';
+        wrapperRef.current.style.transform = `translateX(-${newIndex * slideWidth}px)`;
+      } else {
+        wrapperRef.current.style.transition = 'transform 0.3s ease';
+        wrapperRef.current.style.transform = `translateX(-${currentImageIndex * slideWidth}px)`;
+      }
+    }
+  };
 
   const handleMouseDown = (e) => {
     e.preventDefault();
     setIsDragging(true);
     setStartX(e.pageX);
     if (wrapperRef.current) {
-      setScrollLeft(wrapperRef.current.scrollLeft);
-    }
-    if (carouselRef.current) {
-      carouselRef.current.style.cursor = 'grabbing';
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    if (carouselRef.current) {
-      carouselRef.current.style.cursor = 'grab';
+      const transform = window.getComputedStyle(wrapperRef.current).getPropertyValue('transform');
+      const matrix = new DOMMatrix(transform);
+      setScrollLeft(matrix.m41);
     }
   };
 
@@ -128,17 +162,31 @@ function AboutUs() {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX);
     if (wrapperRef.current) {
       wrapperRef.current.style.transition = 'none';
-      wrapperRef.current.style.transform = `translateX(${walk}px)`;
+      wrapperRef.current.style.transform = `translateX(${scrollLeft + walk}px)`;
     }
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseUp = () => {
     setIsDragging(false);
-    if (carouselRef.current) {
-      carouselRef.current.style.cursor = 'grab';
+    if (wrapperRef.current) {
+      const slideWidth = wrapperRef.current.firstElementChild.offsetWidth;
+      const transform = window.getComputedStyle(wrapperRef.current).getPropertyValue('transform');
+      const matrix = new DOMMatrix(transform);
+      const currentX = matrix.m41;
+      
+      if (Math.abs(currentX - scrollLeft) > slideWidth / 2) {
+        const direction = currentX > scrollLeft ? -1 : 1;
+        const newIndex = (currentImageIndex + direction + carouselImages.length) % carouselImages.length;
+        setCurrentImageIndex(newIndex);
+        wrapperRef.current.style.transition = 'transform 0.3s ease';
+        wrapperRef.current.style.transform = `translateX(-${newIndex * slideWidth}px)`;
+      } else {
+        wrapperRef.current.style.transition = 'transform 0.3s ease';
+        wrapperRef.current.style.transform = `translateX(-${currentImageIndex * slideWidth}px)`;
+      }
     }
   };
 
@@ -170,19 +218,19 @@ function AboutUs() {
         <div className="carousel-section">
           <div 
             className="carousel-container"
-              ref={carouselRef}
+            ref={carouselRef}
             onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
-            onMouseLeave={() => {
-              handleMouseLeave();
-              setIsHovered(false);
-            }}
-            onMouseEnter={() => setIsHovered(true)}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <div 
               className="carousel-wrapper"
               ref={wrapperRef}
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
             >
               {carouselImages.map((image, index) => (
                 <div

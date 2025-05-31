@@ -283,16 +283,17 @@
 
   /* Mobile Menu Container */
   .nav-menu.mobile {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: -100%; 
+    right: 0;
     width: 80%;
     max-width: 320px;
     height: 100vh;
     background-color: #fff;
     flex-direction: column;
     padding: 4rem 2rem 2rem;
-    transition: right 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     list-style: none;
@@ -301,7 +302,14 @@
   }
 
   .nav-menu.mobile.active {
-    right: 0;
+    transform: translateX(0);
+  }
+
+  /* When not active, move completely off-screen and hide */
+  .nav-menu.mobile:not(.active) {
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
   }
 
   /* Close Button */

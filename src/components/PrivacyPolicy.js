@@ -122,20 +122,20 @@ function PrivacyPolicy() {
           <h2 id="your-rights">7. Your Rights Under GDPR & Indian Data Protection Laws</h2>
           <p>Under GDPR (for EU users), you have the right to:</p>
           <ul>
-            <li>✅ Access, correct, or delete your data</li>
-            <li>✅ Restrict or object to processing</li>
-            <li>✅ Data portability (receive your data in a structured format)</li>
-            <li>✅ Lodge a complaint with a Data Protection Authority (DPA)</li>
+            <li> Access, correct, or delete your data</li>
+            <li> Restrict or object to processing</li>
+            <li> Data portability (receive your data in a structured format)</li>
+            <li> Lodge a complaint with a Data Protection Authority (DPA)</li>
           </ul>
 
           <p>Under the DPDP Act & IT Act (India), you have the right to:</p>
           <ul>
-            <li>✅ Know how your data is being collected and used</li>
-            <li>✅ Seek correction or deletion of your personal data</li>
-            <li>✅ Withdraw consent at any time</li>
+            <li> Know how your data is being collected and used</li>
+            <li> Seek correction or deletion of your personal data</li>
+            <li> Withdraw consent at any time</li>
           </ul>
 
-          <p>To exercise these rights, contact us at [Your Contact Email].</p>
+          <p>To exercise these rights, contact us at learnwithisml@iypan.in.</p>
 
           <h2 id="cookies">8. Cookies & Tracking Technologies</h2>
           <p>We use cookies to enhance user experience. You can control or disable cookies via your browser settings.</p>
