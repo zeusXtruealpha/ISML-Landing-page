@@ -641,4 +641,274 @@
     padding: 0.7rem 1.8rem;
     font-size: 0.9rem;
   }
+}
+
+/* Our Team Section */
+.team-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.team-section .section-title {
+  margin-bottom: 3rem;
+  color: #1a237e;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.team-subsection {
+  margin-bottom: 4rem;
+}
+
+.team-subsection-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.team-subsection-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #49e4e3, #1a237e);
+  border-radius: 2px;
+}
+
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px; /* Limit max width of cards */
+  overflow: hidden; /* Ensure background stays within bounds */
+  position: relative; /* Needed for absolute positioning of background */
+  padding-top: 80px; /* Add padding at the top to make space for the background shape */
+  padding-bottom: 1.5rem; /* Add padding at the bottom for content below image */
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* Adjust height as needed */
+  /* Placeholder background - replace with your geometric pattern image */
+  background: linear-gradient(135deg, #004aac 0%, #4b88a4 100%); /* Example gradient similar to image */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 0; /* Position behind other content */
+}
+
+.team-member-image-container {
+  width: 140px; /* Increased size */
+  height: 140px; /* Increased size */
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -70px; /* Adjusted margin-top (half of new height) */
+  margin-bottom: 1.2rem; /* Adjusted margin-bottom */
+  border: 5px solid #fff; /* White border around image */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Position above background */
+  position: relative; /* Needed for stacking context */
+  background-color: #fff; /* Ensure background is white for the border effect */
+}
+
+.team-member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the circular container */
+  border-radius: 50%; /* Ensure image is circular */
+}
+
+.team-member-name {
+  font-size: 1.2rem;
+  font-weight: 700; /* Make name bold */
+  color: #333;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.team-member-title {
+  font-size: 0.9rem;
+  color: #777; /* Lighter color for title */
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.8rem; /* Adjust gap as needed */
+  margin-top: auto; /* Push icons to the bottom */
+}
+
+.social-icon {
+  color: #1a73e8; /* Google Blue example */
+  font-size: 1.4rem; /* Adjust size as needed */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #4285f4; /* Lighter Google Blue on hover */
+}
+
+.social-icon img {
+  display: block; /* Ensure the image is treated as a block element */
+  width: 24px; /* Set a default width for the icons */
+  height: 24px; /* Set a default height for the icons */
+  object-fit: contain; /* Ensure the whole icon is visible */
+}
+
+/* Responsive adjustments for Team section */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 3rem 1rem;
+  }
+
+  .team-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .team-subsection {
+    margin-bottom: 3rem;
+  }
+
+  .team-subsection-title {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .team-members-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .team-member-card {
+    padding: 0;
+    padding-top: 70px; /* Adjusted padding for mobile */
+    padding-bottom: 1rem; /* Adjust padding for mobile */
+  }
+
+  .team-card-bg {
+    height: 110px; /* Adjusted height for mobile */
+  }
+
+  .team-member-image-container {
+    width: 110px; /* Adjusted size for mobile */
+    height: 110px; /* Adjusted size for mobile */
+    margin-top: -55px; /* Adjusted margin-top for mobile (half of new height) */
+    margin-bottom: 0.8rem;
+    border-width: 4px; /* Adjust border width for mobile */
+  }
+
+  .team-member-name {
+    font-size: 1.1rem;
+  }
+
+  .team-member-title {
+    font-size: 0.8rem;
+  }
+
+  .social-icons {
+    gap: 0.6rem; /* Adjust gap for mobile */
+  }
+
+  .social-icon {
+    font-size: 1.3rem; /* Adjust size for mobile */
+  }
+
+  .social-icon img {
+    width: 20px; /* Adjust size for mobile */
+    height: 20px; /* Adjust size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .team-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .team-subsection {
+    margin-bottom: 2.5rem;
+  }
+
+  .team-subsection-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .team-members-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .team-member-card {
+    width: 95%; /* Adjust card width for very small screens */
+    padding: 0;
+    padding-top: 60px; /* Adjusted padding for very small screens */
+    padding-bottom: 0.8rem; /* Adjust padding for very small screens */
+  }
+
+  .team-card-bg {
+    height: 90px; /* Adjusted height for very small screens */
+  }
+
+  .team-member-image-container {
+    width: 90px; /* Adjusted size for very small screens */
+    height: 90px; /* Adjusted size for very small screens */
+    margin-top: -45px; /* Adjusted margin-top for very small screens (half of new height) */
+    margin-bottom: 0.6rem;
+    border-width: 3px; /* Adjust border width for very small screens */
+  }
+
+  .team-member-name {
+    font-size: 1rem;
+  }
+
+  .team-member-title {
+    font-size: 0.7rem;
+  }
+
+  .social-icons {
+    gap: 0.5rem; /* Adjust gap for very small screens */
+  }
+
+  .social-icon {
+    font-size: 1.1rem; /* Adjust size for very small screens */
+  }
+
+  .social-icon img {
+    width: 18px; /* Adjust size for very small screens */
+    height: 18px; /* Adjust size for very small screens */
+  }
 } 

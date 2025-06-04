@@ -9,6 +9,10 @@ import ISMLBrochure from '../assets/ISML Brochure.pdf';
 import MLM from '../assets/MLM.png';
 import IDM from '../assets/IDM.png';
 import IMMM from '../assets/IMMM.png';
+import IDF from '../assets/idfast.png';
+import IMMF from '../assets/immfast.png';
+import IDFM from '../assets/idfastM.png';
+import IMMFM from '../assets/immfastM.png';
 
 // Custom hook for counting animation
 const useCountAnimation = (end, duration = 2) => {
@@ -124,7 +128,7 @@ function CourseDetails() {
     {
       id: 3,
       title: "Immersion - IMM",
-      level: "Fast Track",
+      level: "Intensive",
       price: "Premium Pricing",
       duration: "3-6 months",
       description: "Fasttrack Course for Quick Learners",
@@ -144,6 +148,64 @@ function CourseDetails() {
         "Varied Teaching Methods"
       ],
       category: "intensive"
+    },
+    {
+      id: 4,
+      title: "Immersion - IMM Fasttrack",
+      level: "Fasttrack",
+      price: "Premium Pricing",
+      duration: "2-4 months",
+      description: "Accelerated Course for Quick Learners",
+      fullDescription:
+        "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
+      image: IMMF,
+      mobileImage: IMMFM,
+      languages: { French: "A1 to B2", German: "A1 to B2" },
+      schedule: {
+        weekday: "Monday to Friday: 3hrs per day",
+        weekend: "Saturday & Sunday: 4hrs per day"
+      },
+      features: [
+        "Intensive Learning",
+        "Dynamic Environment",
+        "Cultural Understanding",
+        "Varied Teaching Methods"
+      ],
+      category: "intensive"
+    },
+    {
+      id: 5,
+      title: "International Diploma - ID Fasttrack",
+      level: "Fasttrack",
+      price: "Contact for pricing",
+      duration: "2-4 months",
+      description: "Accelerated Exam Preparation Course",
+      fullDescription:
+        "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our accelerated language learning program today to crack the International diploma exams and start your journey toward language fluency.",
+      image: IDF,
+      mobileImage: IDFM,
+      languages: ["French", "German", "Japanese"],
+      examTypes: [
+        { exam: "DELF A1/A2", type: "French" },
+        { exam: "DELF B1/B2", type: "French" },
+        { exam: "DALF C1/C2", type: "French" },
+        { exam: "Goethe A1/A2", type: "German" },
+        { exam: "Goethe B1/B2", type: "German" },
+        { exam: "JLPT N5/N4", type: "Japanese" },
+        { exam: "JLPT N3/N2", type: "Japanese" }
+      ],
+      schedule: {
+        options: ["Monday-Friday", "Saturday-Sunday"],
+        duration: "2 hours",
+        timeRange: "7:00 AM to 10:00 PM IST"
+      },
+      features: [
+        "Exam-Focused",
+        "Intensive Schedule",
+        "International Certification",
+        "Expert Guidance"
+      ],
+      category: "exam"
     }
   ], []);
 
@@ -151,9 +213,25 @@ function CourseDetails() {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredCourses = useMemo(() => {
-    return activeFilter === "all"
-      ? allCourses
-      : allCourses.filter((course) => course.category === activeFilter);
+    switch (activeFilter) {
+      case "regular":
+        return allCourses.filter(course => 
+          course.title === "Master a Language - ML" || 
+          course.title === "Immersion - IMM" || 
+          course.title === "International Diploma - ID"
+        );
+      case "exam":
+        return allCourses.filter(course => 
+          course.title === "Immersion - IMM Fasttrack" || 
+          course.title === "International Diploma - ID Fasttrack"
+        );
+      case "intensive":
+        return allCourses.filter(course => 
+          course.title === "Master a Language - ML"
+        );
+      default:
+        return allCourses;
+    }
   }, [activeFilter, allCourses]);
 
   // --- Carousel state and refs ---
@@ -285,19 +363,19 @@ function CourseDetails() {
               className={`filter-btn ${activeFilter === "regular" ? "active" : ""}`}
               onClick={() => setActiveFilter("regular")}
             >
-              Regular Learning
+              Regular
             </button>
             <button
               className={`filter-btn ${activeFilter === "exam" ? "active" : ""}`}
               onClick={() => setActiveFilter("exam")}
             >
-              Exam Preparation
+              Fasttrack
             </button>
             <button
               className={`filter-btn ${activeFilter === "intensive" ? "active" : ""}`}
               onClick={() => setActiveFilter("intensive")}
             >
-              Intensive Programs
+              School Champs
             </button>
           </div>
         </div>

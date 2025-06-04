@@ -28,6 +28,9 @@ import c19 from '../assets/c19.jpeg';
 import c20 from '../assets/c20.jpeg';
 import c21 from '../assets/c21.jpeg';
 import c22 from '../assets/c22.jpeg';
+import Email from '../assets/email.svg';
+import linkedin from '../assets/linkedin.svg';
+import intern1 from '../assets/Intern1.png';
 
 function AboutUs() {
   const [currentPosition, setCurrentPosition] = useState(0);
@@ -322,7 +325,239 @@ function AboutUs() {
               </p>
             </section>
           </div>
+        </div>
+      </div>
 
+      {/* Our Team Section */}
+      <section className="team-section">
+        <h2 className="section-title">Our Team</h2>
+
+        {/* Trainer Team */}
+        <div className="team-subsection">
+          <h3 className="team-subsection-title">Trainer Team</h3>
+          <div className="team-members-grid">
+            {/* Dummy Trainer 1 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                {/* Replace with actual image */}
+                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Trainer 1</h4>
+              <p className="team-member-title">Language Trainer</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Trainer 2 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Trainer 2</h4>
+              <p className="team-member-title">Language Trainer</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Trainer 3 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Trainer 3</h4>
+              <p className="team-member-title">Language Trainer</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Trainer 4 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Trainer 4</h4>
+              <p className="team-member-title">Language Trainer</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+             {/* Dummy Trainer 5 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Trainer 5</h4>
+              <p className="team-member-title">Language Trainer</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Admin Team */}
+        <div className="team-subsection">
+          <h3 className="team-subsection-title">Admin Team</h3>
+          <div className="team-members-grid">
+            {/* Dummy Admin 1 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Admin 1</h4>
+              <p className="team-member-title">Administrator</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Admin 2 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Admin 2</h4>
+              <p className="team-member-title">Administrator</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Admin 3 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Admin 3</h4>
+              <p className="team-member-title">Administrator</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+             {/* Dummy Admin 4 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Admin 4</h4>
+              <p className="team-member-title">Administrator</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Consultants */}
+        <div className="team-subsection">
+          <h3 className="team-subsection-title">Consultants</h3>
+          <div className="team-members-grid">
+            {/* Dummy Consultant 1 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Consultant Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Consultant 1</h4>
+              <p className="team-member-title">Language Consultant</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Consultant 2 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Consultant Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Consultant 2</h4>
+              <p className="team-member-title">Language Consultant</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Interns */}
+        <div className="team-subsection">
+          <h3 className="team-subsection-title">Interns</h3>
+          <div className="team-members-grid">
+            {/* Dummy Intern 1 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src={intern1} alt="Intern Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Niranjan Galla</h4>
+              <p className="team-member-title">Intern</p>
+              <div className="social-icons">
+                <a href="https://www.linkedin.com/in/niranjan-galla-6a3067298/" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="mailto:niranjan.galla.7@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Intern 2 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Intern 2</h4>
+              <p className="team-member-title">Intern</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+            {/* Dummy Intern 3 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Intern 3</h4>
+              <p className="team-member-title">Intern</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+             {/* Dummy Intern 4 */}
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Dummy Intern 4</h4>
+              <p className="team-member-title">Intern</p>
+              <div className="social-icons">
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Moved join-team-container here */}
           <div className="join-team-container">
             <div className="join-team-content">
               <h2 className="join-team-title">Want to join our team?</h2>
@@ -334,8 +569,7 @@ function AboutUs() {
               </button>
             </div>
           </div>
-        </div>
-      </div>
+
     </div>
   );
 }
