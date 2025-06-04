@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import './OurCentres.css';
-import ce1 from '../assets/ce1.jpeg';
 import ce2 from '../assets/ce2.png';
 import ce3 from '../assets/ce3.png';
 import ce4 from '../assets/ce4.png';
@@ -58,19 +57,6 @@ const centres = [
     description: "Established in July 2024, our center franchise in situated at KJ tower, 2nd floor, pathalam, Eloor - 683501. Opening our new franchise center offers students an incredible opportunity to learn and explore modern languages in a dynamic and engaging environment. Our center is dedicated to providing students with the tools they need to master new languages, enhancing their global awareness and communication skills. With interactive classes and experienced instructors, students will not only learn the language but also immerse themselves in the culture, broadening their horizons and preparing them for future success in an increasingly interconnected world.",
     buttonText: "Call for admission",
     mapLink: "https://g.co/kgs/1wpqEb2"
-  },
-  {
-    id: 5,
-    code: "",
-    name: "Upcoming Centres",
-    location: "",
-    address: "",
-    image: ce1, // Placeholder image
-    courses: [],
-    contact: "",
-    description: "Stay tuned for more ISML centres opening soon in various cities!", // Placeholder description
-    buttonText: "Call to launch in your city",
-    mapLink: ""
   }
 ];
 

@@ -1,4 +1,11 @@
 /* Reset and Base Styles */
+@font-face {
+  font-family: 'Weddingday';
+  src: url('../fonts/MidnightCartoon-6R6rA.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -112,6 +119,9 @@
   font-size: 1.1rem;
   margin-bottom: 2rem;
   text-align: center;
+  font-family: 'Weddingday', serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
 }
 
 .elite-page .section-header {
