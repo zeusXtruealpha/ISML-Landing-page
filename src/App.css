@@ -372,35 +372,46 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .isml-footer-logo {
-    font-size: 2.8rem;
-  }
-  
   .isml-footer-top-row {
     flex-direction: column;
     gap: 2rem;
     padding: 0 1.5rem;
+    align-items: center;
+    text-align: center;
   }
 
   .isml-footer-left {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .isml-footer-right {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .isml-footer-links {
     gap: 2rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .footer-links-column {
     min-width: 140px;
+    text-align: center;
   }
 
   .vertical-line {
     display: none;
+  }
+
+  .isml-footer-copyright {
+    text-align: center;
+    padding: 0 1rem;
   }
 }
 
@@ -408,32 +419,83 @@ footer {
   .isml-footer-logo {
     font-size: 2.4rem;
   }
+
+  .isml-footer-top-row {
+    padding: 0 1rem;
+  }
+
+  .isml-footer-links {
+    gap: 1.5rem;
+  }
+
+  .footer-links-column {
+    min-width: 120px;
+  }
+
+  .isml-footer-address p {
+    font-size: 0.95rem;
+  }
+
+  .isml-footer-socials {
+    gap: 1rem;
+  }
+
+  .isml-footer-socials a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .isml-footer-socials img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .floating-chatbox-btn {
+  display: none;
+}
+
+.phone-call-btn {
   position: fixed;
   right: 2.2rem;
   bottom: 2.2rem;
   z-index: 2000;
-  background: none;
+  background: #004aad;
   border: none;
   outline: none;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(73, 228, 227, 0.18);
   border-radius: 50%;
-  padding: 0;
-  transition: transform 0.18s;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.floating-chatbox-btn:hover {
+
+.phone-call-btn:hover {
   transform: scale(1.08) translateY(-2px);
   box-shadow: 0 8px 24px rgba(73, 228, 227, 0.22);
+  background: #1a237e;
 }
-.floating-chatbox-btn svg {
-  display: block;
+
+.phone-call-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
 }
+
 @media (max-width: 700px) {
-  .floating-chatbox-btn {
+  .phone-call-btn {
     right: 1rem;
     bottom: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .phone-call-btn svg {
+    width: 24px;
+    height: 24px;
   }
 }

@@ -90,10 +90,6 @@ function French() {
             {
               title: "Diverse Resources",
               content: "Learn French online to acquire a diverse range of learning resources, including video lessons, interactive exercises, and multimedia content. This variety caters to different learning styles, making the process engaging and effective."
-            },
-            {
-              title: "Interactive Learning",
-              content: "The interactive nature of online platforms fosters a dynamic learning environment. Virtual classrooms, live sessions, and discussion forums create opportunities for real-time interaction and collaboration."
             }
           ].map((benefit, index) => (
             <motion.div 

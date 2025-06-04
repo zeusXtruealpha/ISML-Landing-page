@@ -19,6 +19,7 @@ import twitterIcon from './assets/twitter.svg';
 import youtubeIcon from './assets/youtube.svg';
 import LanguagePhysicsCanvas from './components/LanguagePhysicsCanvas';
 import EliteCard from './components/EliteCard';
+import { FaPhone } from 'react-icons/fa';
 
 // ScrollToTop component to handle automatic scrolling
 function ScrollToTop() {
@@ -143,11 +144,12 @@ function AppContent() {
         </div>
         <div className="isml-footer-copyright">&copy; 2025 IYPAN- All Rights Reserved.</div>
       </footer>
-      <button className="floating-chatbox-btn" title="Chat with us">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="19" cy="19" r="19" fill="#49e4e3"/>
-          <path d="M12 25v-8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H14l-4 3v-3a2 2 0 0 1 2-2z" fill="#fff"/>
-        </svg>
+      <button 
+        className="phone-call-btn" 
+        onClick={() => window.location.href = 'tel:+917338881781'}
+        aria-label="Call us"
+      >
+        <FaPhone />
       </button>
     </div>
   );
