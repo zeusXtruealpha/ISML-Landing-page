@@ -1,0 +1,307 @@
+.privacy-policy-container {
+  /* Removed padding as main-content will handle spacing */
+  max-width: 1200px; /* Increase max width for two columns */
+  margin: 0 auto; /* Center the container */
+  line-height: 1.6; /* Improve readability */
+  color: #333; /* Set a standard text color */
+  position: relative; /* Needed for positioning content if using absolute positioning inside */
+  /* Adjusted top padding to reduce space after header */
+  padding-top: 2rem; /* Adjust based on actual header height */
+}
+
+.privacy-policy-main-content {
+  display: flex; /* Use flexbox for two columns */
+  gap: 2rem; /* Space between sidebar and content */
+  width: 100%; /* Ensure it takes full width */
+  padding: 0 2rem; /* Add horizontal padding to the main content area */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Styles for the left sidebar */
+.privacy-policy-sidebar {
+  flex: 0 0 250px; /* Fixed width for sidebar in flex layout */
+  width: 250px; /* Set explicit width */
+  padding-right: 2rem; /* Space to the right of sidebar content */
+  border-right: 1px solid #EBECF0;
+  padding-top: 2rem; /* Subtle separator line color from Atlassian example */
+  /* Use sticky positioning */
+  position: sticky;
+  top: 2rem; /* Stick at this distance from the top of the viewport */
+  /* Removed left, transform, height */
+  max-height: calc(100vh - 4rem); /* Set max height to allow scrolling, adjust 4rem for header height and top offset */
+  overflow-y: auto; /* Enable scrolling for sidebar */
+  background-color: transparent; /* Remove background color */
+  z-index: auto;
+}
+
+.privacy-policy-sidebar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.privacy-policy-sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 10px;
+}
+
+.privacy-policy-sidebar::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scroll thumb */
+    border-radius: 10px;
+}
+
+.privacy-policy-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scroll thumb on hover */
+}
+
+.privacy-policy-sidebar h3 {
+    color: #1A237E; /* Match heading color */
+    font-size: 1rem; /* Smaller font size for sidebar heading */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: bold; /* Bold like in the image */
+}
+
+.privacy-policy-sidebar ul {
+  list-style: none; /* Remove default list style */
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-policy-sidebar li {
+  margin-bottom: 0.8rem; /* Space between list items */
+  font-size: 0.9rem;
+}
+
+.privacy-policy-sidebar li a {
+    color: #505258; /* Link color from Atlassian example (approx) */
+    text-decoration: none; /* Remove underline */
+}
+
+.privacy-policy-sidebar li a:hover {
+  color: #0052CC; /* Hover color from Atlassian example (approx) */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Adjust left margin of content to make space for the fixed sidebar */
+.privacy-policy-content {
+  flex-grow: 1; /* Content takes remaining space */
+  padding: 0;
+  padding-top: 1rem; /* Remove padding around content */
+  text-align: left; /* Left-align all text in content area */
+  /* Removed left margin */
+}
+
+.effective-date {
+  color: #6b778c; /* Color from Atlassian example */
+  margin-bottom: 2rem;
+  font-style: italic; /* Italic like in the image */
+  font-size: 0.9rem; /* Adjust font size */
+}
+
+.effective-date a {
+    color: #0052CC; /* Link color */
+    text-decoration: none;
+}
+
+.effective-date a:hover {
+    text-decoration: underline;
+}
+
+.privacy-policy-content h1 {
+  text-align: left; /* Align main heading to the left */
+  margin-top: 0;
+  margin-bottom: 1.5rem; /* Increased margin-bottom for space */
+  color: #1A237E; /* Match heading color */
+  font-size: 2.5rem; /* Larger font size for main heading */
+  font-weight: bold; /* Bold font weight */
+}
+
+.privacy-policy-content h2,
+.privacy-policy-content h3 {
+    /* Headings are already left-aligned by default */
+}
+
+.privacy-policy-content p {
+    /* Paragraphs are now left-aligned by parent */
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Standard paragraph font size */
+    line-height: 1.6;
+}
+
+.privacy-policy-content ul {
+    margin-bottom: 1rem;
+    padding-left: 20px; /* Add some left padding for list items */
+    list-style: disc; /* Ensure bullets are present for standard lists */
+}
+
+.privacy-policy-content ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Standard list item font size */
+}
+
+.privacy-policy-content ul li a {
+    color: #0052CC; /* Link color */
+    text-decoration: none; /* Remove default underline */
+}
+
+.privacy-policy-content ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.privacy-policy-content strong {
+    font-weight: bold; /* Ensure strong text is bold */
+}
+
+/* Styling for the introductory links list */
+.privacy-policy-intro-links {
+  list-style: disc; /* Add bullet points */
+  padding-left: 20px; /* Add padding for bullet points */
+  margin-bottom: 1.5rem; /* Space below the list */
+}
+
+.privacy-policy-intro-links li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Match content paragraph font size */
+}
+
+.privacy-policy-intro-links li a {
+  color: #0052CC; /* Link color */
+  text-decoration: underline; /* Underline by default */
+}
+
+.privacy-policy-intro-links li a:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Ensure other lists in content don't lose their bullets if a global style was applied */
+.privacy-policy-content ul:not(.privacy-policy-intro-links) {
+    list-style: disc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .privacy-policy-sidebar {
+      /* Adjust left positioning for smaller screens where container is not max width */
+      left: calc(50% - (min(1200px, 100vw) / 2) + 2rem); /* Dynamically calculate left based on container width */
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-policy-container {
+    padding: 1rem;
+  }
+
+  .privacy-policy-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .privacy-policy-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    padding: 4rem 1.5rem 2rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .privacy-policy-sidebar.active {
+    left: 0;
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #1a237e;
+    z-index: 1001;
+    padding: 0.5rem;
+  }
+
+  .sidebar-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #1a237e;
+    padding: 0.5rem;
+  }
+
+  .privacy-policy-content {
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  .privacy-policy-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .privacy-policy-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .privacy-policy-content p {
+    font-size: 1rem;
+  }
+
+  .privacy-policy-sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .privacy-policy-sidebar ul {
+    padding-left: 1rem;
+  }
+
+  .privacy-policy-sidebar li {
+    margin-bottom: 0.8rem;
+  }
+
+  .privacy-policy-sidebar li a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-policy-container {
+    padding: 0.8rem;
+  }
+
+  .privacy-policy-sidebar {
+    width: 100%;
+    max-width: none;
+    padding: 4rem 1rem 2rem;
+  }
+
+  .privacy-policy-content {
+    padding: 0.8rem;
+  }
+
+  .privacy-policy-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .privacy-policy-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .privacy-policy-content p {
+    font-size: 0.9rem;
+  }
+} 

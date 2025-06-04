@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Sunny Spells';
+  src: url('../fonts/SunnyspellsRegular-MV9ze.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.about-section h2 {
+  font-family: 'Sunny Spells', sans-serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.about-section h3 {
+  font-family: 'Sunny Spells', sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 1rem;
+} 

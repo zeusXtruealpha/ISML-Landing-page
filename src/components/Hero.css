@@ -1,0 +1,149 @@
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.hero-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 400px;
+  margin-top: 2rem;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  transition: opacity 0.5s cubic-bezier(.77,0,.18,1), transform 0.5s cubic-bezier(.77,0,.18,1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hero-frame.hero-out {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.85);
+  pointer-events: none;
+}
+
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  transition: transform 0.9s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+  width: 100vw;
+  height: 100%;
+  justify-content: center;
+  padding-top: 3rem;
+  transform-origin: top center;
+}
+
+.hero-word-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  font-weight: 900;
+  letter-spacing: -5px;
+  line-height: 1.1;
+  height: 90px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero-plain-isml {
+  color: #6ce2e5;
+  display: inline-block;
+  font-size: 90px;
+  margin-right: 2px;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(90deg, #004aad 0%, #6a7fd1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.hero-plain-up {
+  position: relative;
+  top: -18px;
+}
+
+.hero-accent {
+  color: #49e4e3;
+}
+
+.hero-trademark {
+  color: #49e4e3;
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-left: 4px;
+  font-weight: 900;
+  position: relative;
+  top: -0.2em;
+}
+
+@media (max-width: 768px) {
+  .hero-frame {
+    height: 300px;
+    margin-top: 1rem;
+  }
+
+  .hero-word-row {
+    font-size: 40px;
+    height: 45px;
+    letter-spacing: -2px;
+  }
+
+  .hero-plain-isml {
+    font-size: 45px;
+  }
+
+  .hero-gradient-text {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-frame {
+    height: 250px;
+    margin-top: 0.5rem;
+  }
+
+  .hero-word-row {
+    font-size: 32px;
+    height: 36px;
+    letter-spacing: -2px;
+  }
+
+  .hero-plain-isml {
+    font-size: 38px;
+  }
+
+  .hero-gradient-text {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-frame {
+    height: 200px;
+  }
+
+  .hero-word-row {
+    font-size: 28px;
+    height: 32px;
+  }
+
+  .hero-plain-isml {
+    font-size: 32px;
+  }
+
+  .hero-gradient-text {
+    font-size: 28px;
+  }
+} 
