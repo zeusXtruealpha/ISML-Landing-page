@@ -6,6 +6,9 @@ import IntDep from '../assets/IntDep.png';
 import IMM from '../assets/Imm.png';
 import Mas from '../assets/Mas.png';
 import ISMLBrochure from '../assets/ISML Brochure.pdf';
+import MLM from '../assets/MLM.png';
+import IDM from '../assets/IDM.png';
+import IMMM from '../assets/IMMM.png';
 
 // Custom hook for counting animation
 const useCountAnimation = (end, duration = 2) => {
@@ -37,6 +40,16 @@ const useCountAnimation = (end, duration = 2) => {
 
 function CourseDetails() {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // All courses data
   const allCourses = useMemo(() => [
@@ -49,8 +62,8 @@ function CourseDetails() {
       description: "Master a Language of Your Choice for Just Rs. 499 per Month",
       fullDescription:
         "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
-      image:
-        Mas,
+      image: Mas,
+      mobileImage: MLM,
       languages: ["French", "German", "Japanese"],
       // You can later add more items (evaluate conditionally) if needed.
       proficiencyLevels: [
@@ -83,7 +96,8 @@ function CourseDetails() {
       description: "Crack your Language Proficiency Exam of Your Choice",
       fullDescription:
         "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today to crack the International diploma exams and start your journey toward language fluency.",
-      image:IntDep,
+      image: IntDep,
+      mobileImage: IDM,
       languages: ["French", "German", "Japanese"],
       examTypes: [
         { exam: "DELF A1/A2", type: "French" },
@@ -116,8 +130,8 @@ function CourseDetails() {
       description: "Fasttrack Course for Quick Learners",
       fullDescription:
         "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
-      image:IMM,
-      // In this course languages is provided as an object
+      image: IMM,
+      mobileImage: IMMM,
       languages: { French: "A1 to B2", German: "A1 to B2" },
       schedule: {
         weekday: "Monday to Friday: 2hrs per day",
@@ -295,7 +309,7 @@ function CourseDetails() {
           <div key={course.id} className={`course-card ${getCardClass(index)}`}>
             <div className="course-image-container">
               <img
-                src={course.image}
+                src={isMobile ? course.mobileImage : course.image}
                 alt={course.title}
                 className="course-image"
               />
