@@ -4,17 +4,17 @@ import './LanguagesOffered.css';
 const languages = [
   {
     name: 'Français',
-    image: require('../assets/french.jpeg'),
+    image: require('../assets/French.png'),
     description: 'Discover the beauty and practicality of French with ISML. Our comprehensive course offers expert instruction, immersive learning experiences, and cultural insights to help you master the language. Enroll today and unlock new opportunities in diplomacy, business, and travel.'
   },
   {
     name: '日本語',
-    image: require('../assets/spanish.jpeg'),
+    image: require('../assets/Japanese.png'),
     description: 'Dive into the captivating world of Japanese language with ISML. Our interactive course blends language proficiency, cultural understanding, and practical skills to empower learners. Enroll today and embark on a journey of discovery and cultural enrichment.'
   },
   {
     name: 'Deutsch',
-    image: require('../assets/german.jpeg'),
+    image: require('../assets/German.png'),
     description: 'Explore the dynamic world of German language with ISML. Our tailored course combines immersive learning, expert guidance, and cultural immersion to help you achieve fluency. Enroll now and unlock doors to exciting career opportunities and enriching cultural experiences.'
   }
 ];
