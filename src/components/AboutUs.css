@@ -869,14 +869,15 @@
 
   .team-members-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2.5rem; /* Increased gap between cards */
   }
 
   .team-member-card {
-    width: 95%; /* Adjust card width for very small screens */
+    width: 95%;
     padding: 0;
-    padding-top: 60px; /* Adjusted padding for very small screens */
-    padding-bottom: 0.8rem; /* Adjust padding for very small screens */
+    padding-top: 60px;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem; /* Added margin bottom for extra spacing */
   }
 
   .team-card-bg {
