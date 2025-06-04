@@ -1,6 +1,8 @@
 import React from 'react';
 import './ContactUs.css';
 import contactIllustration from '../assets/mey2_1uhi_220829.jpg'; // Import the jpg image
+import chatIcon from '../assets/chat.svg';
+import supportIcon from '../assets/support.svg';
 // Note: .eps files usually require conversion or specific loaders for web use.
 
 function ContactUs() {
@@ -19,7 +21,9 @@ function ContactUs() {
 
       <div className="contact-cards-section">
         <div className="contact-card-item">
-          <div className="card-icon">{/* Icon placeholder */}</div>
+          <div className="card-icon">
+            <img src={chatIcon} alt="Chat" />
+          </div>
           <h2>Talk to Admission Counsellor</h2>
           <p>Interested in ISML's offerings? Just pick up the phone to chat with a member of our sales team.</p>
           <p className="contact-number">+91 7338881781</p>
@@ -27,9 +31,11 @@ function ContactUs() {
         </div>
 
         <div className="contact-card-item">
-          <div className="card-icon">{/* Icon placeholder */}</div>
+          <div className="card-icon">
+            <img src={supportIcon} alt="Support" />
+          </div>
           <h2>Contact Customer Support</h2>
-          <p>Need a hand? Our ISML Support Team is here to help. We’re available anytime — reach out to us whenever you need. </p>
+          <p>Need a hand? Our ISML Support Team is here to help. We're available anytime — reach out to us whenever you need. </p>
           <p className="contact-email">learnwithisml@iypan.in</p>
           <a href="mailto:learnwithisml@iypan.in" target="_blank" rel="noopener noreferrer" className="support-button">Contact Support</a>
         </div>
