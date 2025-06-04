@@ -78,7 +78,7 @@ const Franchise = () => {
             >
               <div className="stat-item">
                 <h3><CountUp end={10} duration={2} /></h3>
-                <p>Institutions</p>
+                <p>Institutional MOU </p>
               </div>
               <div className="stat-item">
                 <h3>₹<CountUp end={15} duration={2.5} />L+</h3>
