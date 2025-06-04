@@ -28,7 +28,7 @@
 /* Hero Section */
 .hero-section {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
   position: relative;
   overflow: hidden;
 }
