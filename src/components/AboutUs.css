@@ -689,6 +689,17 @@
   justify-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.team-members-grid.open {
+  max-height: 10000px; /* Increased to ensure all trainers are visible */
+  opacity: 1;
+  transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+  padding: 2rem 0;
 }
 
 .team-member-card {
@@ -702,11 +713,12 @@
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  max-width: 300px; /* Limit max width of cards */
-  overflow: hidden; /* Ensure background stays within bounds */
-  position: relative; /* Needed for absolute positioning of background */
-  padding-top: 80px; /* Add padding at the top to make space for the background shape */
-  padding-bottom: 1.5rem; /* Add padding at the bottom for content below image */
+  max-width: 280px; /* Reduced from 300px to ensure better fit */
+  overflow: hidden;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Added margin to ensure spacing between rows */
 }
 
 .team-member-card:hover {
@@ -811,12 +823,17 @@
   .team-members-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .team-members-grid.open {
+    max-height: 15000px; /* Even larger for mobile to ensure all trainers are visible */
+    padding: 1rem 0;
   }
 
   .team-member-card {
-    padding: 0;
-    padding-top: 70px; /* Adjusted padding for mobile */
-    padding-bottom: 1rem; /* Adjust padding for mobile */
+    max-width: 260px;
+    margin-bottom: 0.8rem;
   }
 
   .team-card-bg {
@@ -869,15 +886,18 @@
 
   .team-members-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem; /* Increased gap between cards */
+    gap: 2rem;
+    padding: 0.5rem 0;
+  }
+
+  .team-members-grid.open {
+    max-height: 20000px; /* Maximum height for very small screens */
+    padding: 0.5rem 0;
   }
 
   .team-member-card {
-    width: 95%;
-    padding: 0;
-    padding-top: 60px;
-    padding-bottom: 0.8rem;
-    margin-bottom: 1rem; /* Added margin bottom for extra spacing */
+    max-width: 95%;
+    margin-bottom: 0.5rem;
   }
 
   .team-card-bg {
@@ -911,5 +931,92 @@
   .social-icon img {
     width: 18px; /* Adjust size for very small screens */
     height: 18px; /* Adjust size for very small screens */
+  }
+}
+
+/* Team Section Dropdown Styles */
+.team-subsection-header {
+  background: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.team-subsection-header:hover {
+  background-color: rgba(74, 144, 226, 0.05);
+}
+
+.team-subsection-header .team-subsection-title {
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.team-subsection-header:hover .team-subsection-title {
+  color: #1a237e;
+}
+
+.dropdown-arrow {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+  color: #1a237e;
+}
+
+.dropdown-arrow.up {
+  transform: rotate(180deg);
+}
+
+/* Update existing team section styles */
+.team-subsection {
+  margin-bottom: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.team-subsection-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.team-subsection-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #49e4e3, #1a237e);
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-subsection-title {
+    font-size: 1.5rem;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-subsection-title {
+    font-size: 1.3rem;
+  }
+
+  .team-subsection-header {
+    padding: 0.8rem;
   }
 } 

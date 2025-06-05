@@ -108,6 +108,22 @@ function Navbar({ showHeroTextInNav }) {
           </Link>
         </div>
 
+        {/* Mobile Social Icons (Visible only on Mobile) */}
+        <div className="navbar-socials mobile-socials">
+          <a href="https://www.instagram.com/learnwithisml/" target="_blank" rel="noopener noreferrer">
+            <img src={instagramIcon} alt="Instagram" className="navbar-social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/company/learnwithisml/" target="_blank" rel="noopener noreferrer">
+            <img src={linkedinIcon} alt="LinkedIn" className="navbar-social-icon" />
+          </a>
+          <a href="https://x.com/learnwithisml" target="_blank" rel="noopener noreferrer">
+            <img src={twitterIcon} alt="Twitter" className="navbar-social-icon" />
+          </a>
+          <a href="https://www.youtube.com/@learnwithisml" target="_blank" rel="noopener noreferrer">
+            <img src={youtubeIcon} alt="YouTube" className="navbar-social-icon" />
+          </a>
+        </div>
+
         {/* Desktop Navigation (Hidden on Mobile) */}
         <ul className="nav-menu desktop">
           <li className="nav-item">

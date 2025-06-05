@@ -285,8 +285,22 @@
 
   /* Hide desktop - only elements */
   .nav-menu.desktop,
-  .navbar-socials {
+  .navbar-socials:not(.mobile-socials) {
     display: none;
+  }
+
+  /* Mobile Social Icons */
+  .mobile-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .mobile-socials .navbar-social-icon {
+    width: 22px;
+    height: 22px;
   }
 
   /* Mobile Menu Toggle Button */
@@ -493,7 +507,8 @@
 @media (min-width: 769px) {
   .mobile-menu-btn,
   .nav-menu.mobile,
-  .mobile-menu-overlay {
+  .mobile-menu-overlay,
+  .mobile-socials {
     display: none;
   }
 }

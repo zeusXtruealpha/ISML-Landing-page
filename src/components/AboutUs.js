@@ -32,6 +32,34 @@ import Email from '../assets/email.svg';
 import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
 
+// Import trainer images
+/*
+import trainer1 from '../assets/trainers/trainer1.jpg';
+import trainer2 from '../assets/trainers/trainer2.jpg';
+import trainer3 from '../assets/trainers/trainer3.jpg';
+import trainer4 from '../assets/trainers/trainer4.jpg';
+import trainer5 from '../assets/trainers/trainer5.jpg';
+import trainer6 from '../assets/trainers/trainer6.jpg';
+import trainer7 from '../assets/trainers/trainer7.jpg';
+import trainer8 from '../assets/trainers/trainer8.jpg';
+import trainer9 from '../assets/trainers/trainer9.jpg';
+import trainer10 from '../assets/trainers/trainer10.jpg';
+import trainer11 from '../assets/trainers/trainer11.jpg';
+import trainer12 from '../assets/trainers/trainer12.jpg';
+import trainer13 from '../assets/trainers/trainer13.jpg';
+import trainer14 from '../assets/trainers/trainer14.jpg';
+import trainer15 from '../assets/trainers/trainer15.jpg';
+import trainer16 from '../assets/trainers/trainer16.jpg';
+import trainer17 from '../assets/trainers/trainer17.jpg';
+import trainer18 from '../assets/trainers/trainer18.jpg';
+import trainer19 from '../assets/trainers/trainer19.jpg';
+import trainer20 from '../assets/trainers/trainer20.jpg';
+import trainer21 from '../assets/trainers/trainer21.jpg';
+import trainer22 from '../assets/trainers/trainer22.jpg';
+import trainer23 from '../assets/trainers/trainer23.jpg';
+import trainer24 from '../assets/trainers/trainer24.jpg';
+import trainer25 from '../assets/trainers/trainer25.jpg';*/
+
 function AboutUs() {
   const [currentPosition, setCurrentPosition] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -40,6 +68,7 @@ function AboutUs() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
+  const [openTeamSection, setOpenTeamSection] = useState(null);
   const carouselRef = useRef(null);
   const wrapperRef = useRef(null);
   const logosRef = useRef(null);
@@ -213,6 +242,10 @@ function AboutUs() {
     }
   };
 
+  const toggleTeamSection = (section) => {
+    setOpenTeamSection(openTeamSection === section ? null : section);
+  };
+
   return (
     <div className="about-us-container">
       <h1 className="about-title">About Us</h1>
@@ -334,81 +367,67 @@ function AboutUs() {
 
         {/* Trainer Team */}
         <div className="team-subsection">
-          <h3 className="team-subsection-title">Trainer Team</h3>
-          <div className="team-members-grid">
-            {/* Dummy Trainer 1 */}
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
-                {/* Replace with actual image */}
-                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
+          <button 
+            className="team-subsection-header"
+            onClick={() => toggleTeamSection('trainer')}
+          >
+            <h3 className="team-subsection-title">Trainer Team</h3>
+            <span className={`dropdown-arrow ${openTeamSection === 'trainer' ? 'up' : 'down'}`}>▼</span>
+          </button>
+          <div className={`team-members-grid ${openTeamSection === 'trainer' ? 'open' : ''}`}>
+            {[
+              { name: "Sarah Johnson", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Michael Chen", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Emma Rodriguez", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "David Kim", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Sophie Martin", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "James Wilson", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Maria Garcia", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Alexander Lee", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Olivia Brown", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Thomas Anderson", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Isabella Martinez", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "William Taylor", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Emily Davis", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Daniel White", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Sophia Clark", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Benjamin Moore", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Ava Thompson", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Henry Walker", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Charlotte Hall", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Lucas Young", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Mia Allen", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Ethan King", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Amelia Wright", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Noah Scott", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
+              { name: "Harper Green", title: "French Language Trainer", image: "https://via.placeholder.com/150" }
+            ].map((trainer, index) => (
+              <div key={index} className="team-member-card">
+                <div className="team-card-bg"></div>
+                <div className="team-member-image-container">
+                  <img src={trainer.image} alt={trainer.name} className="team-member-image" />
+                </div>
+                <h4 className="team-member-name">{trainer.name}</h4>
+                <p className="team-member-title">{trainer.title}</p>
+                <div className="social-icons">
+                  <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                  <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+                </div>
               </div>
-              <h4 className="team-member-name">Dummy Trainer 1</h4>
-              <p className="team-member-title">Language Trainer</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
-            </div>
-            {/* Dummy Trainer 2 */}
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
-              </div>
-              <h4 className="team-member-name">Dummy Trainer 2</h4>
-              <p className="team-member-title">Language Trainer</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
-            </div>
-            {/* Dummy Trainer 3 */}
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
-              </div>
-              <h4 className="team-member-name">Dummy Trainer 3</h4>
-              <p className="team-member-title">Language Trainer</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
-            </div>
-            {/* Dummy Trainer 4 */}
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
-              </div>
-              <h4 className="team-member-name">Dummy Trainer 4</h4>
-              <p className="team-member-title">Language Trainer</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
-            </div>
-             {/* Dummy Trainer 5 */}
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Trainer Name" className="team-member-image" />
-              </div>
-              <h4 className="team-member-name">Dummy Trainer 5</h4>
-              <p className="team-member-title">Language Trainer</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Admin Team */}
         <div className="team-subsection">
-          <h3 className="team-subsection-title">Admin Team</h3>
-          <div className="team-members-grid">
+          <button 
+            className="team-subsection-header"
+            onClick={() => toggleTeamSection('admin')}
+          >
+            <h3 className="team-subsection-title">Admin Team</h3>
+            <span className={`dropdown-arrow ${openTeamSection === 'admin' ? 'up' : 'down'}`}>▼</span>
+          </button>
+          <div className={`team-members-grid ${openTeamSection === 'admin' ? 'open' : ''}`}>
             {/* Dummy Admin 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
@@ -466,8 +485,14 @@ function AboutUs() {
 
         {/* Consultants */}
         <div className="team-subsection">
-          <h3 className="team-subsection-title">Consultants</h3>
-          <div className="team-members-grid">
+          <button 
+            className="team-subsection-header"
+            onClick={() => toggleTeamSection('consultants')}
+          >
+            <h3 className="team-subsection-title">Consultants</h3>
+            <span className={`dropdown-arrow ${openTeamSection === 'consultants' ? 'up' : 'down'}`}>▼</span>
+          </button>
+          <div className={`team-members-grid ${openTeamSection === 'consultants' ? 'open' : ''}`}>
             {/* Dummy Consultant 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
@@ -499,8 +524,14 @@ function AboutUs() {
 
         {/* Interns */}
         <div className="team-subsection">
-          <h3 className="team-subsection-title">Interns</h3>
-          <div className="team-members-grid">
+          <button 
+            className="team-subsection-header"
+            onClick={() => toggleTeamSection('interns')}
+          >
+            <h3 className="team-subsection-title">Interns</h3>
+            <span className={`dropdown-arrow ${openTeamSection === 'interns' ? 'up' : 'down'}`}>▼</span>
+          </button>
+          <div className={`team-members-grid ${openTeamSection === 'interns' ? 'open' : ''}`}>
             {/* Dummy Intern 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
