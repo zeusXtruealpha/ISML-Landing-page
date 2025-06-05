@@ -120,10 +120,10 @@ function Navbar({ showHeroTextInNav }) {
             <Link to="/centres" className="nav-link" onClick={handleNavClick}>Our Centres</Link>
           </li>
           <li className="nav-item">
-            <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
+            <Link to="/elite-card" className="nav-link" onClick={handleNavClick}>Elite Card</Link>
           </li>
           <li className="nav-item">
-            <Link to="/elite-card" className="nav-link" onClick={handleNavClick}>Elite Card</Link>
+            <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
           </li>
           <li className="nav-item dropdown" ref={dropdownRef}>
             <a 
@@ -184,10 +184,10 @@ function Navbar({ showHeroTextInNav }) {
               <Link to="/centres" className="nav-link" onClick={handleNavClick}>Our Centres</Link>
             </li>
             <li className="nav-item">
-              <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
+              <Link to="/elite-card" className="nav-link" onClick={handleNavClick}>Elite Card</Link>
             </li>
             <li className="nav-item">
-              <Link to="/elite-card" className="nav-link" onClick={handleNavClick}>Elite Card</Link>
+              <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
             </li>
             <li className="nav-item">
               <button 
@@ -201,9 +201,6 @@ function Navbar({ showHeroTextInNav }) {
                 <Link to="/german" className="nav-link" onClick={handleNavClick}>German</Link>
                 <Link to="/japanese" className="nav-link" onClick={handleNavClick}>Japanese</Link>
               </div>
-            </li>
-            <li className="nav-item">
-              <Link to="/franchise" className="nav-link" onClick={handleNavClick}>Franchise</Link>
             </li>
             <li className="nav-item">
               <Link to="/contact" className="nav-link" onClick={handleNavClick}>Contact Us</Link>
