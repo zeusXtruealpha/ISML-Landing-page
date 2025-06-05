@@ -432,7 +432,7 @@ function CourseDetails() {
             <div className="detail-grid">
               <div className="detail-content">
                 <h2 className="detail-title">
-                  {course.title} - Complete Overview
+                  {course.title}
                 </h2>
                 <p className="detail-description">{course.fullDescription}</p>
 
