@@ -31,6 +31,7 @@ import c22 from '../assets/c22.jpeg';
 import Email from '../assets/email.svg';
 import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
+import intern2 from '../assets/Intern2.png';
 
 // Import trainer images
 /*
@@ -549,13 +550,13 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+                <img src={intern2} alt="Intern Name" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Intern 2</h4>
+              <h4 className="team-member-name">Sai Gopal Vallu</h4>
               <p className="team-member-title">Intern</p>
               <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
+                <a href="https://www.linkedin.com/in/gopal-vallu-a4822b262/" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="mailto:saigopalvallu7@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
               </div>
             </div>
             {/* Dummy Intern 3 */}
