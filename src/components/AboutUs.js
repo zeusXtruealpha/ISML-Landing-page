@@ -244,7 +244,52 @@ function AboutUs() {
   };
 
   const toggleTeamSection = (section) => {
-    setOpenTeamSection(openTeamSection === section ? null : section);
+    // If clicking the same section that's already open, just close it
+    if (openTeamSection === section) {
+      setOpenTeamSection(null);
+      return;
+    }
+
+    // Get the target element before any state changes
+    const targetElement = document.getElementById(section);
+    const headerOffset = 100;
+
+    // If there's a currently open section, close it first
+    if (openTeamSection) {
+      setOpenTeamSection(null);
+      
+      // Wait for the closing animation to complete
+      setTimeout(() => {
+        // Open the new section
+        setOpenTeamSection(section);
+        
+        // Calculate scroll position after the new section is opened
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Scroll to the new position
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 600); // Wait for the closing animation (0.6s)
+    } else {
+      // If no section is currently open, just open the new one
+      setOpenTeamSection(section);
+      
+      // Scroll to the new section
+      if (targetElement) {
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   return (
@@ -367,15 +412,15 @@ function AboutUs() {
         <h2 className="section-title">Our Team</h2>
 
         {/* Trainer Team */}
-        <div className="team-subsection">
+        <div id="trainer-team" className="team-subsection">
           <button 
             className="team-subsection-header"
-            onClick={() => toggleTeamSection('trainer')}
+            onClick={() => toggleTeamSection('trainer-team')}
           >
             <h3 className="team-subsection-title">Trainer Team</h3>
-            <span className={`dropdown-arrow ${openTeamSection === 'trainer' ? 'up' : 'down'}`}>▼</span>
+            <span className={`dropdown-arrow ${openTeamSection === 'trainer-team' ? 'up' : ''}`}>▼</span>
           </button>
-          <div className={`team-members-grid ${openTeamSection === 'trainer' ? 'open' : ''}`}>
+          <div className={`team-members-grid ${openTeamSection === 'trainer-team' ? 'open' : ''}`}>
             {[
               { name: "Sarah Johnson", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
               { name: "Michael Chen", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
@@ -420,15 +465,15 @@ function AboutUs() {
         </div>
 
         {/* Admin Team */}
-        <div className="team-subsection">
+        <div id="admin-team" className="team-subsection">
           <button 
             className="team-subsection-header"
-            onClick={() => toggleTeamSection('admin')}
+            onClick={() => toggleTeamSection('admin-team')}
           >
             <h3 className="team-subsection-title">Admin Team</h3>
-            <span className={`dropdown-arrow ${openTeamSection === 'admin' ? 'up' : 'down'}`}>▼</span>
+            <span className={`dropdown-arrow ${openTeamSection === 'admin-team' ? 'up' : ''}`}>▼</span>
           </button>
-          <div className={`team-members-grid ${openTeamSection === 'admin' ? 'open' : ''}`}>
+          <div className={`team-members-grid ${openTeamSection === 'admin-team' ? 'open' : ''}`}>
             {/* Dummy Admin 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
@@ -485,13 +530,13 @@ function AboutUs() {
         </div>
 
         {/* Consultants */}
-        <div className="team-subsection">
+        <div id="consultants" className="team-subsection">
           <button 
             className="team-subsection-header"
             onClick={() => toggleTeamSection('consultants')}
           >
             <h3 className="team-subsection-title">Consultants</h3>
-            <span className={`dropdown-arrow ${openTeamSection === 'consultants' ? 'up' : 'down'}`}>▼</span>
+            <span className={`dropdown-arrow ${openTeamSection === 'consultants' ? 'up' : ''}`}>▼</span>
           </button>
           <div className={`team-members-grid ${openTeamSection === 'consultants' ? 'open' : ''}`}>
             {/* Dummy Consultant 1 */}
@@ -524,13 +569,13 @@ function AboutUs() {
         </div>
 
         {/* Interns */}
-        <div className="team-subsection">
+        <div id="interns" className="team-subsection">
           <button 
             className="team-subsection-header"
             onClick={() => toggleTeamSection('interns')}
           >
             <h3 className="team-subsection-title">Interns</h3>
-            <span className={`dropdown-arrow ${openTeamSection === 'interns' ? 'up' : 'down'}`}>▼</span>
+            <span className={`dropdown-arrow ${openTeamSection === 'interns' ? 'up' : ''}`}>▼</span>
           </button>
           <div className={`team-members-grid ${openTeamSection === 'interns' ? 'open' : ''}`}>
             {/* Dummy Intern 1 */}
