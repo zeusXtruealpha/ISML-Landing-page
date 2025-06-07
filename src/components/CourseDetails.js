@@ -113,7 +113,7 @@ function CourseDetails() {
         { exam: "JLPT N3/N2", type: "Japanese" }
       ],
       schedule: {
-        options: ["Monday-Wednesday", "Tuesday-Thursday", "Saturday-Sunday"],
+        days: ["Monday-Wednesday", "Tuesday-Thursday", "Saturday-Sunday"],
         duration: "1.5 hours",
         timeRange: "7:00 AM to 10:00 PM IST"
       },
@@ -138,8 +138,9 @@ function CourseDetails() {
       mobileImage: IMMM,
       languages: { French: "A1 to B2", German: "A1 to B2" },
       schedule: {
-        weekday: "Monday to Friday: 2hrs per day",
-        weekend: "Saturday & Sunday: 3hrs per day"
+        days: "Monday to Friday",
+        duration: "2 - 3 hours",
+        timeRange: "7:00 AM to 10:00 PM IST"
       },
       features: [
         "Intensive Learning",
@@ -151,30 +152,6 @@ function CourseDetails() {
     },
     {
       id: 4,
-      title: "Immersion - IMM Fasttrack",
-      level: "Fasttrack",
-      price: "Premium Pricing",
-      duration: "2-4 months",
-      description: "Accelerated Course for Quick Learners",
-      fullDescription:
-        "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
-      image: IMMF,
-      mobileImage: IMMFM,
-      languages: { French: "A1 to B2", German: "A1 to B2" },
-      schedule: {
-        weekday: "Monday to Friday: 3hrs per day",
-        weekend: "Saturday & Sunday: 4hrs per day"
-      },
-      features: [
-        "Intensive Learning",
-        "Dynamic Environment",
-        "Cultural Understanding",
-        "Varied Teaching Methods"
-      ],
-      category: "intensive"
-    },
-    {
-      id: 5,
       title: "International Diploma - ID Fasttrack",
       level: "Fasttrack",
       price: "Contact for pricing",
@@ -195,7 +172,7 @@ function CourseDetails() {
         { exam: "JLPT N3/N2", type: "Japanese" }
       ],
       schedule: {
-        options: ["Monday-Friday", "Saturday-Sunday"],
+        days: ["Monday-Friday"],
         duration: "2 hours",
         timeRange: "7:00 AM to 10:00 PM IST"
       },
@@ -206,7 +183,33 @@ function CourseDetails() {
         "Expert Guidance"
       ],
       category: "exam"
+    },
+    {
+      id: 5,
+      title: "Immersion - IMM Fasttrack",
+      level: "Fasttrack",
+      price: "Premium Pricing",
+      duration: "2-4 months",
+      description: "Accelerated Course for Quick Learners",
+      fullDescription:
+        "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
+      image: IMMF,
+      mobileImage: IMMFM,
+      languages: { French: "A1 to A2", German: "A1 to A2" },
+      schedule: {
+        days: "Monday to Friday",
+        duration: "3 hours",  
+        timeRange: "7:00 AM to 10:00 PM IST"
+      },
+      features: [
+        "Intensive Learning",
+        "Dynamic Environment",
+        "Cultural Understanding",
+        "Varied Teaching Methods"
+      ],
+      category: "intensive"
     }
+    
   ], []);
 
   // --- Filter state and filtered courses ---
@@ -558,7 +561,7 @@ function CourseDetails() {
                       <span>📞</span> +91 7338881781
                     </div>
                     <div className="contact-item">
-                      <span>✉️</span> learnwithisml@iypan.in
+                      <span>✉️</span> enquiry.isml@gmail.com
                     </div>
                   </div>
                 </div>
