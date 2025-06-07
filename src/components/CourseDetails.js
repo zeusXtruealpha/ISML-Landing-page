@@ -112,7 +112,7 @@ function CourseDetails() {
         { exam: "JLPT N3/N2", type: "Japanese" }
       ],
       schedule: {
-        days: ["Monday-Wednesday", "Tuesday-Thursday", "Saturday-Sunday"],
+        days: ["Monday & Wednesday/ ", "Tuesday & Thursday/ ", "Saturday & Sunday"],
         duration: "1.5 hours",
         timeRange: "7:00 AM to 10:00 PM IST"
       },
@@ -135,7 +135,7 @@ function CourseDetails() {
         "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
       image: IMM,
       mobileImage: IMMM,
-      languages: { French: "A1 to B2", German: "A1 to B2" },
+      languages: { French: "A1 to B2", German: "A1 to B2", Japanese: "" },
       schedule: {
         days: "Monday to Friday",
         duration: "2 - 3 hours",
@@ -197,7 +197,7 @@ function CourseDetails() {
       languages: { French: "A1 to A2", German: "A1 to A2" },
       schedule: {
         days: "Monday to Friday",
-        duration: "3 hours",  
+        duration: "2 - 3 hours",  
         timeRange: "7:00 AM to 10:00 PM IST"
       },
       features: [
