@@ -77,7 +77,7 @@ const Franchise = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
             >
               <div className="stat-item">
-                <h3><CountUp end={10} duration={2} /></h3>
+                <h3><CountUp end={10} duration={2} />+</h3>
                 <p>Institutional MOU </p>
               </div>
               <div className="stat-item">
@@ -175,7 +175,7 @@ const Franchise = () => {
                 <li>Launch & Grow: Start enrolling students</li>
               </ol>
               <motion.a 
-                href="tel:9385496914" 
+                href="tel:7338880780" 
                 className="franchise-cta"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

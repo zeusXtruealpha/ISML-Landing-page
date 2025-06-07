@@ -584,7 +584,7 @@ function CourseDetails() {
                 className="cta-primary"
                 onClick={() => window.open('https://studentportal.iypan.com/login', '_blank')}
               >
-                View Student Portal
+                Student Portal
               </button>
               <button 
                 className="cta-secondary"

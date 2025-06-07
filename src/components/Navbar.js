@@ -203,6 +203,9 @@ function Navbar({ showHeroTextInNav }) {
               <Link to="/elite-card" className="nav-link" onClick={handleNavClick}>Elite Card</Link>
             </li>
             <li className="nav-item">
+              <Link to="/franchise" className="nav-link" onClick={handleNavClick}>Franchise</Link>
+            </li>
+            <li className="nav-item">
               <Link to="/courses" className="nav-link" onClick={handleNavClick}>Course Details</Link>
             </li>
             <li className="nav-item">
