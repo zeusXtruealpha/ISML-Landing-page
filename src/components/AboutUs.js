@@ -29,7 +29,7 @@ import c20 from '../assets/c20.jpeg';
 import c21 from '../assets/c21.jpeg';
 import c22 from '../assets/c22.jpeg';
 import c23 from '../assets/c23.jpeg';
-import c24 from '../assets/c24.png';
+import c24 from '../assets/c24.svg';
 import Email from '../assets/email.svg';
 import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
