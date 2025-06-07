@@ -28,6 +28,8 @@ import c19 from '../assets/c19.jpeg';
 import c20 from '../assets/c20.jpeg';
 import c21 from '../assets/c21.jpeg';
 import c22 from '../assets/c22.jpeg';
+import c23 from '../assets/c23.jpeg';
+import c24 from '../assets/c24.png';
 import Email from '../assets/email.svg';
 import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
@@ -81,14 +83,14 @@ function AboutUs() {
     // Row 2
     c9, c10, c11, c12, c13, c14, c15, c16,
     // Row 3
-    c17, c18, c19, c20, c21, c22, c12, c9,
+    c17, c18, c19, c20, c21, c22, c23, c24,
     // Duplicate for sliding effect
     // Row 1
     c1, c2, c3, c4, c5, c6, c7, c8,
     // Row 2
     c9, c10, c11, c12, c13, c14, c15, c16,
     // Row 3
-    c17, c18, c19, c20, c21, c22, c12, c9,
+    c17, c18, c19, c20, c21, c22, c23, c24,
   ];
 
   // Carousel images
