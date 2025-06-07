@@ -163,67 +163,60 @@ footer {
 .main-footer.lemkus-footer {
   background: #181a1c;
   color: #fff;
-  padding: 2.5rem 0 1.5rem 0;
-  font-family: 'Manrope', sans-serif;
+  padding: 2.2rem 0 1.2rem 0;
   margin-top: 3rem;
+  font-family: 'Manrope', sans-serif;
 }
 .lemkus-footer-content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-}
-.lemkus-footer-col {
-  flex: 1 1 220px;
-  min-width: 180px;
-  display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  align-items: center;
+  gap: 1.2rem;
 }
-.footer-col-title {
-  font-size: 1.08rem;
-  font-weight: 700;
-  color: #ffd93d;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
   margin-bottom: 0.7rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
-.lemkus-footer-col a {
+.footer-links a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.05rem;
-  margin-bottom: 0.2rem;
+  font-weight: 600;
+  font-size: 1.08rem;
   transition: color 0.2s;
 }
-.lemkus-footer-col a:hover {
+.footer-links a:hover {
   color: #ffd93d;
 }
-.footer-copyright {
-  color: #b0bec5;
-  font-size: 0.98rem;
-  margin-top: 1.5rem;
-  text-align: left;
+.footer-info {
+  text-align: center;
+  font-size: 1rem;
+  color: #cfd8dc;
+  margin-bottom: 0.5rem;
 }
-@media (max-width: 900px) {
-  .lemkus-footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 0 1rem;
+.footer-copyright {
+  text-align: center;
+  font-size: 0.98rem;
+  color: #b0bec5;
+  margin-top: 0.5rem;
+}
+@media (max-width: 700px) {
+  .footer-content {
+    padding: 0 0.5rem;
   }
-  .lemkus-footer-col {
-    min-width: 0;
-    width: 100%;
-    margin-bottom: 1.2rem;
+  .footer-links {
+    gap: 0.7rem;
+    font-size: 0.98rem;
   }
-  .footer-copyright {
-    margin-top: 0.7rem;
-    text-align: left;
+  .footer-info {
+    font-size: 0.95rem;
+  }
+  .main-footer {
+    padding: 1.2rem 0 0.7rem 0;
   }
 }
 
@@ -251,11 +244,15 @@ footer {
 }
 
 .isml-footer-logo {
-  font-size: 3.2rem;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.5rem;
+}
+
+.isml-footer-logo img {
+  width: 120px;
+  height: auto;
 }
 
 .isml-footer-address {

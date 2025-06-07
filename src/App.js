@@ -101,17 +101,20 @@ function AppContent() {
       <footer className="main-footer lemkus-footer isml-footer">
         <div className="isml-footer-top-row">
           <div className="isml-footer-left">
-          <div className="isml-footer-logo">ISML</div>
+            <div className="isml-footer-logo">
+              <img src={require('./assets/Footerlogo.png')} alt="ISML Logo" />
+            </div>
             <div className="isml-footer-address">
-              <p>Chennai, Tamil Nadu</p>
+              <p>8/3, Athreyapuram 2nd Street,</p>
+              <p>Choolaimedu, Chennai-600094</p>
               <p>7338881781 / 7338880780</p>
               <p>IYPAN Educational Centre Private Limited.</p>
             </div>
             <div className="isml-footer-socials">
-              <a href="#"><img src={linkedinIcon} alt="LinkedIn" /></a>
-              <a href="#"><img src={twitterIcon} alt="Twitter" /></a>
-              <a href="#"><img src={instagramIcon} alt="Instagram" /></a>
-              <a href="#"><img src={youtubeIcon} alt="YouTube" /></a>
+              <a href="https://www.linkedin.com/company/learnwithisml/" target="_blank" rel="noopener noreferrer"><img src={linkedinIcon} alt="LinkedIn" /></a>
+              <a href="https://x.com/learnwithisml" target="_blank" rel="noopener noreferrer"><img src={twitterIcon} alt="Twitter" /></a>
+              <a href="https://www.instagram.com/learnwithisml/" target="_blank" rel="noopener noreferrer"><img src={instagramIcon} alt="Instagram" /></a>
+              <a href="https://www.youtube.com/@learnwithisml" target="_blank" rel="noopener noreferrer"><img src={youtubeIcon} alt="YouTube" /></a>
             </div>
           </div>
           <div className="footer-section-divider"></div>
@@ -121,13 +124,14 @@ function AppContent() {
                 <h3>Quick Links</h3>
                 <a href="about">About Us</a>
                 <a href="centres">Our Centres</a>
-                <a href="contact">Contact Us</a>
+                <a href="elite-card">Elite Card</a>
+                
               </div>
               <div className="vertical-line vertical-line-1"></div>
               <div className="footer-links-column">
                 <h3>Resources</h3>
                 <a href="courses">Course Details</a>
-                <a href="privacy">Privacy Policy</a>
+                <a href="contact">Contact Us</a>
                 <a href="franchise">Franchise</a>
               </div>
               <div className="vertical-line vertical-line-2"></div>
@@ -140,7 +144,7 @@ function AppContent() {
           </div>
           </div>
         </div>
-        <div className="isml-footer-copyright">&copy; 2025 IYPAN- All Rights Reserved.</div>
+        <div className="isml-footer-copyright">&copy; 2025 IYPAN Educational Centre Private Limited- All Rights Reserved.</div>
       </footer>
       <button 
         className="phone-call-btn" 

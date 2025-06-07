@@ -36,8 +36,18 @@ function ContactUs() {
           </div>
           <h2>Contact Customer Support</h2>
           <p>Need a hand? Our ISML Support Team is here to help. We're available anytime — reach out to us whenever you need. </p>
-          <p className="contact-email">learnwithisml@iypan.in</p>
-          <a href="mailto:learnwithisml@iypan.in" target="_blank" rel="noopener noreferrer" className="support-button">Contact Support</a>
+          <p className="contact-email">enquiry.isml@gmail.com</p>
+          <a href="mailto:enquiry.isml@gmail.com" target="_blank" rel="noopener noreferrer" className="support-button">Contact Support</a>
+        </div>
+
+        <div className="contact-card-item">
+          <div className="card-icon">
+            <img src={chatIcon} alt="Corporate" />
+          </div>
+          <h2>Corporate Tie Ups</h2>
+          <p>Interested in partnering with Us? Let's discuss how we can create value together through corporate collaborations.</p>
+          <p className="contact-number">+91 7338880780</p>
+          <a href="https://wa.me/917338880780" target="_blank" rel="noopener noreferrer" className="whatsapp-button">Contact Now</a>
         </div>
       </div>
 

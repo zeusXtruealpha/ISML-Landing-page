@@ -63,7 +63,7 @@ function CourseDetails() {
       level: "Beginner to Pro",
       price: "₹549/month",
       duration: "1-5 years",
-      description: "Master a Language of Your Choice for Just Rs. 549 per Month. Best for Students of Age 7 - 13",
+      description: "Master a language of your choice for just ₹549/month. Ideal for students aged 7 to 13, this flexible and student-friendly course empowers young learners to become confident speakers through engaging and progressive lessons tailored to different proficiency levels.",
       fullDescription:
         "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank, Best for Students of Age 7 - 13",
       image: Mas,
@@ -96,7 +96,7 @@ function CourseDetails() {
       level: "Exam Preparation",
       price: "₹1299/month",
       duration: "3-6 months",
-      description: "Crack your Language Proficiency Exam of Your Choice",
+      description: "Prepare for internationally recognized language exams with expert guidance at just ₹1299/month. This course is structured to help you crack certification exams efficiently through focused practice, personalized feedback, and a well-planned schedule.",
       fullDescription:
         "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our language learning program today to crack the International diploma exams and start your journey toward language fluency.",
       image: IntDep,
@@ -130,7 +130,7 @@ function CourseDetails() {
       level: "Intensive",
       price: "₹9735/month",
       duration: "3-6 months",
-      description: "Fasttrack Course for Quick Learners",
+      description: "Achieve fast and effective communication skills in your target language for ₹9735/month. This intensive course is designed for learners who want to build fluency in real-world situations through dynamic teaching methods and a results-driven environment.",
       fullDescription:
         "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
       image: IMM,
@@ -155,7 +155,7 @@ function CourseDetails() {
       level: "Fasttrack",
       price: "₹2757/month",
       duration: "2-4 months",
-      description: "Accelerated Exam Preparation Course",
+      description: "Accelerate your exam preparation and gain international certification with our Fasttrack course at ₹2757/month. Perfect for ambitious learners who want to complete their exam prep in a short time with intensive, expert-led training.",
       fullDescription:
         "Don't miss out on the opportunity to broaden your horizons, connect with people from around the world, and gain a valuable skill. Join our accelerated language learning program today to crack the International diploma exams and start your journey toward language fluency.",
       image: IDF,
@@ -187,9 +187,9 @@ function CourseDetails() {
       id: 5,
       title: "Immersion - IMM Fasttrack",
       level: "Fasttrack",
-      price: "Premium Pricing, Contact for Pricing",
+      price: "Contact for Pricing",
       duration: "2-4 months",
-      description: "Accelerated Course for Quick Learners",
+      description: "Boost your language skills quickly with our Immersion Fasttrack program. This accelerated course is built for quick learners who want strong conversational and written skills in a short time.",
       fullDescription:
         "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
       image: IMMF,
