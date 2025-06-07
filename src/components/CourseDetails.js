@@ -63,19 +63,18 @@ function CourseDetails() {
       level: "Beginner to Pro",
       price: "₹499/month",
       duration: "1-5 years",
-      description: "Master a Language of Your Choice for Just Rs. 499 per Month",
+      description: "Master a Language of Your Choice for Just Rs. 499 per Month. Best for Students of Age 7 - 13",
       fullDescription:
-        "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank.",
+        "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank, Best for Students of Age 7 - 13",
       image: Mas,
       mobileImage: MLM,
       languages: ["French", "German", "Japanese"],
       // You can later add more items (evaluate conditionally) if needed.
       proficiencyLevels: [
-        { level: "Beginner", codes: ["A1", "A2", "N5"], timeframe: "in 1 year" },
-        { level: "Amateur", codes: ["A2", "B1", "N4"], timeframe: "in 2 years" },
-        { level: "Intermediate", codes: ["B1", "B2", "N3"], timeframe: "in 3 years" },
-        { level: "Advanced", codes: ["C1", "C2", "N2"], timeframe: "in 4 years" },
-        { level: "Pro", codes: ["C2", "N1"], timeframe: "in 5 years" }
+        { level: "Beginner", codes: ["A1", "N5"], timeframe: "in 1 year" },
+        { level: "Intermediate", codes: ["A2", "N4.1"], timeframe: "in 2 years" },
+        { level: "Advanced", codes: ["B1", "N4.2"], timeframe: "in 3 years" },
+        { level: "Pro", codes: ["B2", "N3.1"], timeframe: "in 4 years" }
       ],
       schedule: {
         days: "Saturday and Sunday",
