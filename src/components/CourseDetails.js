@@ -61,9 +61,9 @@ function CourseDetails() {
       id: 1,
       title: "Master a Language - ML",
       level: "Beginner to Pro",
-      price: "₹499/month",
+      price: "₹549/month",
       duration: "1-5 years",
-      description: "Master a Language of Your Choice for Just Rs. 499 per Month. Best for Students of Age 7 - 13",
+      description: "Master a Language of Your Choice for Just Rs. 549 per Month. Best for Students of Age 7 - 13",
       fullDescription:
         "Are you ready to embark on a journey of language mastery right from the comfort of your own home? Look no further! Our language learning program offers you the opportunity to become fluent in a language of your choice without breaking the bank, Best for Students of Age 7 - 13",
       image: Mas,
@@ -94,7 +94,7 @@ function CourseDetails() {
       id: 2,
       title: "International Diploma - ID",
       level: "Exam Preparation",
-      price: "Contact for pricing",
+      price: "₹1299/month",
       duration: "3-6 months",
       description: "Crack your Language Proficiency Exam of Your Choice",
       fullDescription:
@@ -128,14 +128,14 @@ function CourseDetails() {
       id: 3,
       title: "Immersion - IMM",
       level: "Intensive",
-      price: "Premium Pricing",
+      price: "₹9735/month",
       duration: "3-6 months",
       description: "Fasttrack Course for Quick Learners",
       fullDescription:
         "Our goal is to help you acquire the necessary skills to communicate effectively in target language in a variety of situations, both oral and written. Our program is designed to meet the needs of learners from all backgrounds, regardless of their age, educational level or motivation to learn.",
       image: IMM,
       mobileImage: IMMM,
-      languages: { French: "A1 to B2", German: "A1 to B2", Japanese: "" },
+      languages: { French: "A1 to B2", German: "A1 to B2", Japanese: "N5 to N3" },
       schedule: {
         days: "Monday to Friday",
         duration: "2 - 3 hours",
@@ -153,7 +153,7 @@ function CourseDetails() {
       id: 4,
       title: "International Diploma - ID Fasttrack",
       level: "Fasttrack",
-      price: "Contact for pricing",
+      price: "₹2757/month",
       duration: "2-4 months",
       description: "Accelerated Exam Preparation Course",
       fullDescription:
@@ -187,7 +187,7 @@ function CourseDetails() {
       id: 5,
       title: "Immersion - IMM Fasttrack",
       level: "Fasttrack",
-      price: "Premium Pricing",
+      price: "Premium Pricing, Contact for Pricing",
       duration: "2-4 months",
       description: "Accelerated Course for Quick Learners",
       fullDescription:
