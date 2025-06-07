@@ -174,7 +174,12 @@ function EliteCard() {
                 </div>
                 </div>
                 
-                <button className="plan-button plan-button-basic">Get EduPass</button>
+                <button 
+                  className="plan-button plan-button-basic"
+                  onClick={() => window.open('https://rzp.io/rzp/edupass', '_blank')}
+                >
+                  Get EduPass
+                </button>
               </div>
             </div>
 
@@ -228,7 +233,12 @@ function EliteCard() {
                 </div>
                 </div>
                 
-                <button className="plan-button plan-button-popular">Get ScholarPass</button>
+                <button 
+                  className="plan-button plan-button-popular"
+                  onClick={() => window.open('https://rzp.io/rzp/scholarpass', '_blank')}
+                >
+                  Get ScholarPass
+                </button>
               </div>
             </div>
 
@@ -282,7 +292,12 @@ function EliteCard() {
                 </div>
                 </div>
                 
-                <button className="plan-button plan-button-premium">Get InfinityPass</button>
+                <button 
+                  className="plan-button plan-button-premium"
+                  onClick={() => window.open('https://rzp.io/rzp/infinitypass', '_blank')}
+                >
+                  Get InfinityPass
+                </button>
               </div>
             </div>
           </div>
