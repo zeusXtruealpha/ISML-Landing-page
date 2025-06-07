@@ -457,10 +457,6 @@ function AboutUs() {
                 </div>
                 <h4 className="team-member-name">{trainer.name}</h4>
                 <p className="team-member-title">{trainer.title}</p>
-                <div className="social-icons">
-                  <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                  <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-                </div>
               </div>
             ))}
           </div>
@@ -484,10 +480,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Admin 1</h4>
               <p className="team-member-title">Administrator</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
             {/* Dummy Admin 2 */}
             <div className="team-member-card">
@@ -497,10 +489,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Admin 2</h4>
               <p className="team-member-title">Administrator</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
             {/* Dummy Admin 3 */}
             <div className="team-member-card">
@@ -510,10 +498,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Admin 3</h4>
               <p className="team-member-title">Administrator</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
              {/* Dummy Admin 4 */}
             <div className="team-member-card">
@@ -523,10 +507,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Admin 4</h4>
               <p className="team-member-title">Administrator</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
           </div>
         </div>
@@ -549,10 +529,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Consultant 1</h4>
               <p className="team-member-title">Language Consultant</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
             {/* Dummy Consultant 2 */}
             <div className="team-member-card">
@@ -562,10 +538,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Consultant 2</h4>
               <p className="team-member-title">Language Consultant</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
           </div>
         </div>
@@ -588,10 +560,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Niranjan Galla</h4>
               <p className="team-member-title">Intern</p>
-              <div className="social-icons">
-                <a href="https://www.linkedin.com/in/niranjan-galla-6a3067298/" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="mailto:niranjan.galla.7@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
             {/* Dummy Intern 2 */}
             <div className="team-member-card">
@@ -601,10 +569,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Sai Gopal Vallu</h4>
               <p className="team-member-title">Intern</p>
-              <div className="social-icons">
-                <a href="https://www.linkedin.com/in/gopal-vallu-a4822b262/" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="mailto:saigopalvallu7@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
             {/* Dummy Intern 3 */}
             <div className="team-member-card">
@@ -614,10 +578,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Intern 3</h4>
               <p className="team-member-title">Intern</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
              {/* Dummy Intern 4 */}
             <div className="team-member-card">
@@ -627,10 +587,6 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Dummy Intern 4</h4>
               <p className="team-member-title">Intern</p>
-              <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="LinkedIn" /></a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer"><img src={Email} alt="Email" /></a>
-              </div>
             </div>
           </div>
         </div>
