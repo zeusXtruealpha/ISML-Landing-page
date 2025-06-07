@@ -106,7 +106,7 @@ function AppContent() {
             </div>
             <div className="isml-footer-address">
               <p>8/3, Athreyapuram 2nd Street,</p>
-              <p>Choolaimedu, Chennai-600094</p>
+              <p>Choolaimedu, Chennai - 600094</p>
               <p>7338881781 / 7338880780</p>
               <p>IYPAN Educational Centre Private Limited.</p>
             </div>
