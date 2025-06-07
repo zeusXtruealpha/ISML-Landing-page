@@ -582,9 +582,9 @@ function CourseDetails() {
             <div className="cta-buttons">
               <button 
                 className="cta-primary"
-                onClick={() => window.location.href = 'tel:+917338881781'}
+                onClick={() => window.open('https://studentportal.iypan.com/login', '_blank')}
               >
-                Start Free Consultation
+                View Student Portal
               </button>
               <button 
                 className="cta-secondary"
