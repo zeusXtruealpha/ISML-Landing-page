@@ -35,33 +35,23 @@ import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
 import intern2 from '../assets/Intern2.png';
 
-// Import trainer images
-/*
-import trainer1 from '../assets/trainers/trainer1.jpg';
-import trainer2 from '../assets/trainers/trainer2.jpg';
-import trainer3 from '../assets/trainers/trainer3.jpg';
-import trainer4 from '../assets/trainers/trainer4.jpg';
-import trainer5 from '../assets/trainers/trainer5.jpg';
-import trainer6 from '../assets/trainers/trainer6.jpg';
-import trainer7 from '../assets/trainers/trainer7.jpg';
-import trainer8 from '../assets/trainers/trainer8.jpg';
-import trainer9 from '../assets/trainers/trainer9.jpg';
-import trainer10 from '../assets/trainers/trainer10.jpg';
-import trainer11 from '../assets/trainers/trainer11.jpg';
-import trainer12 from '../assets/trainers/trainer12.jpg';
-import trainer13 from '../assets/trainers/trainer13.jpg';
-import trainer14 from '../assets/trainers/trainer14.jpg';
-import trainer15 from '../assets/trainers/trainer15.jpg';
-import trainer16 from '../assets/trainers/trainer16.jpg';
-import trainer17 from '../assets/trainers/trainer17.jpg';
-import trainer18 from '../assets/trainers/trainer18.jpg';
-import trainer19 from '../assets/trainers/trainer19.jpg';
-import trainer20 from '../assets/trainers/trainer20.jpg';
-import trainer21 from '../assets/trainers/trainer21.jpg';
-import trainer22 from '../assets/trainers/trainer22.jpg';
-import trainer23 from '../assets/trainers/trainer23.jpg';
-import trainer24 from '../assets/trainers/trainer24.jpg';
-import trainer25 from '../assets/trainers/trainer25.jpg';*/
+import con1 from '../assets/Consultants/consultant1.png';
+import con2 from '../assets/Consultants/consultant2.png';
+import t1 from '../assets/trainers/t1.png';
+import t2 from '../assets/trainers/t2.png';
+import t3 from '../assets/trainers/t3.png';
+import t4 from '../assets/trainers/t4.png';
+import t5 from '../assets/trainers/t5.png';
+import t6 from '../assets/trainers/t6.png';
+
+import a1 from '../assets/admin/a1.png';
+import a2 from '../assets/admin/a2.png';
+import a3 from '../assets/admin/a3.png';
+import a4 from '../assets/admin/a4.png';
+
+
+
+
 
 function AboutUs() {
   const [currentPosition, setCurrentPosition] = useState(0);
@@ -424,36 +414,18 @@ function AboutUs() {
           </button>
           <div className={`team-members-grid ${openTeamSection === 'trainer-team' ? 'open' : ''}`}>
             {[
-              { name: "Sarah Johnson", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Michael Chen", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Emma Rodriguez", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "David Kim", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Sophie Martin", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "James Wilson", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Maria Garcia", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Alexander Lee", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Olivia Brown", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Thomas Anderson", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Isabella Martinez", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "William Taylor", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Emily Davis", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Daniel White", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Sophia Clark", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Benjamin Moore", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Ava Thompson", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Henry Walker", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Charlotte Hall", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Lucas Young", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Mia Allen", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Ethan King", title: "French Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Amelia Wright", title: "German Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Noah Scott", title: "Japanese Language Trainer", image: "https://via.placeholder.com/150" },
-              { name: "Harper Green", title: "French Language Trainer", image: "https://via.placeholder.com/150" }
+              { name: "Pradeep kumar M", title: "French Language Trainer", image: a1 },
+              { name: "Popodoum Noe", title: "French Language Trainer", image: t1 },
+              { name: "Vyshnavi M", title: "French Language Trainer", image: t5 },
+              { name: "Revanth S", title: "Japanese Language Trainer", image: t2 },
+              { name: "Sujal Singh", title: "German Language Trainer", image: t3 },
+              { name: "Ilakkiyaa Ravichandran", title: "French Language Trainer", image: t4 },
+              { name: "Claude Niyonkuru", title: "French Language Trainer", image: t6 }
             ].map((trainer, index) => (
               <div key={index} className="team-member-card">
                 <div className="team-card-bg"></div>
                 <div className="team-member-image-container">
-                  <img src={trainer.image} alt={trainer.name} className="team-member-image" />
+                  <img src={trainer.image} alt={`${trainer.name} - ${trainer.title}`} className="team-member-image" />
                 </div>
                 <h4 className="team-member-name">{trainer.name}</h4>
                 <p className="team-member-title">{trainer.title}</p>
@@ -472,41 +444,37 @@ function AboutUs() {
             <span className={`dropdown-arrow ${openTeamSection === 'admin-team' ? 'up' : ''}`}>▼</span>
           </button>
           <div className={`team-members-grid ${openTeamSection === 'admin-team' ? 'open' : ''}`}>
-            {/* Dummy Admin 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+                <img src={a1} alt="Pradeep Kumar M - Academic Coordinator" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Admin 1</h4>
-              <p className="team-member-title">Administrator</p>
+              <h4 className="team-member-name">Pradeep Kumar M</h4>
+              <p className="team-member-title">Academic Coordinator</p>
             </div>
-            {/* Dummy Admin 2 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+                <img src={a2} alt="Nandhini R - Project Head" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Admin 2</h4>
-              <p className="team-member-title">Administrator</p>
+              <h4 className="team-member-name">Nandhini R</h4>
+              <p className="team-member-title">Project Head</p>
             </div>
-            {/* Dummy Admin 3 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+                <img src={a3} alt="Arunjunai Rani R - HR Executive" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Admin 3</h4>
-              <p className="team-member-title">Administrator</p>
+              <h4 className="team-member-name">Arunjunai Rani R</h4>
+              <p className="team-member-title">HR Executive</p>
             </div>
-             {/* Dummy Admin 4 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Admin Name" className="team-member-image" />
+                <img src={a4} alt="Sarath Kumar D - Creative Head" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Admin 4</h4>
-              <p className="team-member-title">Administrator</p>
+              <h4 className="team-member-name">Sarath Kumar D</h4>
+              <p className="team-member-title">Creative Head</p>
             </div>
           </div>
         </div>
@@ -521,23 +489,21 @@ function AboutUs() {
             <span className={`dropdown-arrow ${openTeamSection === 'consultants' ? 'up' : ''}`}>▼</span>
           </button>
           <div className={`team-members-grid ${openTeamSection === 'consultants' ? 'open' : ''}`}>
-            {/* Dummy Consultant 1 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Consultant Name" className="team-member-image" />
+                <img src={con1} alt="Christina Caroline Sekar - Tutor/Senior Consultant Mathematics" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Consultant 1</h4>
-              <p className="team-member-title">Language Consultant</p>
+              <h4 className="team-member-name">Christina Caroline Sekar</h4>
+              <p className="team-member-title">Senior Consultant Mathematics</p>
             </div>
-            {/* Dummy Consultant 2 */}
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Consultant Name" className="team-member-image" />
+                <img src={con2} alt="Gowtham Muthukumar G - Management consultant" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Consultant 2</h4>
-              <p className="team-member-title">Language Consultant</p>
+              <h4 className="team-member-name">Gowtham Muthukumar G</h4>
+              <p className="team-member-title">Management Consultant</p>
             </div>
           </div>
         </div>
