@@ -10,10 +10,10 @@ const LanguagePhysics = () => {
   useEffect(() => {
     const greetings = [
       { text: 'Hello', language: 'English', color: '#4A90E2' },
-      { text: 'नमस्ते', language: 'Hindi', color: '#FF6B6B' },
+      { text: 'నమస్తే', language: 'Telugu', color: '#FF6B6B' },
       { text: '你好', language: 'Chinese', color: '#4ECDC4' },
       { text: 'こんにちは', language: 'Japanese', color: '#FFD93D' },
-      { text: '안녕하세요', language: 'Korean', color: '#95E1D3' },
+      { text: '안녕하세요', language: 'Korean', color: '#41E1D3' },
       { text: 'Bonjour', language: 'French', color: '#FF8B94' },
       { text: 'Hola', language: 'Spanish', color: '#6C5CE7' },
       { text: 'Ciao', language: 'Italian', color: '#A8E6CF' },
