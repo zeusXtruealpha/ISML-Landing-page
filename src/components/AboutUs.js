@@ -34,6 +34,7 @@ import Email from '../assets/email.svg';
 import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
 import intern2 from '../assets/Intern2.png';
+import intern3 from '../assets/Intern3.png';
 
 import con1 from '../assets/Consultants/consultant1.png';
 import con2 from '../assets/Consultants/consultant2.png';
@@ -43,11 +44,16 @@ import t3 from '../assets/trainers/t3.png';
 import t4 from '../assets/trainers/t4.png';
 import t5 from '../assets/trainers/t5.png';
 import t6 from '../assets/trainers/t6.png';
+import t7 from '../assets/trainers/t7.png';
+import t8 from '../assets/trainers/t8.png';
+import t9 from '../assets/trainers/t9.png';
+import t10 from '../assets/trainers/t10.png';
 
 import a1 from '../assets/admin/a1.png';
 import a2 from '../assets/admin/a2.png';
 import a3 from '../assets/admin/a3.png';
 import a4 from '../assets/admin/a4.png';
+import a5 from '../assets/admin/a5.png';
 
 
 
@@ -420,7 +426,11 @@ function AboutUs() {
               { name: "Revanth S", title: "Japanese Language Trainer", image: t2 },
               { name: "Sujal Singh", title: "German Language Trainer", image: t3 },
               { name: "Ilakkiyaa Ravichandran", title: "French Language Trainer", image: t4 },
-              { name: "Claude Niyonkuru", title: "French Language Trainer", image: t6 }
+              { name: "Claude Niyonkuru", title: "French Language Trainer", image: t6 },
+              { name: "Kanchan pundir", title: "German Trainer", image: t7 },
+              { name: "Bhumika jain", title: "Japanese Trainer", image: t8 },
+              { name: "Himanshu Raj", title: "German Trainer", image: t9 },
+              { name: "Satyam", title: "Japanese Trainer", image: t10 }
             ].map((trainer, index) => (
               <div key={index} className="team-member-card">
                 <div className="team-card-bg"></div>
@@ -447,14 +457,6 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src={a1} alt="Pradeep Kumar M - Academic Coordinator" className="team-member-image" />
-              </div>
-              <h4 className="team-member-name">Pradeep Kumar M</h4>
-              <p className="team-member-title">Academic Coordinator</p>
-            </div>
-            <div className="team-member-card">
-              <div className="team-card-bg"></div>
-              <div className="team-member-image-container">
                 <img src={a2} alt="Nandhini R - Project Head" className="team-member-image" />
               </div>
               <h4 className="team-member-name">Nandhini R</h4>
@@ -475,6 +477,14 @@ function AboutUs() {
               </div>
               <h4 className="team-member-name">Sarath Kumar D</h4>
               <p className="team-member-title">Creative Head</p>
+            </div>
+            <div className="team-member-card">
+              <div className="team-card-bg"></div>
+              <div className="team-member-image-container">
+                <img src={a5} alt="Evanjalin Sheeba E - Intern Recurit & Scholarship Manager" className="team-member-image" />
+              </div>
+              <h4 className="team-member-name">Evanjalin Sheeba E</h4>
+              <p className="team-member-title">Intern Recurit & Scholarship Manager</p>
             </div>
           </div>
         </div>
@@ -522,7 +532,7 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src={intern1} alt="Intern Name" className="team-member-image" />
+                <img src={intern1} alt="Niranjan Galla" className="team-member-image" />
               </div>
               <h4 className="team-member-name">Niranjan Galla</h4>
               <p className="team-member-title">Intern</p>
@@ -531,7 +541,7 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src={intern2} alt="Intern Name" className="team-member-image" />
+                <img src={intern2} alt="Sai Gopal Vallu" className="team-member-image" />
               </div>
               <h4 className="team-member-name">Sai Gopal Vallu</h4>
               <p className="team-member-title">Intern</p>
@@ -540,9 +550,9 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+                <img src={intern3} alt="Mohammed Abdul Majeed" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Intern 3</h4>
+              <h4 className="team-member-name">Mohammed Abdul Majeed</h4>
               <p className="team-member-title">Intern</p>
             </div>
              {/* Dummy Intern 4 */}
@@ -551,7 +561,7 @@ function AboutUs() {
               <div className="team-member-image-container">
                 <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
               </div>
-              <h4 className="team-member-name">Dummy Intern 4</h4>
+              <h4 className="team-member-name"> Intern 4</h4>
               <p className="team-member-title">Intern</p>
             </div>
           </div>
