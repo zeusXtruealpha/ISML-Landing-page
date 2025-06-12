@@ -50,4 +50,4 @@ For collaboration or licensing inquiries, please contact: [enquiry.isml@gmail.co
 
 ---
 
-© Indian School for Modern Languages. All rights reserved. 
+© 2025 IYPAN Educational Centre Private Limited- All Rights Reserved.
