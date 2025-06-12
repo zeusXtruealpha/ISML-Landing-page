@@ -46,7 +46,7 @@ This project and its source code are the exclusive property of Indian School for
 - **Do not copy, reuse, or redistribute any part of this code or design without explicit written permission from ISML.**
 - All rights reserved. Unauthorized use or distribution is strictly prohibited and may result in legal action.
 
-For collaboration or licensing inquiries, please contact: [info@isml.in](mailto:info@isml.in)
+For collaboration or licensing inquiries, please contact: [info@isml.in](mailto:enquiry.isml@gmail.com)
 
 ---
 
