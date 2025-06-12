@@ -43,7 +43,7 @@ const centres = [
     contact: "", // Not provided in the text
     description: "Established in November 2024, our Chengalpattu district (East Zone) branch is located at 13, Villa, Bscpl Bollineni Hillside Block-20c, Block, Bollineni Hillside Rd. Offering a dynamic and inclusive environment for learning. We focus on academic excellence and holistic development, providing personalized attention and high-quality instruction. Our approach fosters curiosity, critical thinking, and self-confidence, empowering students to reach their full potential. With a dedicated team committed to nurturing well-rounded individuals, we aim to inspire students to excel academically and contribute positively to their communities. Join us in transforming lives through education and building brighter futures!",
     buttonText: "Call for admission",
-    mapLink: ""
+    mapLink: "https://g.co/kgs/gyqRZsE"
   },
   {
     id: 4,

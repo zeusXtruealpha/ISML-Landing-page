@@ -273,6 +273,7 @@
 .elite-page .plan-button-basic {
   background: linear-gradient(90deg, #49e4e3 0%, #1a237e 100%);
   color: white;
+  margin-top: 4.5rem;
 }
 
 .elite-page .plan-button-basic:hover {
