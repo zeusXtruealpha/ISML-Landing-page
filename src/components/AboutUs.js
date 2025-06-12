@@ -35,6 +35,7 @@ import linkedin from '../assets/linkedin.svg';
 import intern1 from '../assets/Intern1.png';
 import intern2 from '../assets/Intern2.png';
 import intern3 from '../assets/Intern3.png';
+import intern4 from '../assets/Intern4.png';
 
 import con1 from '../assets/Consultants/consultant1.png';
 import con2 from '../assets/Consultants/consultant2.png';
@@ -427,10 +428,10 @@ function AboutUs() {
               { name: "Sujal Singh", title: "German Language Trainer", image: t3 },
               { name: "Ilakkiyaa Ravichandran", title: "French Language Trainer", image: t4 },
               { name: "Claude Niyonkuru", title: "French Language Trainer", image: t6 },
-              { name: "Kanchan pundir", title: "German Trainer", image: t7 },
-              { name: "Bhumika jain", title: "Japanese Trainer", image: t8 },
-              { name: "Himanshu Raj", title: "German Trainer", image: t9 },
-              { name: "Satyam", title: "Japanese Trainer", image: t10 }
+              { name: "Kanchan pundir", title: "German Language Trainer", image: t7 },
+              { name: "Bhumika jain", title: "Japanese Language Trainer", image: t8 },
+              { name: "Himanshu Raj", title: "German Language Trainer", image: t9 },
+              { name: "Satyam", title: "Japanese Language Trainer", image: t10 }
             ].map((trainer, index) => (
               <div key={index} className="team-member-card">
                 <div className="team-card-bg"></div>
@@ -559,9 +560,9 @@ function AboutUs() {
             <div className="team-member-card">
               <div className="team-card-bg"></div>
               <div className="team-member-image-container">
-                <img src="https://via.placeholder.com/150" alt="Intern Name" className="team-member-image" />
+                <img src={intern4} alt="Sanjanya Srinivasan" className="team-member-image" />
               </div>
-              <h4 className="team-member-name"> Intern 4</h4>
+              <h4 className="team-member-name">Sanjanya Srinivasan</h4>
               <p className="team-member-title">Intern</p>
             </div>
           </div>
