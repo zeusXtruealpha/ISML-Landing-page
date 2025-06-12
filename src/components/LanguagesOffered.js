@@ -25,29 +25,17 @@ function LanguagesOffered() {
   const [showCards, setShowCards] = useState([false, false, false]);
 
   useEffect(() => {
-    let observer;
-    if (sectionRef.current) {
-      observer = new window.IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => setShowTitle(true), 200);
-            languages.forEach((_, idx) => {
-              setTimeout(() => {
-                setShowCards(prev => {
-                  const next = [...prev];
-                  next[idx] = true;
-                  return next;
-                });
-              }, 700 + idx * 350);
-            });
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.15 }
-      );
-      observer.observe(sectionRef.current);
-    }
-    return () => observer && observer.disconnect();
+    // Start animation immediately
+    setTimeout(() => setShowTitle(true), 200);
+    languages.forEach((_, idx) => {
+      setTimeout(() => {
+        setShowCards(prev => {
+          const next = [...prev];
+          next[idx] = true;
+          return next;
+        });
+      }, 700 + idx * 350);
+    });
   }, []);
 
   return (
