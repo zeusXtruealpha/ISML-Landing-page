@@ -3,13 +3,25 @@ import './Hero.css';
 
 const Hero = forwardRef(({ heroOutOfView }, ref) => {
   const [scale, setScale] = useState(1);
+  const prevScrollY = React.useRef(window.scrollY);
 
   useEffect(() => {
+    const maxScale = 2.2;
+    const minScale = 1;
+    const scaleStep = 0.02; // How much to change per scroll event
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = 400;
-      const newScale = 1 + Math.min(scrollY / maxScroll, 1) * 1.2;
-      setScale(newScale);
+      if (scrollY === 0) {
+        setScale(1);
+      } else if (scrollY > prevScrollY.current) {
+        // Scrolling down
+        setScale(prev => Math.min(prev + scaleStep, maxScale));
+      } else if (scrollY < prevScrollY.current) {
+        // Scrolling up
+        setScale(prev => Math.max(prev - scaleStep, minScale));
+      }
+      prevScrollY.current = scrollY;
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
